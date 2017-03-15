@@ -1,0 +1,34 @@
+<project tab-spaces="2" begin-end-tabs="1" visibility-tabs="1" project-name="RaikaImporter" outputdir="." enum-type="int">
+  <project-units>
+    <unit name="BOM_Hash">
+      <enums />
+      <classes>
+        <class base-class="THash" base-class-parent="TtiObject" auto-map="true" auto-create-list="true">
+          <class-props>
+             <prop name="FileHash" type="String" />
+            <prop name="FileName" type="String" />
+            <prop name="StoreDate" type="TDateTime" />
+         </class-props>
+          <validators />
+          <mapping table="Hashes" pk="OID" pk-field="HashID" oid-type="String">
+            <prop-map prop="FileHash" field="FileHash" type="String" />
+            <prop-map prop="FileName" field="FileName" type="String" />
+            <prop-map prop="StoreDate" field="StoreDate" type="TDateTime" />
+           </mapping>
+          <selections>
+		    <select type="func" name="FindHash">
+			  <params>
+				<item name="FileHash" type="string" pass-by="const" sql-param="Hash_param"/>
+			  </params>
+			  <sql>
+				<![CDATA[
+					select ${field_list} from Hashes where FileHash = :Hash_param
+				]]>	
+			  </sql>
+			</select>  
+          </selections>
+        </class>
+      </classes>
+    </unit>
+  </project-units>
+</project>
