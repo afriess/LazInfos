@@ -1,0 +1,70 @@
+object EditTitle: TEditTitle
+  Left = 317
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'Edit Title'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '6.0'
+  object edTitle: TEdit
+    Left = 8
+    Height = 27
+    Top = 8
+    Width = 256
+    TabOrder = 0
+    Text = 'edTitle'
+  end
+  object edSearchTitle: TEdit
+    Left = 8
+    Height = 27
+    Top = 40
+    Width = 256
+    TabOrder = 1
+    Text = 'edSearchTitle'
+  end
+  object cbTitleType: TComboBox
+    Left = 24
+    Height = 29
+    Top = 72
+    Width = 100
+    ItemHeight = 0
+    TabOrder = 2
+    Text = 'cbTitleType'
+  end
+  object edTitleType: TEdit
+    Left = 120
+    Height = 27
+    Top = 74
+    Width = 144
+    TabOrder = 3
+    Text = 'edTitleType'
+  end
+  object btnAbort: TButton
+    Left = 104
+    Height = 25
+    Top = 170
+    Width = 75
+    Caption = 'Abbrechen'
+    OnClick = btnAbortClick
+    TabOrder = 4
+  end
+  object btnSaveExit: TButton
+    Left = 189
+    Height = 25
+    Top = 170
+    Width = 75
+    Caption = 'OK'
+    OnClick = btnSaveExitClick
+    TabOrder = 5
+  end
+  object btnDebug: TButton
+    Left = 8
+    Height = 25
+    Top = 170
+    Width = 75
+    Caption = 'Debug'
+    OnClick = btnDebugClick
+    TabOrder = 6
+  end
+end

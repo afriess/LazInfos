@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project tab-spaces="2" begin-end-tabs="1" visibility-tabs="1" project-name="CTR-BOSS" outputdir="../BOM" enum-type="int">
+  <project-units>
+    <unit name="contact_bom">
+      <enums>
+        <enum name="TTitleType">
+          <values>
+            <item name="ttSingle, ttMulti" />
+          </values>
+        </enum>
+      </enums>
+      <classes>
+          <class base-class="TBaseBusiness" base-class-parent="TtiObject" auto-map="true" auto-create-list="true" oid-type="string" notify-observers="true">
+          <class-props>
+            <prop name="OIDContactTitle" type="String" />
+            <prop name="Name1" type="String" />
+            <prop name="Name2" type="String" />
+            <prop name="Name3" type="String" />
+            <prop name="Addition" type="String" />
+          </class-props>
+          <validators />
+          <mapping table="ctr_Business" pk="OID" pk-field="OID" oid-type="string">
+            <prop-map prop="Owner.OID.AsString" field="OIDContactTitle" type="String" />
+            <prop-map prop="Name1" field="Name1" type="String" />
+            <prop-map prop="Name2" field="Name2" type="String" />
+            <prop-map prop="Name3" field="Name3" type="String" />
+            <prop-map prop="Addition" field="Addition" type="String" />
+          </mapping>
+        </class>
+         <class base-class="TBaseContactTitle" base-class-parent="TtiObject" auto-map="false" auto-create-list="true" oid-type="string" notify-observers="true">
+          <class-props>
+            <prop name="TitleType" type="TTitleType" />
+            <prop name="Title" type="String" />
+            <prop name="SearchTitle" type="String" />
+            <prop name="BusinessList" type="TBaseBusinessList" read-only="true" />
+          </class-props>
+          <validators />
+          <mapping table="ctr_ContactTitle" pk="OID" pk-field="OID" oid-type="string">
+            <prop-map prop="TitleType" field="TitleType" type="enum" />
+            <prop-map prop="Title" field="Title" type="String" />
+            <prop-map prop="SearchTitle" field="SearchTitle" type="String" />
+          </mapping>
+          <selections />
+        </class>
+      </classes>
+    </unit>
+  </project-units>
+</project>
+
