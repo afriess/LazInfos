@@ -1,0 +1,9 @@
+/CML/*.res
+/CML/*.dbg
+/CML/*.exe
+/DUnit/*.ini
+*.bak
+*.o
+*.ppu
+/lib/i386-win32
+/MyVers/*.exe

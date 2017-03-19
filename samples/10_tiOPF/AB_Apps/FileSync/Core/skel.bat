@@ -1,0 +1,1 @@
+c:\development\fpc\bin\i386-win32\makeskel.exe --package=tiFileSyncCore --input="tiFileSync_Mgr.pas -Fic:/development/extras/tiopf/core" --output=xml/tiFileSync_Mgr.xml

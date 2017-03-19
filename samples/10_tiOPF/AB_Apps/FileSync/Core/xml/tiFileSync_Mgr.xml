@@ -1,0 +1,2305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fpdoc-descriptions>
+<package name="SyncVersuch">
+
+<!--
+  ====================================================================
+    tiFileSync_Mgr
+  ====================================================================
+-->
+
+<module name="tiFileSync_Mgr">
+<short/>
+<descr>
+</descr>
+
+<!-- constant Visibility: default -->
+<element name="cErrorCreatePathFailed">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="cErrorDeletePathFailed">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="cErrorCopyFileFailed">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="cErrorUpdateFileFailed">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="cErrorDeleteFileFailed">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="cErrorCanNotGetExcluseUseOfFile">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="ctiFSNewFilesToBeCopied">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="ctiFSExistingFilesToBeUpdated">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constant Visibility: default -->
+<element name="cMessageWaitingForTerminate">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration type Visibility: default -->
+<element name="TtiFileSyncAction">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="TtiFileSyncAction.fsaCopy">
+<short/>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="TtiFileSyncAction.fsaUpdate">
+<short/>
+</element>
+
+<!-- enumeration value Visibility: default -->
+<element name="TtiFileSyncAction.fsaDelete">
+<short/>
+</element>
+
+<!-- set type Visibility: default -->
+<element name="TtiFileSyncActions">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure type Visibility: default -->
+<element name="TtiFileSyncMgrLogEvent">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="TtiFileSyncMgrLogEvent.psMessage">
+<short/>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="TtiFileSyncMgrLogEvent.pAppendToPrevRow">
+<short/>
+</element>
+
+<!-- procedure type Visibility: default -->
+<element name="TtiFileSyncMgrFileEvent">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="TtiFileSyncMgrFileEvent.psFilename">
+<short/>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="TtiFileSyncMgrFileEvent.pAction">
+<short/>
+</element>
+
+<!-- procedure type Visibility: default -->
+<element name="TtiFileSyncMgrCheckFileAccessEvent">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="TtiFileSyncMgrCheckFileAccessEvent.pFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: default -->
+<element name="TtiFileSyncMgrCheckFileAccessEvent.pCanGetFile">
+<short/>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TtiFileSyncTask">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TtiFileSyncTasks">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiFileSyncTasks.GetItems">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiFileSyncTasks.GetItems.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncTasks.GetItems.i">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncTasks.SetItems">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncTasks.SetItems.i">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncTasks.SetItems.Value">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncTasks.Items">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileSyncTasks.Items.i">
+<short/>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TtiFileSyncTasks.Add">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileSyncTasks.Add.AObject">
+<short/>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiFileSyncTasks.AddInstance">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiFileSyncTasks.AddInstance.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileSyncTasks.AddInstance.pFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileSyncTasks.AddInstance.pTargetFileNames">
+<short/>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncTask.FSourceFileName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncTask.FTargetFileNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiFileSyncTask.GetTargetPathAndName">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiFileSyncTask.GetTargetPathAndName.Result">
+<short/>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiFileSyncTask.GetDate">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiFileSyncTask.GetDate.Result">
+<short/>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiFileSyncTask.GetPathAndName">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiFileSyncTask.GetPathAndName.Result">
+<short/>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiFileSyncTask.GetSize">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiFileSyncTask.GetSize.Result">
+<short/>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiFileSyncTask.GetOwner">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiFileSyncTask.GetOwner.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileSyncTask.SetOwner">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiFileSyncTask.SetOwner.Value">
+<short/>
+</element>
+
+<!-- property Visibility: protected -->
+<element name="TtiFileSyncTask.TargetFileNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncTask.Owner">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncTask.SourceFileName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncTask.TargetPathAndName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiFileSyncTask.PathAndName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiFileSyncTask.Date">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiFileSyncTask.Size">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TtiFileNameLockItem">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileNameLockItem.FFileName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileNameLockItem.FHandle">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TtiFileNameLockItem.Create">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileNameLockItem.Create.AFileName">
+<short/>
+</element>
+
+<!-- destructor Visibility: public -->
+<element name="TtiFileNameLockItem.Destroy">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileNameLockItem.FileName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiFileNameLockItem.Lock">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiFileNameLockItem.Lock.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TtiFileNameLockItem.UnLock">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TtiFileNameLockList">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileNameLockList.FList">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TtiFileNameLockList.Create">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- destructor Visibility: public -->
+<element name="TtiFileNameLockList.Destroy">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiFileNameLockList.Lock">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiFileNameLockList.Lock.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileNameLockList.Lock.AFileName">
+<short/>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TtiFileNameLockList.UnLock">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileNameLockList.UnLock.AFileName">
+<short/>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TtiFileSyncMgr">
+<short>File Sync Manager</short>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FFileNameFilters">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FTargetPathNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FSourcePathNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FCopyPathNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FDeletePathNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FTargetFileNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FSourceFileNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FCopyFileNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FDeleteFileNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FUpdateFileNames">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FsTargetReader">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FsSourceReader">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FOnLog">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FOnProgressMajor">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FOnProgressMinor">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FOnFile">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FiFileCount">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FiFileNum">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FTerminated">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FFileSyncActions">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FVerboseLogging">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FTargetReaderParams">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FSourceReaderParams">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FError">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FFileNameLockList">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileSyncMgr.FOnCheckFileCanBeDownloaded">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.BuildCreatePathList">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.BuildCreatePathList.AData">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.BuildDeletePathList">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.BuildDeletePathList.AData">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.BuildCopyUpdateFileList">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.BuildCopyUpdateFileList.AData">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.BuildDeleteFileList">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.BuildDeleteFileList.AData">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndex">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndex.pReaderType">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndex.pReaderParams">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndex.ptiFileNames">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndex.pSourceFileNameFilters">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndexByFileName">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndexByFileName.AReaderType">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndexByFileName.AReaderParams">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndexByFileName.ATargetFileNames">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileIndexByFileName.ASourceFileNames">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.ReadSingleFile">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadSingleFile.AReader">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadSingleFile.ATargetFileNames">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadSingleFile.AFileName">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.ReadPathIndex">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadPathIndex.psArchiveType">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadPathIndex.pReaderParams">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadPathIndex.ptiPathNames">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.DeletePaths">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.CopyFiles">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.DeleteFiles">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.UpdateFiles">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.RemoveRestrictedFiles">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.DeletePath">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.DeletePath.ptiPathName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.DeletePath.psReader">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.DeletePath.pReaderParams">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.WriteIndex">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.WriteIndex.ptiFileNames">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.WriteIndex.psReader">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.WriteIndex.pReaderParams">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileData">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileData.ptiFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileData.psReader">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.ReadFileData.pReaderParams">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.WriteFileData">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.WriteFileData.ptiFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.WriteFileData.psReader">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.WriteFileData.pReaderParams">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.DeleteFileData">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.DeleteFileData.ptiFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.DeleteFileData.psReader">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.DeleteFileData.pReaderParams">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.Log">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.Log.psMessage">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.Log.pAppendToPrevRow">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.UpdateProgressMajor">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.UpdateProgressMajor.AFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.UpdateProgressMajor.AMax">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.UpdateProgressMajor.APos">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.UpdateFile">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.UpdateFile.pFilename">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.UpdateFile.pAction">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.DoOnCheckTerminated">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileSyncMgr.DoOnCheckTerminated.ATerminated">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileSyncMgr.IncProgress">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiFileSyncMgr.LockAllLocalFiles">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiFileSyncMgr.LockAllLocalFiles.Result">
+<short/>
+</element>
+
+<!-- property Visibility: private -->
+<element name="TtiFileSyncMgr.FileNameFilters">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileSyncMgr.Clear">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileSyncMgr.ReadFileLists">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileSyncMgr.BuildCopyLists">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TtiFileSyncMgr.Create">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- destructor Visibility: public -->
+<element name="TtiFileSyncMgr.Destroy">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TtiFileSyncMgr.ReadIndexes">
+<short>Read the indexes from source and target and build the copylist, updatelist and deletelist</short>
+<descr>Read the indexes from source and target and build the copylist, updatelist and deletelist. </descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TtiFileSyncMgr.Execute">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.OnLog">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.OnProgressMajor">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.OnProgressMinor">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.OnFile">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.OnCheckFileCanBeDownloaded">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TtiFileSyncMgr.Terminate">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TtiFileSyncMgr.AssignFromFileSyncDir">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileSyncMgr.AssignFromFileSyncDir.pData">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.SourceFileNames">
+<short>File Names from source </short>
+<descr><p><code>procedure TForm1.ActViewFilesExecute(Sender: TObject);
+var
+  lForm : TFormViewFiles ;
+  lFSM  : TtiFileSyncMgr;
+begin
+  lFSM  := TtiFileSyncMgr.Create;
+  try
+    Screen.Cursor := crHourGlass ;
+    try
+      lFSM.SourceFileNames.StartDir := 'C:\temp\dir1';
+      lFSM.SourceReader             := cgsDiskFiles;
+      lFSM.TargetFileNames.StartDir := 'C:\temp\dir2';
+      lFSM.TargetReader             := cgsDiskFiles;
+
+      lFSM.ReadIndexes ;
+    finally
+      Screen.Cursor := crDefault ;
+    end ;
+    lForm := TFormViewFiles.Create( nil ) ;
+    try
+      lForm.FileSyncMgr := lFSM ;
+      lForm.ShowModal ;
+    finally
+      lForm.Free ;
+    end ;
+  finally
+    lFSM.Free;
+  end;
+end;
+</code>
+          </p>
+        </descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.TargetFileNames">
+<short>File Names from target</short>
+<descr><p><code>procedure TForm1.ActViewFilesExecute(Sender: TObject);
+var
+  lForm : TFormViewFiles ;
+  lFSM  : TtiFileSyncMgr;
+begin
+  lFSM  := TtiFileSyncMgr.Create;
+  try
+    Screen.Cursor := crHourGlass ;
+    try
+      // lFSM.AssignFromFileSyncDir(FData.FileSyncDirs.Items[0]);
+      lFSM.SourceFileNames.StartDir := 'C:\temp\dir1';
+      lFSM.SourceReader             := cgsDiskFiles;
+      lFSM.TargetFileNames.StartDir := 'C:\temp\dir2';
+      lFSM.TargetReader             := cgsDiskFiles;
+
+      lFSM.ReadIndexes ;
+    finally
+      Screen.Cursor := crDefault ;
+    end ;
+    lForm := TFormViewFiles.Create( nil ) ;
+    try
+      lForm.FileSyncMgr := lFSM ;
+      lForm.ShowModal ;
+    finally
+      lForm.Free ;
+    end ;
+  finally
+    lFSM.Free;
+  end;
+end;
+</code>
+          </p>
+        </descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.SourceReader">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.SourceReaderParams">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.TargetReader">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.TargetReaderParams">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.FileSyncActions">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.VerboseLogging">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.CopyFileNames">
+<short>File Names to copy</short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.UpdateFileNames">
+<short>File Names to update</short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.DeleteFileNames">
+<short>File Names to delete</short>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileSyncMgr.Error">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TthrdTIFileSyncOneWayCopy">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FFSM">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FOnLog">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FOnProgressMajor">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FOnProgressMinor">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FOnFile">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FMessage">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FAppendToPrevRow">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FMax">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FPos">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FFileName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FLastFile">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FLastFileAction">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FFormToShow">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FOnTerminateWithError">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.FOnCheckFileCanBeDownloaded">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoLog">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoLog.pMessage">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoLog.pAppendToPrevRow">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMajor">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMajor.AFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMajor.AMax">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMajor.APos">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMinor">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMinor.AFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMinor.AMax">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMinor.APos">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoFile">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoFile.pFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoFile.pAction">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoFileSynchronize">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoLogSynchronize">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMajorSynchronize">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoUpdateProgressMinorSynchronize">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoCheckFileCanBeDownloaded">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoCheckFileCanBeDownloaded.pFileName">
+<short/>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TthrdTIFileSyncOneWayCopy.DoCheckFileCanBeDownloaded.pCanGetFile">
+<short/>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pSourceReader">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pSourceReaderParams">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pSourceStartDir">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pTargetReader">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pTargetReaderParams">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pTargetStartDir">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pOnLog">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.AOnProgressMajor">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.AOnProgressMinor">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pOnFile">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pOnTerminate">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pOnTerminateWithError">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pFormToShow">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Create.pOnCheckFileCanBeDownloaded">
+<short/>
+</element>
+
+<!-- destructor Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Destroy">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Execute">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.Terminate">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.OnLog">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.OnProgressMajor">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TthrdTIFileSyncOneWayCopy.OnFile">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TthrdFileSyncMgr">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdFileSyncMgr.FFormMain">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdFileSyncMgr.FFileSyncSetup">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdFileSyncMgr.FFileSyncMgr">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TthrdFileSyncMgr.FCloseAppOnTerminate">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TthrdFileSyncMgr.HideFormMain">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TthrdFileSyncMgr.ShowFormMain">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TthrdFileSyncMgr.Create">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TthrdFileSyncMgr.Create.Suspended">
+<short/>
+</element>
+
+<!-- destructor Visibility: public -->
+<element name="TthrdFileSyncMgr.Destroy">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TthrdFileSyncMgr.CreateExt">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TthrdFileSyncMgr.Execute">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TthrdFileSyncMgr.FormMain">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TthrdFileSyncMgr.FileSyncSetups">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TthrdFileSyncMgr.CloseAppOnTerminate">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: public -->
+<element name="TthrdFileSyncMgr.CustomTerminate">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- tiFileSync_Mgr -->
+
+</package>
+</fpdoc-descriptions>

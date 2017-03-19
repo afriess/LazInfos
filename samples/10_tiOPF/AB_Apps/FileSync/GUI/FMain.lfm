@@ -1,0 +1,80 @@
+object FormMain: TFormMain
+  Left = 463
+  Height = 224
+  Top = 339
+  Width = 386
+  Caption = '  TechInsite File Sync'
+  ClientHeight = 224
+  ClientWidth = 386
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnResize = FormResize
+  LCLVersion = '1.7'
+  object sbSyncSourceToTarget: TSpeedButton
+    Left = 92
+    Height = 25
+    Top = 162
+    Width = 85
+    Anchors = [akLeft, akBottom]
+    Caption = '>>'
+    OnClick = sbSyncSourceToTargetClick
+  end
+  object sbSyncTargetToSource: TSpeedButton
+    Left = 184
+    Height = 25
+    Top = 162
+    Width = 85
+    Anchors = [akLeft, akBottom]
+    Caption = '<<'
+    OnClick = sbSyncTargetToSourceClick
+  end
+  object btnShowFiles: TButton
+    Left = 8
+    Height = 25
+    Top = 162
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    Caption = 'Show &files...'
+    OnClick = btnShowFilesClick
+    TabOrder = 0
+  end
+  object bbClose: TBitBtn
+    Left = 296
+    Height = 25
+    Top = 161
+    Width = 75
+    Anchors = [akRight, akBottom]
+    Caption = 'Close'
+    Kind = bkCancel
+    OnClick = bbCloseClick
+    TabOrder = 1
+  end
+  object PC: TPageControl
+    Left = 8
+    Height = 149
+    Top = 4
+    Width = 365
+    ActivePage = tsFilters
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabIndex = 1
+    TabOrder = 2
+    OnChange = PCChange
+    object tsDirToSync: TTabSheet
+      Caption = 'Directories to synchronise'
+    end
+    object tsFilters: TTabSheet
+      Caption = 'Filters'
+      ImageIndex = 1
+    end
+  end
+  object tmrRun: TTimer
+    OnTimer = tmrRunTimer
+    left = 332
+    top = 36
+  end
+end
