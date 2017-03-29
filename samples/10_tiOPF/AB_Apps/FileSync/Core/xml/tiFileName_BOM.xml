@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fpdoc-descriptions>
+<package name="tiFileSyncCore">
+
+<!--
+  ====================================================================
+    tiFileName_BOM
+  ====================================================================
+-->
+
+<module name="tiFileName_BOM">
+<short/>
+<descr>
+</descr>
+
+<!-- class Visibility: default -->
+<element name="TtiPathName">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TtiPathNames">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TtiFileName">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- class Visibility: default -->
+<element name="TtiFileNames">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiPathNames.FRecurse">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiPathNames.FStartDir">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiPathNames.FWildCard">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiPathNames.PathNamesToDataSet">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiPathNames.PathNamesToDataSet.pDataSet">
+<short/>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiPathNames.GetAsXML">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiPathNames.GetAsXML.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiPathNames.SetStartDir">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiPathNames.SetStartDir.Value">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiPathNames.SetAsXML">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathNames.SetAsXML.Value">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiPathNames.ParamsToDataSet">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathNames.ParamsToDataSet.pDataSet">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiPathNames.AssignPropsFromDataSets">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathNames.AssignPropsFromDataSets.pDataSets">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiPathNames.AssignItemsFromDataSets">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathNames.AssignItemsFromDataSets.pDataSets">
+<short/>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiPathNames.GetItems">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiPathNames.GetItems.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathNames.GetItems.i">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiPathNames.SetItems">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathNames.SetItems.i">
+<short/>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathNames.SetItems.Value">
+<short/>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TtiPathNames.Create">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiPathNames.Clone">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiPathNames.Clone.Result">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiPathNames.Items">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiPathNames.Items.i">
+<short/>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiPathNames.FindLikeRootRemoved">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiPathNames.FindLikeRootRemoved.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiPathNames.FindLikeRootRemoved.AFileName">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiPathNames.AsXML">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiPathNames.StartDir">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiPathNames.Recurse">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiPathName.SetDrive">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiPathName.SetDrive.value">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiPathName.SetDirectory">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiPathName.SetDirectory.value">
+<short/>
+</element>
+
+<!-- variable Visibility: protected -->
+<element name="TtiPathName.FStrPath">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: protected -->
+<element name="TtiPathName.FStrDrive">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: protected -->
+<element name="TtiPathName.FStrDirectory">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiPathName.GetAsXML">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiPathName.GetAsXML.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiPathName.SetAsXML">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathName.SetAsXML.Value">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiPathName.SetPath">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathName.SetPath.value">
+<short/>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiPathName.GetRootRemoved">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiPathName.GetRootRemoved.Result">
+<short/>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiPathName.GetRootDir">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiPathName.GetRootDir.Result">
+<short/>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiPathName.GetOwner">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiPathName.GetOwner.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiPathName.SetOwner">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiPathName.SetOwner.Value">
+<short/>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TtiPathName.Create">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TtiPathName.CreateExt">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiPathName.CreateExt.pStrPath">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiPathName.Owner">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiPathName.Clone">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiPathName.Clone.Result">
+<short/>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiPathName.CloneWithNewRootDir">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiPathName.CloneWithNewRootDir.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiPathName.CloneWithNewRootDir.pNewRootDir">
+<short/>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiPathName.NameWithNewRootDir">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiPathName.NameWithNewRootDir.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiPathName.NameWithNewRootDir.ANewRootDir">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiPathName.Drive">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiPathName.Directory">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiPathName.RootRemoved">
+<short>Return the path and filename without the rootpart</short>
+<descr>Return the path and filename without the rootpart, with this two file or path can compare if the structure are the same.
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiPathName.RootDir">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiPathName.AsXML">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiPathName.Path">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileName.FiSize">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileName.FDate">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileName.FData">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: private -->
+<element name="TtiFileName.FCRC">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileName.SetNameOnly">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileName.SetNameOnly.value">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileName.SetExt">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileName.SetExt.value">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileName.SetNameFull">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileName.SetNameFull.value">
+<short/>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileName.SetPathAndName">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileName.SetPathAndName.value">
+<short/>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiFileName.GetPathAndName">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiFileName.GetPathAndName.Result">
+<short/>
+</element>
+
+<!-- variable Visibility: protected -->
+<element name="TtiFileName.FStrNameOnly">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: protected -->
+<element name="TtiFileName.FStrExt">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: protected -->
+<element name="TtiFileName.FStrNameFull">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- variable Visibility: protected -->
+<element name="TtiFileName.FStrPathAndName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiFileName.GetAsXML">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiFileName.GetAsXML.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileName.SetAsXML">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiFileName.SetAsXML.Value">
+<short/>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiFileName.GetOwner">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiFileName.GetOwner.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileName.SetOwner">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiFileName.SetOwner.Value">
+<short/>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiFileName.GetRootRemoved">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiFileName.GetRootRemoved.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileName.AssignClassProps">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiFileName.AssignClassProps.pSource">
+<short/>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TtiFileName.Create">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- destructor Visibility: public -->
+<element name="TtiFileName.Destroy">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- constructor Visibility: public -->
+<element name="TtiFileName.CreateExt">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileName.CreateExt.pStrPathAndName">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileName.CreateExt.pStrPath">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileName.CreateExt.pStrNameFull">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileName.CreateExt.pStrName">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileName.CreateExt.pStrExt">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileName.Owner">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiFileName.Clone">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiFileName.Clone.Result">
+<short/>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiFileName.CloneWithNewRootDir">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiFileName.CloneWithNewRootDir.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileName.CloneWithNewRootDir.pNewRootDir">
+<short/>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiFileName.NameWithNewRootDir">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiFileName.NameWithNewRootDir.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileName.NameWithNewRootDir.ANewRootDir">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileName.NameOnly">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileName.Ext">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileName.NameFull">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiFileName.PathAndName">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiFileName.Date">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiFileName.Size">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiFileName.CRC">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- property Visibility: published -->
+<element name="TtiFileName.Data">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- procedure Visibility: private -->
+<element name="TtiFileNames.FileNamesToDataSet">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: private -->
+<element name="TtiFileNames.FileNamesToDataSet.pDataSet">
+<short/>
+</element>
+
+<!-- function Visibility: private -->
+<element name="TtiFileNames.GetAsXML">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: private -->
+<element name="TtiFileNames.GetAsXML.Result">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileNames.AssignItemsFromDatasets">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiFileNames.AssignItemsFromDatasets.pDataSets">
+<short/>
+</element>
+
+<!-- function Visibility: protected -->
+<element name="TtiFileNames.GetItems">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: protected -->
+<element name="TtiFileNames.GetItems.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiFileNames.GetItems.i">
+<short/>
+</element>
+
+<!-- procedure Visibility: protected -->
+<element name="TtiFileNames.SetItems">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiFileNames.SetItems.i">
+<short/>
+</element>
+
+<!-- argument Visibility: protected -->
+<element name="TtiFileNames.SetItems.Value">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileNames.Items">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileNames.Items.i">
+<short/>
+</element>
+
+<!-- function Visibility: public -->
+<element name="TtiFileNames.FindLikeRootRemoved">
+<short/>
+<descr>
+</descr>
+<errors>
+</errors>
+<seealso>
+</seealso>
+</element>
+
+<!-- function result Visibility: public -->
+<element name="TtiFileNames.FindLikeRootRemoved.Result">
+<short/>
+</element>
+
+<!-- argument Visibility: public -->
+<element name="TtiFileNames.FindLikeRootRemoved.pFileName">
+<short/>
+</element>
+
+<!-- property Visibility: public -->
+<element name="TtiFileNames.AsXML">
+<short/>
+<descr>
+</descr>
+<seealso>
+</seealso>
+</element>
+
+</module> <!-- tiFileName_BOM -->
+
+</package>
+</fpdoc-descriptions>
