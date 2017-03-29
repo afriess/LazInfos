@@ -1,0 +1,137 @@
+object tdbFormMain: TtdbFormMain
+  Left = 0
+  Height = 542
+  Top = 0
+  Width = 762
+  ActiveControl = BuScriptDB
+  Caption = 'tdbFormMain'
+  ClientHeight = 542
+  ClientWidth = 762
+  OnCreate = FormCreate
+  Position = poDefault
+  SessionProperties = 'Height;LEdb.Text;LEScript.Text;Position;Width;LEConFile.Text'
+  Visible = False
+  object BuScriptDB: TButton
+    Left = 8
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Run Script'
+    OnClick = BuScriptDBClick
+    TabOrder = 0
+  end
+  object Memo: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 5
+    Height = 440
+    Top = 97
+    Width = 752
+    Anchors = [akLeft, akRight, akBottom]
+    BorderSpacing.Around = 5
+    Lines.Strings = (
+      'Memo'
+    )
+    ScrollBars = ssVertical
+    TabOrder = 1
+  end
+  object LEdb: TLabeledEdit
+    Left = 168
+    Height = 23
+    Top = 8
+    Width = 184
+    EditLabel.AnchorSideTop.Control = LEdb
+    EditLabel.AnchorSideTop.Side = asrCenter
+    EditLabel.AnchorSideRight.Control = LEdb
+    EditLabel.AnchorSideBottom.Control = LEdb
+    EditLabel.AnchorSideBottom.Side = asrBottom
+    EditLabel.Left = 129
+    EditLabel.Height = 15
+    EditLabel.Top = 12
+    EditLabel.Width = 36
+    EditLabel.Caption = 'DB File'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 2
+    Text = '.\test.sq3'
+  end
+  object LEScript: TLabeledEdit
+    Left = 488
+    Height = 23
+    Top = 8
+    Width = 246
+    EditLabel.AnchorSideTop.Control = LEScript
+    EditLabel.AnchorSideTop.Side = asrCenter
+    EditLabel.AnchorSideRight.Control = LEScript
+    EditLabel.AnchorSideBottom.Control = LEScript
+    EditLabel.AnchorSideBottom.Side = asrBottom
+    EditLabel.Left = 374
+    EditLabel.Height = 15
+    EditLabel.Top = 12
+    EditLabel.Width = 111
+    EditLabel.Caption = 'Script Command File'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 3
+    Text = '.\SQLDBTest.txt'
+  end
+  object BuConvert: TButton
+    Left = 8
+    Height = 25
+    Top = 40
+    Width = 75
+    Caption = 'Convert'
+    OnClick = BuConvertClick
+    TabOrder = 4
+  end
+  object LEConFile: TLabeledEdit
+    Left = 168
+    Height = 23
+    Top = 42
+    Width = 566
+    EditLabel.AnchorSideTop.Control = LEConFile
+    EditLabel.AnchorSideTop.Side = asrCenter
+    EditLabel.AnchorSideRight.Control = LEConFile
+    EditLabel.AnchorSideBottom.Control = LEConFile
+    EditLabel.AnchorSideBottom.Side = asrBottom
+    EditLabel.Left = 123
+    EditLabel.Height = 15
+    EditLabel.Top = 46
+    EditLabel.Width = 42
+    EditLabel.Caption = 'CSV File'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 5
+    Text = '.\Demo.csv'
+  end
+  object TestCon: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    Properties.Strings = (
+      'AutoEncodeStrings='
+    )
+    DesignConnection = True
+    HostName = '192.168.x.x'
+    Port = 0
+    Database = 'test'
+    User = 'Tester'
+    Password = 'Tester'
+    Protocol = 'FreeTDS_MsSQL>=2005'
+    Left = 152
+    Top = 184
+  end
+  object SQLProcessor: TZSQLProcessor
+    Params = <>
+    Delimiter = ';'
+    Left = 256
+    Top = 184
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    Left = 528
+    Top = 40
+  end
+end
