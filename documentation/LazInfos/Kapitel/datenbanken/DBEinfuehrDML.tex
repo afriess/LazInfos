@@ -1,0 +1,334 @@
+%%####################################################################
+%    Copyright @ 2007 Andreas Frieß (Friess)
+%    Permission is granted to copy, distribute and/or modify this document
+%    under the terms of the GNU Free Documentation License, Version 1.2
+%    or any later version published by the Free Software Foundation;
+%    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+%    A copy of the license is included in the section entitled ``GNU
+%    Free Documentation License''.
+%%####################################################################
+% Created: 24.08.2007
+% @cvs($Date: 2007-10-26 22:02:20 +0000 (Fri, 26 Oct 2007) $)
+% @cvs($Rev: 52 $)
+% @cvs($Author: af0815 $)
+% @cvs($URL: file:///svn/p/lazsnippets/code/trunk/dokumentation/LazSnippets/Kapitel/datenbanken/DBEinfuehrDML.tex $)
+%%####################################################################
+\subsection{DDL Datendefinitionssprache}\label{DDL}
+%%####################################################################
+Die Datendefinitionssprache (Data Definition Language = DDL\footnote{siehe auch http://de.wikipedia.org/wiki/Data\_Definition\_Language}) umfasst die Sprachteile von Datenbanksprache, mit deren Hilfe man Datenstrukturen wie Tabellen und andere ähnliche Elemente erzeugt. Es sind das die Befehle die mit  \emph{CREATE} beginnen, zum Beispiel \emph{CREATE TABLE} und \emph{CREATE INDEX}. 
+
+\subsection{DML Datenveränderungssprache}\label{DML}
+%%####################################################################
+Die Datenveränderungssprache (Data Manipulation Language = DML\footnote{siehe auch http://de.wikipedia.org/wiki/Data\_Manipulation\_Language}) umfasst die Sprachteile von Datenbanksprache, die sich mit dem Lesen, Ändern und Löschen von Daten beschäftigen. Es sind das die Befehle \emph{SELECT}, \emph{INSERT}, \emph{UPDATE} und \emph{DELETE}. 
+
+Im folgend sehen wir uns die wichtigsten Befehle an, wobei ein Befehl besonders mächtig ist---\emph{SELECT}---. 
+\subsubsection{SELECT}
+SELECT ist einer der Vielseitigsten und am meisten eingesetzten Befehle überhaupt. Er dient zum Abfragen von Datenmengen aus der Datenbank. Er ermöglicht die Abfrage von Daten aus den Tabellen (die Projektion)
+\paragraph{Einfachste Darstellung}
+Bei der einfachsten Abfrage haben wir es mit wenigen Schlüsselwörter zu tun.
+\begin{verbatim}
+SELECT [DISTINCT] 'Auswahlliste'
+  FROM 'Quelle'
+  WHERE 'Where-Klausel'
+  [GROUP BY ('Group-by-Attribut')+
+  [HAVING 'Having-Klausel']]
+  [ORDER BY (''Sortierungsattribut'' [ASC|DESC])+];
+\end{verbatim}
+Mit SELECT wird die Abfrage eingeleitet, anschliessend kommt die Auswahlliste der gewünschten Tabellenspalten. Dann das FROM , das angibt welche Tabellen die Daten bereitstellen und das WHERE, das angibt nach welchen Kriterien die Daten vorselektiert werden.
+\subparagraph{SELECT 'Auswahlliste'}
+Hier gibt man die einzelnen Tabellenspalten an, die sich später in der rückgelieferten Datenmenge finden. Sind die Name nicht eindeutig genug, besonders wenn mehrere Tabellen betroffen sind, so muß man den Tabellennamen und eventuell auch die Datenbank angeben, sprich die Eindeutigkeit qualifizieren. Somit kann ein SELECT so aussehen: \verb*|SELECT MyDB.STPerson.Vorname|, meistens wird die verkürzte Schreibweise verwendet wie \verb*|SELECT Vorname|. 
+
+In komplexeren Abfragen kann auch statt dem Tabellnamen alleine, eine Funktion stehen. Damit kann man in Datenmengen mathematische und statistische Funktionen verwenden. Auch Verzweigungen und Berechnungen sind möglich. Zu diesen Punkten kommen dann an späterer Stelle die entsprechden Erklärungen.
+
+DISTINCT erzwingt die Vermeidung von doppelten Datensätzen. Es überspringt in der Ausgabe die mehrfach vorkommenden Datensätze. Die Folge ist ein höherer Aufwand am Server, da das urspüngliche Ergebnis (ohne DISTINCT) meist noch entsprechend nachbearbeitet werden muß. Bevor man DISTINCT zur Korrektur unerklärlicher doppelter Datensätze verwendet (Verschleiern von Problemen), sollte man sich zuerst seine JOINS und WHERE Klauseln ganz genau ansehen, denn dort liegt meistens das Problem. 
+
+Eine gerne verwendete Abkürzung stellt das beliebte \verb*|SELECT *| dar. Hier darf dann das Programm zur Laufzeit erraten, welche Spalten es gibt und von welchen Typ sie sind. Es einfach zu verwenden, birgt aber in fertigen Programmen einiges an versteckten Fehlerquellen. Wird die dem SELECT zugrunde liegende Tabelle geändert oder auch nur Spalten getauscht, so kann es sein, daß Fehler nicht beim ausführen des Statements auffallen (Spalte xx nicht gefunden) und erst andere Programmteile dann unklare Fehlermeldung produzieren. Ich empfehle deshalb, die Spaltennamen wirklich anzugeben. Es gibt Programme die gerade diese Eigenschaft ausnutzen, dort wird es aber bewusst gemacht und entsprechend abgesichert. 
+
+\subparagraph{FROM 'Quelle'}
+FROM gibt die Quelle der Daten an. Es ist einfach der Tabellenname, eine Verbindung von Tabellen (JOIN) oder auch eine untergelagerte SELECT Anweisung.
+
+\subparagraph{WHERE 'Where-Klausel'}
+Die WHERE - Klausel schränkt die Ergebnisdatenmenge ein. Bei einfachen Beispielen wird sie gerne, oft zu Unrecht, weggelassen. Wir müssen aber immer Datenmengen betrachten, das Ergebnis kann eine Zeile oder eine million Zeilen sein. Wenn wir in einer Adressdatenbank eine Personen suchen, so wird es trotzdem sinnvoll sein, von Haus aus die Suche einzuschränken. Denn alles was nicht an Daten sinnlos übertragen werden muß, spart Bandbreite, Speicher und erhöht die Geschwindigkeit.
+
+\subparagraph{GROUP BY ('Group-by-Attribut'}
+Die Daten werden nach dem Group-by-Attributen zusammengefasst (gruppiert). Dazu müssen auch in der Auswahlliste, für alle nicht durch GROUP BY erfassten Spalten, entsprechende Operationen verwendet werden (SUM, AVG, MIN, ...).
+
+\subparagraph{HAVING 'Having-Klausel'}
+Ist als ein WHERE zu betrachten, das allerdings erst \textbf{nach} dem Gruppieren wirksam ist und deshalb nur auf die Gruppierungsfunktionen wirksam ist.
+
+\subparagraph{ORDER BY (''Sortierungsattribut'' [ASC|DESC])}
+Die ausgegeben Daten werden entsprechend sortiert. Das Sortierungsattribut sind die entsprechden Spaltennamen in der reihenfolge wie sortiert werden soll.
+
+\subsubsection{Beispiele zu SELECT}
+
+\emph{SELECT * FROM st\_person; }\\
+Ohne Einschränkung oder Sortierung. 
+\begin{verbatim}
+"STPerson","cVName","cFName","cMName","cRName"
+378,"Hope","Giordano","HoGi","Hope0Giordano"
+379,"Rose","Bruno","RoBr","Rose4Bruno"
+380,"Lauren","Morgan","LaMo","Lauren4Morgan"
+381,"Megan","Coleman","MeCo","Megan9Coleman"
+\end{verbatim}
+
+\emph{SELECT * FROM st\_person where STPerson = 875;}\\
+Die Person deren ID 875 ist.
+\begin{verbatim}
+"STPerson","cVName","cFName","cMName","cRName"
+875,"Hannah","Collins","HaCo","Hannah3Collins"
+\end{verbatim}
+
+\emph{SELECT * FROM st\_person where cVName like 'H\%';}\\
+Alle Personen deren Vorname mit "`H"' beginnt.
+Das Prozentzeichen "`\%"' ist eine Wildcard. So wie bei manchen Betriebssystemen der Stern "`*"'.
+\begin{verbatim}
+"STPerson","cVName","cFName","cMName","cRName"
+875,"Hannah","Collins","HaCo","Hannah3Collins"
+406,"Hannah","Cook","HaCo","Hannah9Cook"
+845,"Hannah","Doyle","HaDo","Hannah9Doyle"
+1363,"Hannah","Foster","HaFo","Hannah6Foster"
+\end{verbatim}
+
+\emph{SELECT * FROM st\_person order by cFName;}\\
+Alle Personen, aber nach Familienname aufsteigend sortiert.
+\begin{verbatim}
+"STPerson","cVName","cFName","cMName","cRName"
+1258,"Caitlin","Adams","CaAd","Caitlin4Adams"
+687,"Taylor","Alexander","TaAl","Taylor5Alexander"
+644,"Renee","Alexander","ReAl","Renee8Alexander"
+885,"Taylor","Alexander","TaAl","Taylor3Alexander"
+1131,"Sarah","Alexander","SaAl","Sarah5Alexander"
+603,"Megan","Allen","MeAl","Megan0Allen"
+1172,"Isabella","Allen","IsAl","Isabella0Allen"
+472,"Isabelle","Allen","IsAl","Isabelle6Allen"
+\end{verbatim}
+
+\emph{SELECT * FROM st\_person order by cFName desc;}\\
+Alle Personen, aber nach Familienname absteigend sortiert.
+\begin{verbatim}
+"STPerson","cVName","cFName","cMName","cRName"
+842,"Isabella","Young","IsYo","Isabella6Young"
+1232,"Taylor","Young","TaYo","Taylor3Young"
+427,"Ashley","Young","AsYo","Ashley3Young"
+420,"Kyla","Young","KyYo","Kyla2Young"
+668,"Alexandra","Wright","AlWr","Alexandra6Wright"
+1070,"Madison","Wright","MaWr","Madison5Wright"
+\end{verbatim}
+
+\emph{SELECT * FROM st\_person where cVName like 'H\%' order by cFName;}\\
+Alle Personen deren Vorname mit "`H"' beginnt und nach Familienname aufsteigend sortiert.
+\begin{verbatim}
+"STPerson","cVName","cFName","cMName","cRName"
+932,"Hope","Bell","HoBe","Hope3Bell"
+1194,"Harmony","Campbell","HaCa","Harmony7Campbell"
+515,"Harmony","Clark","HaCl","Harmony4Clark"
+1279,"Holly","Collins","HoCo","Holly7Collins"
+875,"Hannah","Collins","HaCo","Hannah3Collins"
+406,"Hannah","Cook","HaCo","Hannah9Cook"
+1296,"Harmony","Diaz","HaDi","Harmony1Diaz"
+\end{verbatim}
+
+\emph{SELECT cVName, cFName FROM st\_person where cVName like 'H\%' order by cFName;}\\
+Anzeige nur der Spalten "`cVName"' und "`cFName"' und alle Personen deren Vorname mit "`H"' beginnt und nach Familienname aufsteigend sortiert.
+\begin{verbatim}
+"cVName","cFName"
+"Hope","Bell"
+"Harmony","Campbell"
+"Harmony","Clark"
+"Holly","Collins"
+"Hannah","Collins"
+"Hannah","Cook"
+"Harmony","Diaz"
+\end{verbatim}
+
+\emph{SELECT  cVName, cFName FROM st\_person where (cVName like 'H\%') or (cVName like 'A\%') order by cFName;}\\
+Anzeige nur der Spalten "`cVName"' und "`cFName"' und alle Personen deren Vorname mit "`H"' oder "`A"' beginnt und nach Familienname aufsteigend sortiert.
+\begin{verbatim}
+"Alyssa","Butler"
+"Abby","Butler"
+"Ashley","Butler"
+"Ashley","Byrne"
+"Harmony","Campbell"
+"Harmony","Clark"
+"Anna","Clark"
+"Abby","Coleman"
+"Hannah","Collins"
+"Amelia","Collins"
+"Anna","Collins"
+\end{verbatim}
+
+\emph{SELECT count(cVName), cVName FROM st\_person group by cVName order by count(cVName) desc;}
+Anzahl der Vorkommen der Vornamen absteigend sortiert.
+\begin{verbatim}
+"count(cVName)","cVName"
+19,"Amelia"
+19,"Angel"
+17,"Laura"
+16,"Elizabeth"
+16,"Paris"
+16,"Ruby"
+15,"Caitlin"
+14,"Sophie"
+14,"Abby"
+14,"Mikayla"
+\end{verbatim}
+
+\emph{SELECT count(cVName) as Anzahl, cVName as Vorname FROM st\_person group by cVName order by count(cVName) desc;}
+Anzahl der Vorkommen der Vornamen absteigend sortiert. Dazu noch die Spaltennamen geändert.
+\begin{verbatim}
+"Anzahl","Vorname"
+19,"Amelia"
+19,"Angel"
+17,"Laura"
+16,"Elizabeth"
+16,"Paris"
+16,"Ruby"
+15,"Caitlin"
+14,"Sophie"
+14,"Abby"
+14,"Mikayla"
+\end{verbatim}
+
+\emph{SELECT count(cVName) as Anzahl, cVName as Vorname FROM st\_person group by cVName desc having Anzahl = 16;}
+Anzahl der Vorkommen der Vornamen, Dazu noch die Spaltennamen geändert und die Anzahl muß sechzehn sein
+\begin{verbatim}
+"Anzahl","Vorname"
+16,"Elizabeth"
+16,"Paris"
+16,"Ruby"
+\end{verbatim}
+
+\subsubsection{INSERT}
+INSERT wird für das Einfügen von Datensätzen in eine Tabelle verwendet.
+\paragraph{Einfache Darstellung}
+Beim einfachen Einfügen haben wir es mit wenigen Schlüsselwörter zu tun.
+\begin{verbatim}
+INSERT 'Ziel' ('Spaltenliste')
+  VALUES ('Werteliste')
+\end{verbatim}
+Bei dem Ziel handelt es sich um die Tabelle in die die Daten eingefügt werden sollen. Die Spaltenliste kann auch weggelassen werden, wenn die Werteliste in der exakt gleichen Reihenfolge ist, wie die Definition in der Tabelle. 
+
+Wenn die Spaltenliste vorhanden ist, so müssen die Werte in der Werteliste in der gleichen Reihenfolge stehen. Es muß dann aber nicht die Reihenfolge und Anzahl der Spalten mit der Tabellen Definition übereinstimmen. Das wird normalerweise verwendet, da an Spalten mit automatischen Zählern (meist Primärschlüssel) keine Werte übergeben werden dürfen!
+
+\subsubsection{Beispiele zu INSERT}
+\emph{INSERT st\_person (cVName,cFName,cMName, cRName) VALUES ("Hope","Giordano","HoGi", "Hope0Giordano");}
+Bei \emph{INSERT} und anderen Befehlen zur Erstellung von Daten, gibt es kein Ergebnismenge.
+\begin{verbatim}
+SELECT * FROM st_person;
+
+"STPerson","cVName","cFName","cMName","cRName"
+1,"Hope","Giordano","HoGi","Hope0Giordano"
+2,"Harmony","Campbell","HaCa","Harmony7Campbell"
+3,"Harmony","Clark","HaCl","Harmony4Clark"
+4,"Holly","Collins","HoCo","Holly7Collins"
+\end{verbatim}
+Die Spalte STPerson, ist zwar beim INSERT nicht angegeben, wird vom System automatisch vergeben.
+
+Ein weiteres Beispiel befindet unter Projekt MySQLTestData
+
+\subsubsection{UPDATE}
+Mit \emph{UPDATE} können die Daten in den Tabellen geändert werden.
+\paragraph{Einfache Darstellung}
+Beim einfachen Ändern haben wir es mit wenigen Schlüsselwörter zu tun.
+\begin{verbatim}
+UPDATE 'Ziel' SET 'Spalte1' = 'Wert1' , 'Spalte2' = 'Wert2' 
+  WHERE 'Where-Klausel'
+\end{verbatim}
+Bei dem Ziel handelt es sich um die Tabelle in der die Daten geändert werden sollen. Nach dem Schlüsselwort \emph{SET} erfolgt die Auflistung der Spalten mit den neuen Wert.
+
+Wichtig ist hier die \emph{WHERE}-Klausel! Fehlt sie so werden \textbf{alle Datensätze} der Tabelle geändert! Soll nur ein einziges Datensatz von der Änderung geändert werden, so muß die Einschränkung richtig definiert sein. Normalerweise wird hier der Primärschlüssel (auch zusammengesetzt) verwendet, denn so ist die Eindeutigkeit sichergestellt. Bezüglich der Möglichkeiten der \emph{WHERE}-Klausel bitte beim Befehl \emph{SELECT} nachzulesen.
+
+\subsubsection{Beispiele zu UPDATE}
+\emph{UPDATE st\_person set cRName = "HoGi" WHERE STPerson = 1;}
+Bei \emph{UPDATE} und anderen Befehlen zur Erstellung von Daten, gibt es kein Ergebnismenge.
+\begin{verbatim}
+SELECT * FROM st_person;
+
+"STPerson","cVName","cFName","cMName","cRName"
+1,"Hope","Giordano","HoGi","HoGi"
+2,"Harmony","Campbell","HaCa","Harmony7Campbell"
+3,"Harmony","Clark","HaCl","Harmony4Clark"
+4,"Holly","Collins","HoCo","Holly7Collins"
+\end{verbatim}
+
+\emph{UPDATE st\_person set cVName = "Hopper", cRName = "HoGi1"  WHERE STPerson = 1;}
+Hier werden zwei Spalten gleichzeitig geändert
+\begin{verbatim}
+SELECT * FROM st_person;
+
+"STPerson","cVName","cFName","cMName","cRName"
+1,"Hopper","Giordano","HoGi","HoGi1"
+2,"Harmony","Campbell","HaCa","Harmony7Campbell"
+3,"Harmony","Clark","HaCl","Harmony4Clark"
+4,"Holly","Collins","HoCo","Holly7Collins"
+\end{verbatim}
+
+\emph{UPDATE st\_person set cVName = "HaHa"  WHERE cVName like "`Ha"';}
+Hier werden mehrere Datensätze gleichzeitig geändert
+\begin{verbatim}
+SELECT * FROM st_person;
+
+"STPerson","cVName","cFName","cMName","cRName"
+1,"Hopper","Giordano","HoGi","HoGi1"
+2,"HaHa","Campbell","HaCa","Harmony7Campbell"
+3,"HaHa","Clark","HaCl","Harmony4Clark"
+4,"Holly","Collins","HoCo","Holly7Collins"
+\end{verbatim}
+
+\subsubsection{DELETE}
+Mittels dem Befehl \emph{DELETE}werden Datensätze in der Datenbank gelöscht. 
+\paragraph{Einfache Darstellung}
+Beim einfachsten DELETE haben wir es mit wenigen Schlüsselwörter zu tun.
+\begin{verbatim}
+DELETE 'Ziel'
+  WHERE 'Where-Klausel'
+\end{verbatim}
+Aber Vorsicht, ohne entsprechende \emph{WHERE}-Klausel werden alle betroffenen Datensätze gelöscht. Daher gilt, fehlt die WHERE-Klausel, so werden \textbf{alle Datensätze} unwiderruflich gelöscht!
+
+
+\subsubsection{Beispiele zu DELETE}
+\emph{DELETE FROM st\_person WHERE STPerson = 1;}
+Bei \emph{DELETE} und anderen Befehlen zur Erstellung von Daten, gibt es kein Ergebnismenge.
+Hier wird der Datensatz mit dem Wert 1 in der Spalte STPerson gelöscht.
+\begin{verbatim}
+SELECT * FROM st_person;
+
+"STPerson","cVName","cFName","cMName","cRName"
+1,"Hope","Giordano","HoGi","HoGi"
+2,"Harmony","Campbell","HaCa","Harmony7Campbell"
+3,"Harmony","Clark","HaCl","Harmony4Clark"
+4,"Holly","Collins","HoCo","Holly7Collins"
+
+DELETE FROM st_person WHERE STPerson = 1;
+SELECT * FROM st_person;
+
+"STPerson","cVName","cFName","cMName","cRName"
+2,"Harmony","Campbell","HaCa","Harmony7Campbell"
+3,"Harmony","Clark","HaCl","Harmony4Clark"
+4,"Holly","Collins","HoCo","Holly7Collins"
+\end{verbatim}
+
+\emph{DELETE st\_person WHERE STPerson = 1;}
+Bei \emph{DELETE} und anderen Befehlen zur Erstellung von Daten, gibt es kein Ergebnismenge.
+Hier werden \textbf{alle} Datensätze in der Tabelle st\_person gelöscht!
+\begin{verbatim}
+SELECT * FROM st_person;
+
+"STPerson","cVName","cFName","cMName","cRName"
+1,"Hope","Giordano","HoGi","HoGi"
+2,"Harmony","Campbell","HaCa","Harmony7Campbell"
+3,"Harmony","Clark","HaCl","Harmony4Clark"
+4,"Holly","Collins","HoCo","Holly7Collins"
+
+DELETE FROM st_person;
+SELECT * FROM st_person;
+
+"STPerson","cVName","cFName","cMName","cRName"
+\end{verbatim}
+
+
+\subsection{DCL Datenkontrollsprache}\label{DCL}
+%%####################################################################
+Die Datenkontrollsprache (Data Control Language = DCL\footnote{siehe auch http://de.wikipedia.org/wiki/Data\_Control\_Language}) umfasst die Sprachteile von Datenbanksprache, mit deren Hilfe man die Rechte vergibt, Wartungen durchführt. Es sind das Befehle wie \emph{GRANT} und \emph{REVOKE}. 
+
+\verb|Version: $LastChangedRevision: 52 $ |\footnote{ Autor: Andreas Frieß\\Lizenz: GFDL}

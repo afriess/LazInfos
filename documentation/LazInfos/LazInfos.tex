@@ -1,0 +1,223 @@
+%%####################################################################
+%    Copyright @ 2007-2017 Andreas Frieß (Friess)
+%    Permission is granted to copy, distribute and/or modify this document
+%    under the terms of the GNU Free Documentation License, Version 1.2
+%    or any later version published by the Free Software Foundation;
+%    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+%    A copy of the license is included in the section entitled ``GNU
+%    Free Documentation License''.
+%%####################################################################
+% Created: 21.08.2007
+%%####################################################################
+%% Artikelvorlage unter Verwendung der Artikelklasse des KOMA-Script %%
+%% Basierend auf einer TeXNicCenter-Vorlage von Mark Müller          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+titlepage,						% Titelei auf eigener Seite
+]
+{scrreprt}
+%%{scrartcl}
+
+\ifpdfoutput{
+  % PDF wird genutzt
+  \usepackage[activate]{pdfcprot}				
+	\usepackage[pdftex]{graphicx} %%Grafiken in pdfLaTeX
+  \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex,
+    colorlinks, % Schrift in Farbe, sonst mit Rahmen
+    bookmarksnumbered, % Inhaltsverzeichnis mit Numerierung
+    bookmarksopen, % offnet das Inhaltsverzeichnis
+    pdfstartview=FitH, % startet mit Seitenbreite
+    linkcolor=blue, % standard red
+    citecolor=blue, % standard green
+    urlcolor=magenta, % standard cyan
+    filecolor=blue %
+    ]{hyperref}
+  \pdfinfo{
+    /Title (LazInfos)
+    /Subject (Das Lazarus Beispielbuch)
+    /Author (Andreas Frieß)
+    /Keywords (LazInfos)
+  }
+}{
+  % Kein PDF
+	\usepackage[dvips]{graphicx} %%Grafiken und normales LaTeX
+  \usepackage{graphicx}
+  \usepackage{hyperref}
+}
+
+\usepackage[ngerman]{babel}		
+\usepackage[T1]{fontenc}							
+\usepackage[latin1]{inputenc}		
+\usepackage{picins}
+%\usepackage{hyperref}
+%\usepackage{times} % Tip von Ovidius, mal ausprobieren
+
+\begin{document}
+\ifpdfoutput{
+	\DeclareGraphicsExtensions{.pdf,.PDF,.jpg,.JPG,.png,.PNG}
+}{
+	\DeclareGraphicsExtensions{.eps,.EPS}
+}
+\setcounter{tocdepth}{3} %Tiefe des Inhaltsverzeichnis
+
+%###############################################
+% Umschlag und Titelseite
+%###############################################
+\pagestyle{empty} %%Keine Kopf-/Fusszeilen auf den ersten Seiten.
+\title{LazInfos\\Das Lazarus Beispielbuch}
+\author{Andreas Frieß\\Die Community von www.lazarusforum.de}
+%\date{}							% falls anderes, als das aktuelle gewünscht
+
+\maketitle 						% Titelei wird erzeugt
+
+%\begin{abstract}
+%This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License
+%\end{abstract}
+
+\pagestyle{headings} %% Kopf-/Fusszeilen aktivieren
+
+%\begin{center}
+%\textbf{Version}
+%\verb|SVN $LastChangedRevision: 94 $ |
+%\end{center}
+
+\begin{quote}
+    Copyright (C) 2007-2017 Andreas Frieß.
+    Es wird die Erlaubnis gewährt, dieses Dokument zu kopieren, zu
+    verteilen und/oder zu modifizieren, unter den Bestimmungen der
+    GNU Free Documentation License, Version 1.2 oder jede spätere
+    Version, veröffentlicht von der Free Software Foundation; mit
+    keinen unveränderlichen Abschnitten, keinen vorderen
+    Umschlagtexten und keinen hinteren Umschlagtexten. Eine Kopie der
+    Lizenz ist aufgenommen in den Abschnitt mit dem Titel "GNU Free
+    Documentation License".
+
+    Copyright \copyright{}  2007-2017 Andreas Friess
+    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.2
+    or any later version published by the Free Software Foundation;
+    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+    A copy of the license is included in the section entitled ``GNU
+    Free Documentation License''.
+\end{quote}
+
+%###############################################
+% Inhaltsverzeichnis
+%###############################################
+%\section[Inhaltsverzeichnis]{Inhaltsverzeichnis}
+\tableofcontents			% Inhaltsverzeichnis
+
+\newpage
+%###########################################################
+% Einführung, Therorie, ....
+%###########################################################
+%--------------------------------------------------
+% Alles was allgemeine Information ist
+%--------------------------------------------------
+\chapter[Vorwort]{Vorwort}
+\section{Danksagung}
+\input{Danksagung}
+%\subsection[Vorwort]{Vorwort}
+%\subsection[Grundlagen]{Grundlagen}
+\chapter{Grundlagen Datenbank}
+\section[Datenbanken]{Datenbanken}
+\input{Kapitel/datenbanken/DBEInfuehr1}
+\newpage
+\input{Kapitel/datenbanken/DBEinfuehrDML}
+\newpage
+
+\chapter{Lazarus IDE}
+%--------------------------------------------------
+% Sektion für die IDE (Bedienung, Way of working ..)
+%--------------------------------------------------
+%\newpage
+%###########################################################
+% Wie Installiere ich Lazarus
+%###########################################################
+\section[Entwicklungsumgebung]{Entwicklungsumgebung}
+\input{Kapitel/ide/shortcuts}
+\newpage
+\input{Kapitel/ide/Fehlersuche}
+\newpage
+\input{Kapitel/ide/PrjSchablonen}
+\newpage
+
+%###########################################################
+% Code, Wie mache ich (ohne Beispiele)
+%###########################################################
+\chapter{Codebeispiele \& FAQ}
+%--------------------------------------------------
+% Sektion 
+%--------------------------------------------------
+\section[FAQ]{FAQ}
+\input{Kapitel/code/FAQTeil1}
+\newpage
+%###########################################################
+% Bibliotheken
+%###########################################################
+\chapter[Bibliotheken]{Bibliotheken}
+\input{Kapitel/datenbanken/SQLDB}
+\newpage
+\input{Kapitel/datenbanken/DataAccess}
+\newpage
+%###########################################################
+% Beispiele
+%###########################################################
+\chapter{Beispiele}
+%--------------------------------------------------
+% Sektion für Datenbank (MySQL,SQLlite,Firebird,..)
+%--------------------------------------------------
+\section[Datenbanken MySQL 5.x]{DatenbankenMySQL5x}
+\input{Kapitel/datenbanken/HowToNewMySQL}
+
+\input{Kapitel/datenbanken/ProjektMySQLSimple}
+\newpage
+\input{Kapitel/datenbanken/ProjektMySQLTestData}
+
+\newpage
+\section[Datenbanken SQLite 3.x]{DatenbankenSQLite3x}
+% "`Comming Soon"' af0815
+%\input{Kapitel/datenbanken/HowToNewSQLite}
+%\newpage
+%\input{Kapitel/datenbanken/ProjektSQLiteSimple}
+%\newpage
+%\input{Kapitel/datenbanken/ProjektSQLiteTestData}
+
+\section[Datenbanken DBase, FoxPro]{DatenbankenTDBF}
+% "`Comming Soon"' af0815
+%\input{Kapitel/datenbanken/HowToNewTDBF}
+%\newpage
+%\input{Kapitel/datenbanken/ProjektTDBFSimple}
+%\newpage
+%\input{Kapitel/datenbanken/ProjektTDBFTestData}
+
+\newpage
+\chapter{Programme}
+%###############################################
+% Kapitel für Tools
+%###############################################
+\section[Nützliche Werkzeuge]{Nützliche Werkzeuge}
+\input{Kapitel/allgemein/Versionskontrolle}
+
+% \section{Ideenspeicher}
+
+%###############################################
+% Tabellen und Abbildungsverzeichnis
+%###############################################
+\chapter{Anhang}
+\section[Tabellenverzeichnis]{Tabellenverzeichnis}
+\listoftables				% Tabellenverzeichnis
+
+%\newpage
+%\section[Abbildungsverzeichnis]{Abbildungsverzeichnis}
+%
+%\listoffigures				% Abbildungsverzeichnis
+
+\input{Litverz}
+
+\newpage
+\input{fdlLazInfos}
+
+\end{document}
