@@ -1,0 +1,65 @@
+object Form1: TForm1
+  Left = 0
+  Height = 535
+  Top = 0
+  Width = 854
+  ActiveControl = BuCreateSheets
+  Caption = 'Form1'
+  ClientHeight = 535
+  ClientWidth = 854
+  DesignTimePPI = 120
+  LCLVersion = '1.8.0.2'
+  Visible = False
+  object BuCreateSheets: TButton
+    Left = 16
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'Create'
+    OnClick = BuCreateSheetsClick
+    TabOrder = 0
+  end
+  object sWorkbookTabControl: TsWorkbookTabControl
+    Left = 24
+    Height = 286
+    Top = 88
+    Width = 720
+    TabIndex = 0
+    Tabs.Strings = (
+      'Sheet1'
+    )
+    TabOrder = 1
+    WorkbookSource = sWorkbookSource
+    object sWorksheetGrid: TsWorksheetGrid
+      Left = 2
+      Height = 256
+      Top = 28
+      Width = 716
+      FrozenCols = 0
+      FrozenRows = 0
+      ReadFormulas = False
+      WorkbookSource = sWorkbookSource
+      Align = alClient
+      AutoAdvance = aaDown
+      DefaultColWidth = 80
+      DefaultRowHeight = 27
+      TabOrder = 1
+    end
+  end
+  object BuWP: TButton
+    Left = 168
+    Height = 25
+    Top = 8
+    Width = 75
+    Caption = 'BuWP'
+    OnClick = BuWPClick
+    TabOrder = 2
+  end
+  object sWorkbookSource: TsWorkbookSource
+    AutoDetectFormat = False
+    FileFormat = sfUser
+    Options = []
+    Left = 640
+    Top = 32
+  end
+end
