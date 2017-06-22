@@ -1,6 +1,5 @@
 unit mainsimpleread;
 
-
 {$mode objfpc}{$H+}
 
 interface
