@@ -7,8 +7,6 @@ object Form1: TForm1
   Caption = 'Form1'
   ClientHeight = 611
   ClientWidth = 888
-  DesignTimePPI = 120
-  LCLVersion = '1.8.0.2'
   Visible = False
   object Button1: TButton
     AnchorSideLeft.Control = Owner
@@ -29,7 +27,7 @@ object Form1: TForm1
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 162
-    Height = 28
+    Height = 23
     Top = 5
     Width = 726
     Anchors = [akTop, akLeft, akRight]
@@ -75,8 +73,8 @@ object Form1: TForm1
     object sWorksheetGrid1: TsWorksheetGrid
       AnchorSideTop.Side = asrBottom
       Left = 2
-      Height = 343
-      Top = 28
+      Height = 348
+      Top = 23
       Width = 879
       FrozenCols = 0
       FrozenRows = 0

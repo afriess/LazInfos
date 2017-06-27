@@ -56,3 +56,7 @@ lib/
 *.synctex.gz
 
 ###############################################
+# Common
+
+# Normaly no archives
+*.zip
