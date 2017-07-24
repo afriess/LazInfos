@@ -9,9 +9,10 @@ uses
   StdCtrls, ExtCtrls, fpspreadsheetctrls, fpspreadsheetgrid;
 
 const
-  // we define a special char for the search
-  // wir definieren einen speziellen Charakter für die Suche
-  co_makrochar = ':';
+  // we define a special prefix for the search
+  // wir definieren einen speziellen prefix-string für die Suche
+  co_makrocharFormel = '#Fo:';
+  co_makrocharText   = '#Tx:';
 
 type
 
@@ -31,6 +32,7 @@ type
     sWorkbookTabControl: TsWorkbookTabControl;
     sWSGrid: TsWorksheetGrid;
     procedure BuSampleClick(Sender: TObject);
+    procedure sCellEdit1Change(Sender: TObject);
     procedure sWSGridClick(Sender: TObject);
   private
     FileExcel,
@@ -113,6 +115,8 @@ end;
 
 { TFormMiC }
 
+
+
 procedure TFormMiC.BuSampleClick(Sender: TObject);
 begin
   MemoLog.Clear;
@@ -131,6 +135,11 @@ begin
   Test01;
 end;
 
+procedure TFormMiC.sCellEdit1Change(Sender: TObject);
+begin
+
+end;
+
 procedure TFormMiC.sWSGridClick(Sender: TObject);
 begin
 
@@ -145,20 +154,45 @@ var
  code, replace: String;
 begin
   MemoLog.Append('Test01 start');
-  Q:= TSdfDataSet.Create(nil);
+  //Q:= TSdfDataSet.Create(nil);
   try
-    // Open the dataset
-    Q.FileName:= EdData.Text;
-    Q.FileMustExist:= True;
-    Q.FirstLineAsSchema:=True;
-    Q.Open;
+    //// Open the dataset
+    //Q.FileName:= EdData.Text;
+    //Q.FileMustExist:= True;
+    //Q.FirstLineAsSchema:=True;
+    //Q.Open;
     // Load the Excelsheet
-    sWSGrid.Options:= sWSGrid.Options + [goColSizing, goRowSizing];
+
+    // ***********************
+    // Hint: http://wiki.lazarus.freepascal.org/TsWorksheetGrid#Recommended_property_values
+    // ***********************
+    //AutoAdvance = aaDown: The ENTER key advances the selected cell to the next lower cell.
+    //AutoCalc = true: Automatically calculate formulas
+    //AutoEdit = true: For editing a cell, just begin typing. Alternatively you can begin edit mode by pressing F2.
+    //AutoExpand = [aeData, aeNavigation, aeDefault]: Don't restrict usage of the grid to the predefined grid dimensions, for an Excel-like user-interface.
+    //EditorLineMode = elmMultiLine: Activate cell editor supporting multiple lines during editing.
+    //MouseWheelOption = mwGrid: The mouse wheel scrolls the grid, not the selected cell.
+    //Options: add these flags to the standard options inherited from TCustomGrid:
+    //  goColSizing: the user can change a column width by dragging the vertical separating line between two column header cells
+    //  goRowSizing: the user can change a row height by dragging the horizontal separating line between two row header cells
+    //  goDblClickAutosize: a double-click on a separating line between two column or row header cells resizes the column width or row height to its optimum value.
+    //  goEditing: puts the grid into edit mode (same as AutoEdit)
+    //  goThumbTracking: immediate scrolling of the grid while the scrollbar is dragged with the mouse (if this option is off scrolling occurs at the moment when the mouse button is released).
+    //TextOverflow = true: allow long cell text flow into empty adjacent cells
+    sWSGrid.AutoAdvance:= aaDown;
+    sWSGrid.AutoCalc:= True;
+    sWSGrid.AutoEdit:= True;
+    sWSGrid.AutoExpand:= [aeData, aeNavigation, aeDefault];
+    sWSGrid.EditorLineMode:= elmMultiLine;
+    sWSGrid.MouseWheelOption:= mwGrid;
+    sWSGrid.Options:= sWSGrid.Options + [goColSizing, goRowSizing, goDblClickAutoSize, goEditing, goThumbTracking];
+    sWSGrid.TextOverflow:= True;
     sWbSrc.LoadFromSpreadsheetFile(EdExcel.Text);
     // do nothing - Dummy
-    Q.Close;
+    //Q.Close;
   finally
-    Q.Free;
+    //Q.Free;
+    ;
   end;
   MemoLog.Append('Done...');
 end;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectGroup FileVersion="1">
-    <Targets Count="4">
+    <Targets Count="5">
       <Target0 FileName="01_SimpleRead\SimpleRead.lpi">
         <BuildModes Count="1"/>
         <Mode1 Name="Default"/>
@@ -14,10 +14,15 @@
         <BuildModes Count="1"/>
         <Mode1 Name="Default"/>
       </Target2>
-      <Target3 FileName="04_FormularMakros\project1.lpi">
+      <Target3 FileName="05_MakrosInComment\MakrosInComment.lpi">
         <BuildModes Count="1"/>
         <Mode1 Name="Default"/>
       </Target3>
+      <Target4 FileName="06_WorkWithTemplates\WorkTemplates.lpi">
+        <BuildModes Count="2"/>
+        <Mode1 Name="Debug" Compile="True"/>
+        <Mode2 Name="Release"/>
+      </Target4>
     </Targets>
   </ProjectGroup>
 </CONFIG>

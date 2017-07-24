@@ -7,6 +7,7 @@ object FormMiC: TFormMiC
   Caption = 'Makros in Comments demo'
   ClientHeight = 668
   ClientWidth = 964
+  LCLVersion = '1.8.0.2'
   Visible = False
   object BuSample: TButton
     AnchorSideLeft.Control = Owner
@@ -115,6 +116,7 @@ object FormMiC: TFormMiC
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Left = 5
       BorderSpacing.Right = 5
+      OnChange = sCellEdit1Change
       TabOrder = 1
       WorkbookSource = sWbSrc
     end
