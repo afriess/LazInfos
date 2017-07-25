@@ -1,0 +1,162 @@
+object Form1: TForm1
+  Left = 0
+  Height = 611
+  Top = 0
+  Width = 888
+  ActiveControl = BuLoad
+  Caption = 'Form1'
+  ClientHeight = 611
+  ClientWidth = 888
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  Visible = False
+  object BuLoad: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 5
+    Height = 25
+    Top = 5
+    Width = 75
+    BorderSpacing.Left = 5
+    BorderSpacing.Top = 5
+    Caption = 'Init'
+    OnClick = BuLoadClick
+    TabOrder = 0
+  end
+  object Edit1: TEdit
+    AnchorSideLeft.Control = ComboBox
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = BuLoad
+    AnchorSideTop.Side = asrCenter
+    Left = 275
+    Height = 23
+    Top = 6
+    Width = 300
+    BorderSpacing.Left = 20
+    TabOrder = 1
+    Text = '.\test.xlsx'
+  end
+  object Memo: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = BuLoad
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 125
+    Top = 35
+    Width = 888
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Top = 5
+    Lines.Strings = (
+      'Memo'
+    )
+    TabOrder = 2
+  end
+  object sWorkbookTabControl1: TsWorkbookTabControl
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = TabControl1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 425
+    Top = 186
+    Width = 888
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabOrder = 3
+    object sWorksheetGrid1: TsWorksheetGrid
+      Left = 2
+      Height = 420
+      Top = 3
+      Width = 884
+      FrozenCols = 0
+      FrozenRows = 0
+      ReadFormulas = False
+      WorkbookSource = sWorksheetGrid1.internal
+      Align = alClient
+      AutoAdvance = aaDown
+      DefaultColWidth = 64
+      DefaultRowHeight = 22
+      TabOrder = 1
+    end
+  end
+  object ComboBox: TComboBox
+    AnchorSideLeft.Control = SpinEdit
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = BuLoad
+    AnchorSideTop.Side = asrCenter
+    Left = 155
+    Height = 23
+    Top = 6
+    Width = 100
+    BorderSpacing.Left = 20
+    ItemHeight = 15
+    TabOrder = 4
+    Text = 'ComboBox'
+  end
+  object SpinEdit: TSpinEdit
+    AnchorSideLeft.Control = BuLoad
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = BuLoad
+    AnchorSideTop.Side = asrCenter
+    Left = 85
+    Height = 23
+    Top = 6
+    Width = 50
+    BorderSpacing.Left = 5
+    MaxValue = 5
+    MinValue = 1
+    TabOrder = 5
+    Value = 3
+  end
+  object TabControl1: TTabControl
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Memo
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 26
+    Top = 160
+    Width = 888
+    OnChange = TabControl1Change
+    TabIndex = 0
+    Tabs.Strings = (
+      'TabControl'
+    )
+    Anchors = [akTop, akLeft, akRight]
+    TabOrder = 6
+  end
+  object BuSave: TButton
+    AnchorSideTop.Control = BuLoad
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 807
+    Height = 25
+    Top = 5
+    Width = 75
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 6
+    Caption = 'Save XLS'
+    OnClick = BuSaveClick
+    TabOrder = 7
+  end
+  object BuContent: TButton
+    AnchorSideTop.Control = BuLoad
+    AnchorSideTop.Side = asrCenter
+    AnchorSideRight.Control = BuSave
+    Left = 687
+    Height = 25
+    Top = 5
+    Width = 100
+    Anchors = [akTop, akRight]
+    BorderSpacing.Right = 20
+    Caption = 'Content Change'
+    OnClick = BuContentClick
+    TabOrder = 8
+  end
+end
