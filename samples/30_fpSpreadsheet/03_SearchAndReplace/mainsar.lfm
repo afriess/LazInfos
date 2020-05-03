@@ -1,0 +1,226 @@
+object FormSAR: TFormSAR
+  Left = 0
+  Height = 668
+  Top = 0
+  Width = 964
+  ActiveControl = BuSample
+  Caption = 'Search and replace demo'
+  ClientHeight = 668
+  ClientWidth = 964
+  Visible = False
+  object BuSample: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 5
+    Height = 25
+    Top = 5
+    Width = 75
+    BorderSpacing.Around = 5
+    Caption = 'Sample'
+    OnClick = BuSampleClick
+    TabOrder = 0
+  end
+  object EdData: TEdit
+    AnchorSideLeft.Control = LblData
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = BuSample
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 216
+    Height = 23
+    Top = 5
+    Width = 743
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Right = 5
+    TabOrder = 1
+    Text = './data/testdata.csv'
+  end
+  object LblData: TLabel
+    AnchorSideLeft.Control = BuSample
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = BuSample
+    Left = 85
+    Height = 20
+    Top = 5
+    Width = 131
+    AutoSize = False
+    Caption = 'Data'
+    ParentColor = False
+  end
+  object LblExcel: TLabel
+    AnchorSideLeft.Control = BuSample
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = LblData
+    AnchorSideTop.Side = asrBottom
+    Left = 85
+    Height = 20
+    Top = 35
+    Width = 98
+    AutoSize = False
+    BorderSpacing.Top = 10
+    Caption = 'Excel template'
+    ParentColor = False
+  end
+  object EdExcel: TEdit
+    AnchorSideLeft.Control = LblData
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = LblExcel
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 216
+    Height = 23
+    Top = 35
+    Width = 743
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Right = 5
+    TabOrder = 2
+    Text = './sheets/template02.xls'
+  end
+  object PanelDetail: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = RGSelect
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 41
+    Top = 120
+    Width = 964
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Top = 5
+    ClientHeight = 41
+    ClientWidth = 964
+    TabOrder = 3
+    object sCellIndicator1: TsCellIndicator
+      AnchorSideLeft.Control = PanelDetail
+      AnchorSideTop.Control = PanelDetail
+      Left = 6
+      Height = 23
+      Top = 1
+      Width = 48
+      WorkbookSource = sWbSrc
+      BorderSpacing.Left = 5
+      TabOrder = 0
+      Text = 'A1'
+    end
+    object sCellEdit1: TsCellEdit
+      AnchorSideLeft.Control = sCellIndicator1
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = sCellIndicator1
+      AnchorSideRight.Control = PanelDetail
+      AnchorSideRight.Side = asrBottom
+      Left = 59
+      Height = 23
+      Top = 1
+      Width = 899
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Left = 5
+      BorderSpacing.Right = 5
+      TabOrder = 1
+      WorkbookSource = sWbSrc
+    end
+  end
+  object sWorkbookTabControl: TsWorkbookTabControl
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = PanelDetail
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = MemoLog
+    Left = 5
+    Height = 393
+    Top = 166
+    Width = 954
+    TabIndex = 0
+    Tabs.Strings = (
+      'Sheet1'
+    )
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Around = 5
+    TabOrder = 4
+    WorkbookSource = sWbSrc
+    object sWSGrid: TsWorksheetGrid
+      AnchorSideLeft.Control = sWorkbookTabControl
+      AnchorSideTop.Control = sWorkbookTabControl
+      AnchorSideRight.Control = sWorkbookTabControl
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = sWorkbookTabControl
+      AnchorSideBottom.Side = asrBottom
+      Left = 2
+      Height = 368
+      Top = 23
+      Width = 950
+      FrozenCols = 0
+      FrozenRows = 0
+      ReadFormulas = False
+      WorkbookSource = sWbSrc
+      Anchors = [akTop, akLeft, akRight, akBottom]
+      AutoAdvance = aaDown
+      ColCount = 28
+      DefaultColWidth = 80
+      DefaultRowHeight = 27
+      RowCount = 102
+      TabOrder = 1
+      OnClick = sWSGridClick
+    end
+  end
+  object RGSelect: TRadioGroup
+    AnchorSideLeft.Control = BuSample
+    AnchorSideTop.Control = EdExcel
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = EdExcel
+    AnchorSideRight.Side = asrBottom
+    Left = 5
+    Height = 57
+    Top = 58
+    Width = 954
+    Anchors = [akTop, akLeft, akRight]
+    AutoFill = True
+    Caption = 'What should we do'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclTopToBottomThenLeftToRight
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 37
+    ClientWidth = 950
+    ColumnLayout = clVerticalThenHorizontal
+    Columns = 5
+    ItemIndex = 0
+    Items.Strings = (
+      'Load only'
+      'S&&R DB Col'
+      'S&&R DB Row + Col'
+      'Test 4'
+    )
+    TabOrder = 5
+  end
+  object MemoLog: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 5
+    Height = 99
+    Top = 564
+    Width = 954
+    Anchors = [akLeft, akRight, akBottom]
+    BorderSpacing.Around = 5
+    Lines.Strings = (
+      'Log'
+    )
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 6
+  end
+  object sWbSrc: TsWorkbookSource
+    AutoDetectFormat = False
+    FileFormat = sfUser
+    Options = []
+    Left = 296
+    Top = 224
+  end
+end
