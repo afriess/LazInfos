@@ -1,5 +1,5 @@
 %%####################################################################
-%    Copyright @ 2007 Andreas Frieß (Friess)
+%    Copyright @ 2007 Andreas Frieï¿½ (Friess)
 %    Permission is granted to copy, distribute and/or modify this document
 %    under the terms of the GNU Free Documentation License, Version 1.2
 %    or any later version published by the Free Software Foundation;
@@ -15,44 +15,44 @@
 %%####################################################################
 
 \subsection[Versionskontrolle]{Versionskontrolle}
-Warum ein Versionsmanagment überhaupt verwenden? Es ist doch viel einfacher den Sourcecode und die benötigten Dateien einfach auf der Festplatte zu haben und von Zeit zu Zeit macht man davon ein Archiv. Diesem Archiv gebe ich ganz einfach einen guten Titel und die Sache hat sich.
+Warum ein Versionsmanagment ï¿½berhaupt verwenden? Es ist doch viel einfacher den Sourcecode und die benï¿½tigten Dateien einfach auf der Festplatte zu haben und von Zeit zu Zeit macht man davon ein Archiv. Diesem Archiv gebe ich ganz einfach einen guten Titel und die Sache hat sich.
 
-Das kann bei einem einzelnen Entwickler durchaus so noch funktionieren. Wenn man aber in einem Team arbeiten muß, so wird es schon hier zu Problemen kommen. Denn jeder Entwickler hat seine eigene Version und muß die Änderungen in das Projekt ein pflegen. Was ist aber wenn gerade 2 Entwickler an derselben Datei arbeiten. Der eine bringt die Änderungen ein, der andere bekommt die Änderung aber auch nicht mit und bringt seinerseits seine Änderungen ein. Somit sind die Änderungen des ersten Entwicklers unbemerkt verloren und das Projekt somit nicht konsistent. Weiters ist die Verfolgung der Änderungen fast, bzw. nur schwer möglich. Um dieses Szenario zu vermeiden und die arbeit im Team zu vereinfachen haben sich im laufe der Jahre Versionsmanagmentsysteme entwickelt. Da wir hier nur SVN einsetzen werden, will ich mich hier auf die grundlegende Bedienung von SVN beschränken.
+Das kann bei einem einzelnen Entwickler durchaus so noch funktionieren. Wenn man aber in einem Team arbeiten muï¿½, so wird es schon hier zu Problemen kommen. Denn jeder Entwickler hat seine eigene Version und muï¿½ die ï¿½nderungen in das Projekt ein pflegen. Was ist aber wenn gerade 2 Entwickler an derselben Datei arbeiten. Der eine bringt die ï¿½nderungen ein, der andere bekommt die ï¿½nderung aber auch nicht mit und bringt seinerseits seine ï¿½nderungen ein. Somit sind die ï¿½nderungen des ersten Entwicklers unbemerkt verloren und das Projekt somit nicht konsistent. Weiters ist die Verfolgung der ï¿½nderungen fast, bzw. nur schwer mï¿½glich. Um dieses Szenario zu vermeiden und die arbeit im Team zu vereinfachen haben sich im laufe der Jahre Versionsmanagmentsysteme entwickelt. Da wir hier nur SVN einsetzen werden, will ich mich hier auf die grundlegende Bedienung von SVN beschrï¿½nken.
 
 \subsubsection[svn Kommandozeile]{svn Kommandozeile}
-SVN von der Kommandozeile aus zu bedienen ist eine der universellsten Möglichkeiten, das diese Art damit zu arbeiten auf allen Plattformen (Unix, Linux, Windows, MacOS, ...) vorhanden ist. Vor allen wenn man nur Projekte aus dem SVN holt und auffrischt ist die Syntax relativ einfach. Die dafür notwendigen Befehle sind hier kurz vorgestellt.
+SVN von der Kommandozeile aus zu bedienen ist eine der universellsten Mï¿½glichkeiten, das diese Art damit zu arbeiten auf allen Plattformen (Unix, Linux, Windows, MacOS, ...) vorhanden ist. Vor allen wenn man nur Projekte aus dem SVN holt und auffrischt ist die Syntax relativ einfach. Die dafï¿½r notwendigen Befehle sind hier kurz vorgestellt.
 
 \paragraph[SVN holen und Informationen anzeigen]{SVN holen und Informationen anzeigen}
 \begin{description}
 	\item[svn checkout URL [Pfad] ] Mit diesem Kommando wird von der URL der gespeicherte Inhalt aus dem Repository geholt und an der Stelle gespeichert die durch den Pfad angegeben ist. Fehlt die Angabe des Pfades, so wird das aktuelle Verzeichnis genommen.
 \end{description}	
 \begin{description}
-	\item[svn co URL [Pfad] ] ist die Kurzform von "`checkout"', Erklärung siehe dort.
+	\item[svn co URL [Pfad] ] ist die Kurzform von "`checkout"', Erklï¿½rung siehe dort.
 \end{description}	
 \begin{description}
 	\item[svn help ] Gibt die Onlinehilfe zu SVN aus.
 \end{description}	
 \begin{description}
 	\item[svn list URL] und
-	\item[svn list Pfad ] Zeigt zusätzliche Informationen zur URL beziehungsweise zum Pfad an.
+	\item[svn list Pfad ] Zeigt zusï¿½tzliche Informationen zur URL beziehungsweise zum Pfad an.
 \end{description}	
 \begin{description}
 	\item[svn log URL] und
 	\item[svn log Pfad ] Zeigt die Loginformationen zur URL beziehungsweise zum Pfad an.
 \end{description}
 \begin{description}
-	\item[svn update] Aktualisiert die lokale Kopie und läd alle Änderungen, welche in der Zwischenzeit von anderen entwicklern am Repository vorgenohmen wurden.
+	\item[svn update] Aktualisiert die lokale Kopie und lï¿½d alle ï¿½nderungen, welche in der Zwischenzeit von anderen entwicklern am Repository vorgenohmen wurden.
 \end{description}	
 \begin{description}
-	\item[svn revert Pfad] Entfernt die Änderungen sei der letzten Revision und stellt einen unveränderten Zustand wieder her. 
+	\item[svn revert Pfad] Entfernt die ï¿½nderungen sei der letzten Revision und stellt einen unverï¿½nderten Zustand wieder her. 
 \end{description}	
 
-\paragraph[Änderungen übertragen]{Änderungen übertragen}
+\paragraph[ï¿½nderungen ï¿½bertragen]{ï¿½nderungen ï¿½bertragen}
 \begin{description}
-	\item[svn add Datei] Fügt eine Datei in der Arbeitskopie zur Versionskontrolle hinzu. Die Datei wird jedoch nicht direkt in das Repository geladen, sondern lediglich markiert.
+	\item[svn add Datei] Fï¿½gt eine Datei in der Arbeitskopie zur Versionskontrolle hinzu. Die Datei wird jedoch nicht direkt in das Repository geladen, sondern lediglich markiert.
 \end{description}
 \begin{description}
-	\item[svn commit [-m"Beschreibung..."]] Legt eine neue Revision an und überträgt alle Änderungen an Dateien, welche sich bereits unter Versionkontrolle befinden bzw. vorher mit add markiert wurden. Der Parameter -m erlaubt es, direkt eine Beschreibung der Änderungen anzugeben, welche später ein Nachverfolgen der Änderungen ermöglicht.
+	\item[svn commit \[-m"Beschreibung..."\]] Legt eine neue Revision an und ï¿½bertrï¿½gt alle ï¿½nderungen an Dateien, welche sich bereits unter Versionkontrolle befinden bzw. vorher mit add markiert wurden. Der Parameter -m erlaubt es, direkt eine Beschreibung der ï¿½nderungen anzugeben, welche spï¿½ter ein Nachverfolgen der ï¿½nderungen ermï¿½glicht.
 \end{description}
 
-\verb|Version: $LastChangedRevision: 95 $ |\footnote{ Autor: Andreas Frieß\\Lizenz: GFDL}
+\verb|Version: $LastChangedRevision: 95 $ |\footnote{ Autor: Andreas Frieï¿½\\Lizenz: GFDL}
