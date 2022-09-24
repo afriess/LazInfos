@@ -1,5 +1,5 @@
 %%####################################################################
-%    Copyright @ 2007 Andreas Frieﬂ (Friess)
+%    Copyright @ 2007 Andreas Frie√ü (Friess)
 %    Permission is granted to copy, distribute and/or modify this document
 %    under the terms of the GNU Free Documentation License, Version 1.2
 %    or any later version published by the Free Software Foundation;
@@ -17,9 +17,9 @@
 %%####################################################################
 \subsection{Beschreibung}
 \subsubsection{Einleitung}
-Die Komponenten auf der Seite 'Client Access' sind f¸r die lokale\label{ClientAccess} Verwaltung von Datenbanken, auch lokale Datenbanken genannt, zust‰ndig. \parpic[sl][r]{\includegraphics[width=0.3\textwidth]{Kapitel/datenbanken/pics/DataAccess}}
-\label{fig:LazDataAccess01} F¸r die Erstellung, Verwaltung und Zugriff auf Dbase und Foxpro Datenbanken ist die Komponenete 'TDBF' zust‰ndig. F¸r Datenbanken direkt im Speicher ist die Komponenete 'MEM', f¸r Datenbanken mit eine festen Format (CSV) die Komponente 'FIXED' und Textbasierende Datens‰tze mittels der Komponente 'SDF'.
-F¸r Serverdatenbanken sind die Komponenten auf der Seite 'SQLdb'\footnote{Siehe Kapitel \ref{SQLdb} auf Seite \pageref{SQLdb}} zu verwenden.
+Die Komponenten auf der Seite 'Client Access' sind f√ºr die lokale\label{ClientAccess} Verwaltung von Datenbanken, auch lokale Datenbanken genannt, zust√§ndig. \parpic[sl][r]{\includegraphics[width=0.3\textwidth]{Kapitel/datenbanken/pics/DataAccess}}
+\label{fig:LazDataAccess01} F√ºr die Erstellung, Verwaltung und Zugriff auf Dbase und Foxpro Datenbanken ist die Komponenete 'TDBF' zust√§ndig. F√ºr Datenbanken direkt im Speicher ist die Komponenete 'MEM', f√ºr Datenbanken mit eine festen Format (CSV) die Komponente 'FIXED' und Textbasierende Datens√§tze mittels der Komponente 'SDF'.
+F√ºr Serverdatenbanken sind die Komponenten auf der Seite 'SQLdb'\footnote{Siehe Kapitel \ref{SQLdb} auf Seite \pageref{SQLdb}} zu verwenden.
 
 Die Komponente 'TDatasource' dient unter andern als Verbindung zu den grafischen Komponenten.
 
@@ -144,7 +144,7 @@ Die Komponente 'TDatasource' dient unter andern als Verbindung zu den grafischen
 %    property OnFilterRecord;
 %  end;
 \subsection{SQLite}
-Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sqlite3laz 0.3'oder besser installiert werden.  \parpic[sl][r]{\includegraphics[width=0.3\textwidth]{Kapitel/datenbanken/pics/DataAccessLite}}
+Diese Komponente ist standardm√§ssig nicht vorhanden. Dazu mu√ü erst das Paket 'sqlite3laz 0.3'oder besser installiert werden.  \parpic[sl][r]{\includegraphics[width=0.3\textwidth]{Kapitel/datenbanken/pics/DataAccessLite}}
 \label{fig:LazDataAccess02}Nach dem neu erstellen der IDE, befindet sich die Komponente hier.
 
 
@@ -192,8 +192,8 @@ Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sq
 %    
 \subsubsection{ExecSQL}
 \begin{description}
-  \item \texttt{procedure ExecSQL(const ASql:String);}\\F¸hrt den in ASql definierten String aus, liefert aber keine Datenmenge zur¸ck.
-  \item \texttt{procedure ExecSQL;}\\F¸hrt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine Datenmenge zur¸ck.
+  \item \texttt{procedure ExecSQL(const ASql:String);}\\F√ºhrt den in ASql definierten String aus, liefert aber keine Datenmenge zur√ºck.
+  \item \texttt{procedure ExecSQL;}\\F√ºhrt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine Datenmenge zur√ºck.
   \begin{description}
     \item Methode von TSqlite3Dataset
   \end{description}
@@ -201,7 +201,7 @@ Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sq
 
 \subsubsection{ApplyUpdates}
 \begin{description}
-  \item \texttt{function ApplyUpdates: Boolean;}\\‹bertr‰gt die ƒnderungen von der Datenmenge in die Datenbank.
+  \item \texttt{function ApplyUpdates: Boolean;}\\√úbertr√§gt die √Ñnderungen von der Datenmenge in die Datenbank.
   \begin{description}
     \item Methode von TSqlite3Dataset>TCustomSqliteDataset
   \end{description}
@@ -209,8 +209,8 @@ Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sq
 
 \subsubsection{ExecSQL}
 \begin{description}
-  \item \texttt{procedure ExecSQL(const ASql:String);}\\F¸hrt den in ASql definierten String aus, liefert aber keine Datenmenge zur¸ck.
-  \item \texttt{procedure ExecSQL;}\\F¸hrt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine Datenmenge zur¸ck.
+  \item \texttt{procedure ExecSQL(const ASql:String);}\\F√ºhrt den in ASql definierten String aus, liefert aber keine Datenmenge zur√ºck.
+  \item \texttt{procedure ExecSQL;}\\F√ºhrt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine Datenmenge zur√ºck.
   \begin{description}
     \item Methode von TSqlite3Dataset
   \end{description}
@@ -218,7 +218,7 @@ Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sq
 
 \subsubsection{Active}
 \begin{description}
-  \item \texttt{property Active: Boolean read GetActive write SetActive default False;}\\ Sagt aus ob die Komponente derzeit aktiv ist und eine Datenmenge zur¸ckliefert. Ein setzen auf 'true' entspricht der Methode 'Open' und ein setzen auf 'false' entspricht der Methode 'Close'.
+  \item \texttt{property Active: Boolean read GetActive write SetActive default False;}\\ Sagt aus ob die Komponente derzeit aktiv ist und eine Datenmenge zur√ºckliefert. Ein setzen auf 'true' entspricht der Methode 'Open' und ein setzen auf 'false' entspricht der Methode 'Close'.
   \begin{description}
     \item Eigenschaft von TSqlite3Dataset>TCustomSqliteDataset>TDataSet
   \end{description}
@@ -230,7 +230,7 @@ Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sq
 
 \subsubsection{SaveOnClose}
 \begin{description}
-  \item \texttt{property SaveOnClose: Boolean read FSaveOnClose write FSaveOnClose;}\\Wenn true, dann wird beim Schliessen der Datenmenge automatisch ein ApplyUpdates durchgef¸hrt.
+  \item \texttt{property SaveOnClose: Boolean read FSaveOnClose write FSaveOnClose;}\\Wenn true, dann wird beim Schliessen der Datenmenge automatisch ein ApplyUpdates durchgef√ºhrt.
   \begin{description}
     \item Eigenschaft von TSqlite3Dataset>TCustomSqliteDataset
   \end{description}
@@ -241,7 +241,7 @@ Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sq
 
 \subsubsection{SaveOnRefetch}
 \begin{description}
-  \item \texttt{property SaveOnRefetch: Boolean read FSaveOnRefetch write FSaveOnRefetch;}\\Wenn true, dann wird vor dem Holen neuer Datenmengen automatisch ein ApplyUpdates durchgef¸hrt.
+  \item \texttt{property SaveOnRefetch: Boolean read FSaveOnRefetch write FSaveOnRefetch;}\\Wenn true, dann wird vor dem Holen neuer Datenmengen automatisch ein ApplyUpdates durchgef√ºhrt.
   \begin{description}
     \item Eigenschaft von TSqlite3Dataset>TCustomSqliteDataset
   \end{description}
@@ -252,7 +252,7 @@ Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sq
 
 \subsubsection{SQL}
 \begin{description}
-  \item \texttt{property SQL: String read FSql write FSql;}\\In SQL befindet sich das SQL Statement was ausgef¸hrt werden soll.
+  \item \texttt{property SQL: String read FSql write FSql;}\\In SQL befindet sich das SQL Statement was ausgef√ºhrt werden soll.
   \begin{description}
     \item Eigenschaft von TSqlite3Dataset>TCustomSqliteDataset
   \end{description}
@@ -261,4 +261,4 @@ Diese Komponente ist standardm‰ssig nicht vorhanden. Dazu muﬂ erst das Paket 'sq
   \end{description}
 \end{description}
 
-\verb|Version: $$ |\footnote{ Autor: Andreas Frieﬂ\\Lizenz: GFDL}
+\verb|Version: $$ |\footnote{ Autor: Andreas Frie√ü\\Lizenz: GFDL}

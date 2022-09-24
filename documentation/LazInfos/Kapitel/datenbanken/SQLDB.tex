@@ -1,5 +1,5 @@
 %%####################################################################
-%    Copyright @ 2007 Andreas Frieß (Friess)
+%    Copyright @ 2007 Andreas FrieÃŸ (Friess)
 %    Permission is granted to copy, distribute and/or modify this document
 %    under the terms of the GNU Free Documentation License, Version 1.2
 %    or any later version published by the Free Software Foundation;
@@ -17,67 +17,67 @@
 %%####################################################################
 \subsection{Beschreibung}
 \subsubsection{Einleitung}
-SQLdb\label{SQLdb} wird speziell für Serverbasierende Datenbanken verwendet und besteht im Wesentlichen aus Komponenten für die Verbindung (TxxxConnection), für das Verwalten von Transaktionen (TSQLTransaction) und dem Verwalten von Datenmengen (TSQLQuery). Für Clientdatenbanken (Dbase, FoxPro,...) sind die Komponenten unter 'Client Access'\footnote{Siehe Kapitel \ref{ClientAccess} auf Seite \pageref{ClientAccess}} vorgesehen. \parpic[sr][l]{\includegraphics[width=0.5\textwidth]{Kapitel/datenbanken/pics/Laz_SqlDB_components}}
+SQLdb\label{SQLdb} wird speziell fÃ¼r Serverbasierende Datenbanken verwendet und besteht im Wesentlichen aus Komponenten fÃ¼r die Verbindung (TxxxConnection), fÃ¼r das Verwalten von Transaktionen (TSQLTransaction) und dem Verwalten von Datenmengen (TSQLQuery). FÃ¼r Clientdatenbanken (Dbase, FoxPro,...) sind die Komponenten unter 'Client Access'\footnote{Siehe Kapitel \ref{ClientAccess} auf Seite \pageref{ClientAccess}} vorgesehen. \parpic[sr][l]{\includegraphics[width=0.5\textwidth]{Kapitel/datenbanken/pics/Laz_SqlDB_components}}
 \label{fig:LazSqlDB01}
-Besonders die TSQLQuery ist eine mächtige Komponente, die einige automatismen eingebaut hat, die zwar das Leben erleichtern sollen, aber oft das Gegenteil bewirken können. In diesem Kapitel wollen wir uns die Komponenten einmal genauer ansehen. Das Bild aus der Wiki aus dem englischen Lazarusforum\cite{laz.en}\footnote{\textsl{http://wiki.lazarus.freepascal.org/SQLdb\_Programming\_Reference}} erklärt schön, wie die Komponenten zusammenhängen und in welchen Units sie sich befinden.
+Besonders die TSQLQuery ist eine mÃ¤chtige Komponente, die einige automatismen eingebaut hat, die zwar das Leben erleichtern sollen, aber oft das Gegenteil bewirken kÃ¶nnen. In diesem Kapitel wollen wir uns die Komponenten einmal genauer ansehen. Das Bild aus der Wiki aus dem englischen Lazarusforum\cite{laz.en}\footnote{\textsl{http://wiki.lazarus.freepascal.org/SQLdb\_Programming\_Reference}} erklÃ¤rt schÃ¶n, wie die Komponenten zusammenhÃ¤ngen und in welchen Units sie sich befinden.
 
 \subsubsection{Debbuging von SQLdb}
-SQLdb ist ein Teil der FCL und nicht direkt von Lazarus. Die FCL wird standardmässig nicht mit den für den Debugger notwendigen Informationen kompiliert, da der Kode so kompakter und kleiner ist. Wenn man für die Fehlersuche es anders benötigt, so muß man die fcl-db neu kompileren. Dazu muß man die kompletten FCL Sourcen haben, dann kann man in das Verzeichnis 'fpc/packages/fcl-db' gehen und mit 'make clean all OPT='-gl'' das Paket neu kompiliren, anschliessen die neuen PPU's über die alten kopieren. Die Fehlersuche wird aber nur Personen empfohlen, die entsprechendes Wissen über die SQLdb Komponenten haben.
+SQLdb ist ein Teil der FCL und nicht direkt von Lazarus. Die FCL wird standardmÃ¤ssig nicht mit den fÃ¼r den Debugger notwendigen Informationen kompiliert, da der Kode so kompakter und kleiner ist. Wenn man fÃ¼r die Fehlersuche es anders benÃ¶tigt, so muÃŸ man die fcl-db neu kompileren. Dazu muÃŸ man die kompletten FCL Sourcen haben, dann kann man in das Verzeichnis 'fpc/packages/fcl-db' gehen und mit 'make clean all OPT='-gl'' das Paket neu kompiliren, anschliessen die neuen PPU's Ã¼ber die alten kopieren. Die Fehlersuche wird aber nur Personen empfohlen, die entsprechendes Wissen Ã¼ber die SQLdb Komponenten haben.
 
 \subsubsection{Active, Open oder ExecSQL}
-... das ist hier die Frage ? Um diese Frage zu beantworten, muß man sich vor Augen halten, was man von der Komponente will. Mittels dem Befehl Open fordert man eine Datenmenge, die Kardinalität\footnote{siehe Kapitel \ref{Kardinalitaet} auf Seite \pageref{Kardinalitaet}} einer Datenmenge\footnote{siehe Kapitel \ref{Datenmenge} auf Seite \pageref{Datenmenge}} kann auch Null sein, an. Mit ExecSQL wird nur eine Aktion angefordert ohne das eine Datenmenge zurück erwartet wird. 
-Somit ist klar, das bei allen Daten liefernden Statements das Open zu verwenden ist. Welche Statements in SQL liefern überhaupt Datenmengen zurück ? Eigentlich gilt das nur für das 'SELECT' Statement, alle anderen ('INSERT', 'UPDATE', 'DELETE', ...) führen etwas aus, liefern aber keine Daten zurück. Ob man jetzt 'Open' verwendet oder 'Active:=true;' macht ist letztlich egal, 'Open' führt genau dieses Statement aus.  
+... das ist hier die Frage ? Um diese Frage zu beantworten, muÃŸ man sich vor Augen halten, was man von der Komponente will. Mittels dem Befehl Open fordert man eine Datenmenge, die KardinalitÃ¤t\footnote{siehe Kapitel \ref{Kardinalitaet} auf Seite \pageref{Kardinalitaet}} einer Datenmenge\footnote{siehe Kapitel \ref{Datenmenge} auf Seite \pageref{Datenmenge}} kann auch Null sein, an. Mit ExecSQL wird nur eine Aktion angefordert ohne das eine Datenmenge zurÃ¼ck erwartet wird. 
+Somit ist klar, das bei allen Daten liefernden Statements das Open zu verwenden ist. Welche Statements in SQL liefern Ã¼berhaupt Datenmengen zurÃ¼ck ? Eigentlich gilt das nur fÃ¼r das 'SELECT' Statement, alle anderen ('INSERT', 'UPDATE', 'DELETE', ...) fÃ¼hren etwas aus, liefern aber keine Daten zurÃ¼ck. Ob man jetzt 'Open' verwendet oder 'Active:=true;' macht ist letztlich egal, 'Open' fÃ¼hrt genau dieses Statement aus.  
 
-Eine Besonderheit ist die Behandlung von 'Stored Procedure' und 'Functions' auf SQL-Servern. Diese können eine Kombination im Verhalten darstellen. Dort ist dann ein ExecSQL angebracht und es können Datenmengen zurückgeliefert werden.
+Eine Besonderheit ist die Behandlung von 'Stored Procedure' und 'Functions' auf SQL-Servern. Diese kÃ¶nnen eine Kombination im Verhalten darstellen. Dort ist dann ein ExecSQL angebracht und es kÃ¶nnen Datenmengen zurÃ¼ckgeliefert werden.
 
 Zusammenfassung:
 \begin{itemize}
 	\item Open, Active: Bei der Verwendung von 'SELECT'
-	\item ExecSQL: Für alle anderen Statements 
+	\item ExecSQL: FÃ¼r alle anderen Statements 
 \end{itemize}
 
-\subsubsection{Wie kommen die geänderten Daten in die Datenbank}
-Eine änderung der Datenmenge alleine ist nicht ausreichend, um diese Änderung auch in der Datenbank sichtbar zu machen. Prinzipiell muß man jetzt zwei Wege unterscheiden. Einerseits kann man Änderungen im Zuge einer Transaktion in der Datenbank festschreiben durch das Abschliessen der Transaktion oder auch durch das dezitierte schreiben durch ApplyUpdates. Ich bin der Meinung, das man sich für einen der Wege entscheiden sollte, wenn man eine Datenmenge öffnet beziehungsweise anfordert. 
-Arbeitet man mit Transdaktionen, dann soltte man ohne zwingenden Grund nicht mit ApplyUpdates das Transaktions\-managment stören.
-Anderseits wenn man ohne explzite Transaktionen arbeitet, also Datenmengen öffnet ohne vorher Transaktionen geöffnet zu haben, dann darf man nicht vergessen die Änderungen entweder mittels ApplyUpdates zu übernehmen oder mittels CancelUpdates zu verwerfen. Vergisst man auf ApplyUpdates so ist dieses schlimmer als auf CancelUpdates zu vergessen. Denn ohne dem ApplyUpdates sind die Daten bei den meisten Datenbanken ganz einfach nicht in die Datenbank eingearbeitet und somit verloren.
+\subsubsection{Wie kommen die geÃ¤nderten Daten in die Datenbank}
+Eine Ã¤nderung der Datenmenge alleine ist nicht ausreichend, um diese Ã„nderung auch in der Datenbank sichtbar zu machen. Prinzipiell muÃŸ man jetzt zwei Wege unterscheiden. Einerseits kann man Ã„nderungen im Zuge einer Transaktion in der Datenbank festschreiben durch das Abschliessen der Transaktion oder auch durch das dezitierte schreiben durch ApplyUpdates. Ich bin der Meinung, das man sich fÃ¼r einen der Wege entscheiden sollte, wenn man eine Datenmenge Ã¶ffnet beziehungsweise anfordert. 
+Arbeitet man mit Transdaktionen, dann soltte man ohne zwingenden Grund nicht mit ApplyUpdates das Transaktions\-managment stÃ¶ren.
+Anderseits wenn man ohne explzite Transaktionen arbeitet, also Datenmengen Ã¶ffnet ohne vorher Transaktionen geÃ¶ffnet zu haben, dann darf man nicht vergessen die Ã„nderungen entweder mittels ApplyUpdates zu Ã¼bernehmen oder mittels CancelUpdates zu verwerfen. Vergisst man auf ApplyUpdates so ist dieses schlimmer als auf CancelUpdates zu vergessen. Denn ohne dem ApplyUpdates sind die Daten bei den meisten Datenbanken ganz einfach nicht in die Datenbank eingearbeitet und somit verloren.
 
 \subsubsection{Filtern, aber wo ?}
-Die Standardantwort ist im Stile von Radio Eriwan: 'Dort wo es sinnvoll ist'. Dazu muß man sich vor Augen halten, wo man eine Datenmenge überhaupt filtern kann. Dazu muß man unterscheiden in Desktop Datenbanken und Server Datenbanken. 
+Die Standardantwort ist im Stile von Radio Eriwan: 'Dort wo es sinnvoll ist'. Dazu muÃŸ man sich vor Augen halten, wo man eine Datenmenge Ã¼berhaupt filtern kann. Dazu muÃŸ man unterscheiden in Desktop Datenbanken und Server Datenbanken. 
 Bei Desktop Datenbanken kann die Frage schon obsolet sein, weil die Datenmenge sowieso nur lokal gefiltert werden kann. 
-Bei Datenbankenservern schaut die Sachlage ganz anders aus. Denn die können Datenmengen sehr wohl, effizient vor verarbeiten und nur die wenigen Ergebnisse zurück transportieren. Damit wird am lokalen Rechner Netzwerkleistung, Speicher und Resourcen geschont. Somit kann man hier dem filtern am Server den Vorzug geben. Werden aber Daten erst am lokalen Rechner verknüpft, so kann man oft nur lokal filtern. 
+Bei Datenbankenservern schaut die Sachlage ganz anders aus. Denn die kÃ¶nnen Datenmengen sehr wohl, effizient vor verarbeiten und nur die wenigen Ergebnisse zurÃ¼ck transportieren. Damit wird am lokalen Rechner Netzwerkleistung, Speicher und Resourcen geschont. Somit kann man hier dem filtern am Server den Vorzug geben. Werden aber Daten erst am lokalen Rechner verknÃ¼pft, so kann man oft nur lokal filtern. 
 Somit ist klar, das es stark auf das Design der Applikation an kommt, was sinnvoll ist.  
 
-\subsubsection{Anzahl der Datensätze abfragen}
-Hier kann man generell zwei verschiedene Fälle unterscheiden. Einmal den Fall, das man wissen will, ob überhaupt Datensätze vorhanden sind und dem Fall, das man die Anzahl wissen will. 
+\subsubsection{Anzahl der DatensÃ¤tze abfragen}
+Hier kann man generell zwei verschiedene FÃ¤lle unterscheiden. Einmal den Fall, das man wissen will, ob Ã¼berhaupt DatensÃ¤tze vorhanden sind und dem Fall, das man die Anzahl wissen will. 
 
-Generell ist es nur dann sinnvoll die Anzahl der Datensätze zu bestimmen, wenn eine Abfrage aktiv ist.
+Generell ist es nur dann sinnvoll die Anzahl der DatensÃ¤tze zu bestimmen, wenn eine Abfrage aktiv ist.
 
-Ob Datensätze überhaupt vorhanden sind, kann man über die Abfrage von EOF\footnote{End of File - Anfang der Daten} und BOF\footnote{Beginn of File - Ende der Daten} machen. Sind beide vorhanden ('true') so muß die Datenmenge leer sein. Genau diese macht die Methode 'IsEmpty'. Somit kann man diese genau für diesen Fall verwenden.
+Ob DatensÃ¤tze Ã¼berhaupt vorhanden sind, kann man Ã¼ber die Abfrage von EOF\footnote{End of File - Anfang der Daten} und BOF\footnote{Beginn of File - Ende der Daten} machen. Sind beide vorhanden ('true') so muÃŸ die Datenmenge leer sein. Genau diese macht die Methode 'IsEmpty'. Somit kann man diese genau fÃ¼r diesen Fall verwenden.
 
-Die Anzahl selbst der Datensätze, kann man theoretisch mittels der Eigenschaft 'RecordCount' abfragen. Alledings muß dazu auch der Datenbanktreiber\footnote{Ist genaugenommen die Verbindungskomponente} das unterstützen. Bis jetzt ist die Unterstützung auch nicht wirklich vorhanden. Weiters handelt es sich hier eher um eine Eigenschaft von Desktopdatenbanken, denn dort kann die Anzahl der Datensätze nicht anders festgestellt werden.
+Die Anzahl selbst der DatensÃ¤tze, kann man theoretisch mittels der Eigenschaft 'RecordCount' abfragen. Alledings muÃŸ dazu auch der Datenbanktreiber\footnote{Ist genaugenommen die Verbindungskomponente} das unterstÃ¼tzen. Bis jetzt ist die UnterstÃ¼tzung auch nicht wirklich vorhanden. Weiters handelt es sich hier eher um eine Eigenschaft von Desktopdatenbanken, denn dort kann die Anzahl der DatensÃ¤tze nicht anders festgestellt werden.
 
 Die andere Variante die sich daher anbietet ist die SQL Abfrage selbst. So kann man mittels dem SQL-Statement \verb|select count(row1) as Anzahl from table1 where ...| die Anzahl ermitteln.
 
 %
 %Methoden .RecordCount:
-%Ein 'select count(row1) as Anzahl from table1 where ... ' bringt die Information auch (Server). Warum jetzt RecordCount nicht funktioniert müsst ich mir ansehen. Du hast es aber auf eine vorhandene geöffnete Datenmenge anzuwenden probiert ?
+%Ein 'select count(row1) as Anzahl from table1 where ... ' bringt die Information auch (Server). Warum jetzt RecordCount nicht funktioniert mÃ¼sst ich mir ansehen. Du hast es aber auf eine vorhandene geÃ¶ffnete Datenmenge anzuwenden probiert ?
 
 \subsubsection{Navigieren durch eine Datenmenge}
-Für das Navigieren durch die Datenmenge stehen ein paar Befehle zur Verfügung. Mit 'first' kommt man zum ersten, mit 'last' zum letzten, mit 'next' springt man auf den nächsten und mit mit 'prior' zum vorhergehenden Datensatz. Größere Bewegungen kann man mit 'MoveBy' machen. Das funktioniert vorwärts mit positiven Zahlen, rückwärts mit negativen Zahlen. Allerdings muß man bedenken, das ein 'MoveBy' nicht zwingend die volle Distanz verfahren kann, wenn die Grenzen der Datenmenge erreicht werden. Wenn also ein EOF oder BOF nach dem 'MoveBy' ansteht, so wird nicht die volle Distanz erreicht worden sein, man weiß aber nicht um wie viel verfahren wurde.
+FÃ¼r das Navigieren durch die Datenmenge stehen ein paar Befehle zur VerfÃ¼gung. Mit 'first' kommt man zum ersten, mit 'last' zum letzten, mit 'next' springt man auf den nÃ¤chsten und mit mit 'prior' zum vorhergehenden Datensatz. GrÃ¶ÃŸere Bewegungen kann man mit 'MoveBy' machen. Das funktioniert vorwÃ¤rts mit positiven Zahlen, rÃ¼ckwÃ¤rts mit negativen Zahlen. Allerdings muÃŸ man bedenken, das ein 'MoveBy' nicht zwingend die volle Distanz verfahren kann, wenn die Grenzen der Datenmenge erreicht werden. Wenn also ein EOF oder BOF nach dem 'MoveBy' ansteht, so wird nicht die volle Distanz erreicht worden sein, man weiÃŸ aber nicht um wie viel verfahren wurde.
 
 \subsubsection{Was ist BOF und EOF}
 'BOF' bedeutet das man in der Datenmenge am Anfang, bei 'EOF'  am Ende der Datenmenge steht. Wenn zum gleichen Zeitpunkt beide vorhanden sind, so ist das ein Zeichen, das die Datenmenge null ist.
 
 \subsubsection{Zugriff auf Felder}
-Auf die Felder\footnote{auch Attribute genannt} kann über die Eigenschaft 'Fields' zugegriffen werden. Zusätzlich kann über die Methode 'FieldByName' mittels des Feldnamens oder 'FieldByNumber' einfach auf die einzelnen Felder zugegriffen werden. Die Werte werden über die 'Values' Eigenschaft als variant zugewiesen oder über die entsprechenden 'AsInteger', 'AsString' und 'As.....'. 
+Auf die Felder\footnote{auch Attribute genannt} kann Ã¼ber die Eigenschaft 'Fields' zugegriffen werden. ZusÃ¤tzlich kann Ã¼ber die Methode 'FieldByName' mittels des Feldnamens oder 'FieldByNumber' einfach auf die einzelnen Felder zugegriffen werden. Die Werte werden Ã¼ber die 'Values' Eigenschaft als variant zugewiesen oder Ã¼ber die entsprechenden 'AsInteger', 'AsString' und 'As.....'. 
 
 \subsubsection{Zugriff auf Parameter}
-Auf die Felder der Parameter kann über die Eigenschaft 'Params' zugegriffen werden.Zusätzlich kann über die Methode 'ParamsByName' mittels des Feldnamens einfach auf die einzelnen Felder zugegriffen werden. Die Werte werden über die 'Values' Eigenschaft als variant zugewiesen oder über die entsprechenden 'AsInteger', 'AsString' und 'As.....'. 
+Auf die Felder der Parameter kann Ã¼ber die Eigenschaft 'Params' zugegriffen werden.ZusÃ¤tzlich kann Ã¼ber die Methode 'ParamsByName' mittels des Feldnamens einfach auf die einzelnen Felder zugegriffen werden. Die Werte werden Ã¼ber die 'Values' Eigenschaft als variant zugewiesen oder Ã¼ber die entsprechenden 'AsInteger', 'AsString' und 'As.....'. 
 
-Im SQL-Statement werden die Parameter durch einen Doppelpunkt am Anfang des Names kenntlich gemacht. Zum Beispiel: \verb|insert tablex (row1, row2) values (:param1, :param2)| Hier ist ':param1' einer der Parameter. Die Zuweisung im Programm erfolgt über \verb|TQ1.Params.ParamByName('param1').value := 'test';|.
+Im SQL-Statement werden die Parameter durch einen Doppelpunkt am Anfang des Names kenntlich gemacht. Zum Beispiel: \verb|insert tablex (row1, row2) values (:param1, :param2)| Hier ist ':param1' einer der Parameter. Die Zuweisung im Programm erfolgt Ã¼ber \verb|TQ1.Params.ParamByName('param1').value := 'test';|.
 
-\subsubsection{Schlüsselfelder}
-Als Schlüsselfelder werden die Felder\footnote{Schlüssel können über mehrere Felder gehen um eindeutig zu sein, oder weil sie zusammengesetzt sind} bezeichnet in dem der primäre Schlüssel der Tabelle gespeichert ist. Dieser sollte bei jeder änderbaren Datenmenge definiert sein, damit die Komponenente richtig die Datensätze ändern oder löschen kann. Schlüssel erzwingen eine Eindeutigkeit.
+\subsubsection{SchlÃ¼sselfelder}
+Als SchlÃ¼sselfelder werden die Felder\footnote{SchlÃ¼ssel kÃ¶nnen Ã¼ber mehrere Felder gehen um eindeutig zu sein, oder weil sie zusammengesetzt sind} bezeichnet in dem der primÃ¤re SchlÃ¼ssel der Tabelle gespeichert ist. Dieser sollte bei jeder Ã¤nderbaren Datenmenge definiert sein, damit die Komponenente richtig die DatensÃ¤tze Ã¤ndern oder lÃ¶schen kann. SchlÃ¼ssel erzwingen eine Eindeutigkeit.
 
 % Auf usePrimaryKeyAsKey nicht vergessen.
 
@@ -88,7 +88,7 @@ Hier werden die gemeinsamen Methoden und EIgenschaften behandelt, im Folgenden d
 
 \subsubsection{Close}
 \begin{description}
-  \item \texttt{procedure Close;}\\Setzt ganz einfach die Eígenschaft active auf false.
+  \item \texttt{procedure Close;}\\Setzt ganz einfach die EÃ­genschaft active auf false.
   \begin{description}
     \item Methode von TxxxConnection>TSQLConnection>TDatabase>TCustomConnection
   \end{description}
@@ -105,15 +105,15 @@ Hier werden die gemeinsamen Methoden und EIgenschaften behandelt, im Folgenden d
 \subsubsection{ExecuteDirect}
 \begin{description}
   \item \texttt{procedure ExecuteDirect(SQL : String); overload; virtual;}
-  \item \texttt{procedure ExecuteDirect(SQL : String; ATransaction : TSQLTransaction); overload; virtual;}\\Führt das SQL-Statement entweder im Kontext der default Transaktion oder mittels der Angegeben Transaktion aus.
+  \item \texttt{procedure ExecuteDirect(SQL : String; ATransaction : TSQLTransaction); overload; virtual;}\\FÃ¼hrt das SQL-Statement entweder im Kontext der default Transaktion oder mittels der Angegeben Transaktion aus.
   \begin{description}
     \item Methode von TxxxConnection>TSQLConnection
   \end{description}
   \begin{description}
     \item Parameter
     \begin{description}
-      \item[SQL: string] Das auszuführende SQL-Statement
-      \item[ATransaction : TSQLTransaction] Die Transaktion in deren Kontext das SQL-Statement durchgeführt wird. 
+      \item[SQL: string] Das auszufÃ¼hrende SQL-Statement
+      \item[ATransaction : TSQLTransaction] Die Transaktion in deren Kontext das SQL-Statement durchgefÃ¼hrt wird. 
     \end{description}
   \end{description}
 \end{description}
@@ -149,7 +149,7 @@ Hier werden die gemeinsamen Methoden und EIgenschaften behandelt, im Folgenden d
 
 \subsubsection{GetTableNames}
 \begin{description}
-  \item \texttt{procedure GetTableNames(List : TStrings; SystemTables : Boolean = false); virtual;}\\Ermittelt die Tabellennamen oder die Systemtabellennamen (abhängig von SystemTables)
+  \item \texttt{procedure GetTableNames(List : TStrings; SystemTables : Boolean = false); virtual;}\\Ermittelt die Tabellennamen oder die Systemtabellennamen (abhÃ¤ngig von SystemTables)
   \begin{description}
     \item Methode von TxxxConnection>TSQLConnection
   \end{description}
@@ -164,7 +164,7 @@ Hier werden die gemeinsamen Methoden und EIgenschaften behandelt, im Folgenden d
 
 \subsubsection{Open}
 \begin{description}
-  \item \texttt{procedure Open;}\\Setzt ganz einfach die Eígenschaft active auf true.
+  \item \texttt{procedure Open;}\\Setzt ganz einfach die EÃ­genschaft active auf true.
   \begin{description}
     \item Methode von TxxxConnection>TSQLConnection>TDatabase>TCustomConnection
   \end{description}
@@ -202,7 +202,7 @@ Hier werden die gemeinsamen Methoden und EIgenschaften behandelt, im Folgenden d
 
 \subsubsection{DatabaseName}
 \begin{description}
-  \item \texttt{property DatabaseName: string read FDatabaseName write FDatabaseName;}\\Gibt den Namen der Datenbank an. Ist für die verschiedenen Datenbanken unterschiedlich. Siehe bei den entsprechenden Verbindungen.
+  \item \texttt{property DatabaseName: string read FDatabaseName write FDatabaseName;}\\Gibt den Namen der Datenbank an. Ist fÃ¼r die verschiedenen Datenbanken unterschiedlich. Siehe bei den entsprechenden Verbindungen.
   \begin{description}
     \item Eigenschaft von TxxxConnection>TSQLConnection>TDatabase
   \end{description}
@@ -246,7 +246,7 @@ Hier werden die gemeinsamen Methoden und EIgenschaften behandelt, im Folgenden d
 
 \subsubsection{Params}
 \begin{description}
-  \item \texttt{property Params : TStrings read FParams Write FParams;}\\Enthält spezielle Parameter für die Verbindung.
+  \item \texttt{property Params : TStrings read FParams Write FParams;}\\EnthÃ¤lt spezielle Parameter fÃ¼r die Verbindung.
   \begin{description}
     \item Eigenschaft von TxxxConnection>TSQLConnection>TDatabase
   \end{description}
@@ -257,7 +257,7 @@ Hier werden die gemeinsamen Methoden und EIgenschaften behandelt, im Folgenden d
 
 \subsubsection{Password}
 \begin{description}
-  \item \texttt{}\\Enthält das Passwort für die Verbindung. Nicht benötigt, wenn LoginPrompt true ist.
+  \item \texttt{}\\EnthÃ¤lt das Passwort fÃ¼r die Verbindung. Nicht benÃ¶tigt, wenn LoginPrompt true ist.
   \begin{description}
     \item Eigenschaft von TxxxConnection>TSQLConnection>TDatabase
   \end{description}
@@ -301,7 +301,7 @@ Hier werden die gemeinsamen Methoden und EIgenschaften behandelt, im Folgenden d
 
 \subsubsection{UserName}
 \begin{description}
-  \item \texttt{property UserName : string read FUserName write FUserName;}\\Enthält den Benutzernamen für die Verbindung beziehungsweise für den Zugriff auf die Datenbank.
+  \item \texttt{property UserName : string read FUserName write FUserName;}\\EnthÃ¤lt den Benutzernamen fÃ¼r die Verbindung beziehungsweise fÃ¼r den Zugriff auf die Datenbank.
   \begin{description}
     \item Eigenschaft von TxxxConnection>TSQLConnection
   \end{description}
@@ -340,11 +340,11 @@ Jede Datenbank hat ihre spezielle Verbindung (Connection). Dies hier ist die Ver
 
 %%####################################################################
 \subsection{TSQLTransaction}
-Als Transaktion wird eine feste Folge von Operationen, die eine Einheit bilden, bezeichnet. Transaktionen müssen die ACID-EIgenschaft garantieren. A) Atomität, das heißt untrennbar. Es wird entweder alles oder nichts durchgeführt. C) Konsistenz, Nach der Transaktion müssen die Daten konsistent sein. Daher auch an allen geänderten Stellen den gleichen Inhalt haben. I) Isolation, mehrere gelichzeitig laufende Transaktionen dürfen sich nicht gegenseitig beeinflussen. D) Dauerhaft, die Auswirkungen der Transaktion müssen im Datenbestand dauerhaft sein. Auch bei widrigen Umständen dürfen die Transaktionen nicht verloren gehen oder vergessen werden, zB. bei Rücksicherungen nach Absturz.
+Als Transaktion wird eine feste Folge von Operationen, die eine Einheit bilden, bezeichnet. Transaktionen mÃ¼ssen die ACID-EIgenschaft garantieren. A) AtomitÃ¤t, das heiÃŸt untrennbar. Es wird entweder alles oder nichts durchgefÃ¼hrt. C) Konsistenz, Nach der Transaktion mÃ¼ssen die Daten konsistent sein. Daher auch an allen geÃ¤nderten Stellen den gleichen Inhalt haben. I) Isolation, mehrere gelichzeitig laufende Transaktionen dÃ¼rfen sich nicht gegenseitig beeinflussen. D) Dauerhaft, die Auswirkungen der Transaktion mÃ¼ssen im Datenbestand dauerhaft sein. Auch bei widrigen UmstÃ¤nden dÃ¼rfen die Transaktionen nicht verloren gehen oder vergessen werden, zB. bei RÃ¼cksicherungen nach Absturz.
 
-Der Ablauf einer Transaktion ist relativ einfach. Die Transaktion wird eröffnet, dann die Handlungen an der Datenbank gesetzt und die Transaktion entweder mit 'Rollback' wenn sie zurückgenommen werden soll oder mit 'Commit' wenn die Änderderungen dauerhaft übernommen werden sollten, abgeschlossen.  
+Der Ablauf einer Transaktion ist relativ einfach. Die Transaktion wird erÃ¶ffnet, dann die Handlungen an der Datenbank gesetzt und die Transaktion entweder mit 'Rollback' wenn sie zurÃ¼ckgenommen werden soll oder mit 'Commit' wenn die Ã„nderderungen dauerhaft Ã¼bernommen werden sollten, abgeschlossen.  
 
-Man muß sich nur vor Augen halten, das das Datenbanksystem um die ACID Eigenschaften garantieren zu können, Aktionen wie Sperren, Duplizieren oder auch Warten durchführen muß. Deshalb soll eine Transaktion nur solange aufrecht erhalten werden wie es unbedingt nötig ist. Das heisst, auch, während einer Benutzereingabe oder sonstiger Wartezeit sollte keine Transaktion stattfinden. Besonders bei Mehrbenutzersystemen kann das bis zum Stillstand der Datenbank führen, wenn wegen vergessener Eingabe bei Arbeitscschluß eine Transaktion aktiv bleibt und deshalb eine Sperre auf einer Datenbank liegt.
+Man muÃŸ sich nur vor Augen halten, das das Datenbanksystem um die ACID Eigenschaften garantieren zu kÃ¶nnen, Aktionen wie Sperren, Duplizieren oder auch Warten durchfÃ¼hren muÃŸ. Deshalb soll eine Transaktion nur solange aufrecht erhalten werden wie es unbedingt nÃ¶tig ist. Das heisst, auch, wÃ¤hrend einer Benutzereingabe oder sonstiger Wartezeit sollte keine Transaktion stattfinden. Besonders bei Mehrbenutzersystemen kann das bis zum Stillstand der Datenbank fÃ¼hren, wenn wegen vergessener Eingabe bei ArbeitscschluÃŸ eine Transaktion aktiv bleibt und deshalb eine Sperre auf einer Datenbank liegt.
 
 \subsubsection{Commit}
 \begin{description}
@@ -356,7 +356,7 @@ Man muß sich nur vor Augen halten, das das Datenbanksystem um die ACID Eigenscha
 
 \subsubsection{CommitRetaining}
 \begin{description}
-  \item \texttt{procedure CommitRetaining; virtual;}\\Führt ein Commit durch, lässt aber die Datenmenge offen. Wenn es die Datenbank nicht unterstützt, so wird es von der SQLdb Komponete simmuliert.
+  \item \texttt{procedure CommitRetaining; virtual;}\\FÃ¼hrt ein Commit durch, lÃ¤sst aber die Datenmenge offen. Wenn es die Datenbank nicht unterstÃ¼tzt, so wird es von der SQLdb Komponete simmuliert.
   \begin{description}
     \item Methode von TSQLTransaction
   \end{description}
@@ -364,7 +364,7 @@ Man muß sich nur vor Augen halten, das das Datenbanksystem um die ACID Eigenscha
 
 \subsubsection{EndTransaction}
 \begin{description}
-  \item \texttt{procedure EndTransaction; override;}\\Beendet die Transaktion, führt ein normalerweise ein Rollback durch.
+  \item \texttt{procedure EndTransaction; override;}\\Beendet die Transaktion, fÃ¼hrt ein normalerweise ein Rollback durch.
   \begin{description}
     \item Methode von TSQLTransaction
   \end{description}
@@ -372,7 +372,7 @@ Man muß sich nur vor Augen halten, das das Datenbanksystem um die ACID Eigenscha
 
 \subsubsection{Rollback}
 \begin{description}
-  \item \texttt{procedure Rollback; virtual;}\\Rollt die Transaktion zurück, macht daher die Änderungen nicht aktiv.
+  \item \texttt{procedure Rollback; virtual;}\\Rollt die Transaktion zurÃ¼ck, macht daher die Ã„nderungen nicht aktiv.
   \begin{description}
     \item Methode von TSQLTransaction
   \end{description}
@@ -380,7 +380,7 @@ Man muß sich nur vor Augen halten, das das Datenbanksystem um die ACID Eigenscha
 
 \subsubsection{RollbackRetaining}
 \begin{description}
-  \item \texttt{procedure RollbackRetaining; virtual;}\\Führt ein Rollback durch, lässt aber die Datenmenge offen. Wenn es die Datenbank nicht unterstützt, so wird es von der SQLdb Komponete simmuliert.
+  \item \texttt{procedure RollbackRetaining; virtual;}\\FÃ¼hrt ein Rollback durch, lÃ¤sst aber die Datenmenge offen. Wenn es die Datenbank nicht unterstÃ¼tzt, so wird es von der SQLdb Komponete simmuliert.
   \begin{description}
     \item Methode von TSQLTransaction
   \end{description}
@@ -418,7 +418,7 @@ Man muß sich nur vor Augen halten, das das Datenbanksystem um die ACID Eigenscha
 
 \subsubsection{Params}
 \begin{description}
-  \item \texttt{property Params : TStrings read FParams Write FParams;}\\Enthält spezielle Parameter für die Verbindung.
+  \item \texttt{property Params : TStrings read FParams Write FParams;}\\EnthÃ¤lt spezielle Parameter fÃ¼r die Verbindung.
   \begin{description}
     \item Eigenschaft von TxxxConnection>TSQLConnection>TDatabase
   \end{description}
@@ -432,7 +432,7 @@ Man muß sich nur vor Augen halten, das das Datenbanksystem um die ACID Eigenscha
 %%####################################################################
 \subsection{TSQLQuery}
 \subsubsection{Allgemeines}
-Der Name beschreibt nur unzureichend die Komponente. Es ist nicht nur ein Behälter für Abfragen (Query) sondern die Kapselung für die Datenmenge. Das heisst, über die Komponente läuft eigenlich alles bezüglich Daten und Datenmenge. Sie wird sowohl für DDL\footnote{Datendefinitionssprache siehe Kapitel \ref{DDL} auf Seite \pageref{DCL}}, DML\footnote{Datenveränderungssprache siehe Kapitel \ref{DML} auf Seite \pageref{DCL}} und DCL\footnote{Datenkontrollsprache siehe Kapitel \ref{DCL} auf Seite \pageref{DCL}} verwendet
+Der Name beschreibt nur unzureichend die Komponente. Es ist nicht nur ein BehÃ¤lter fÃ¼r Abfragen (Query) sondern die Kapselung fÃ¼r die Datenmenge. Das heisst, Ã¼ber die Komponente lÃ¤uft eigenlich alles bezÃ¼glich Daten und Datenmenge. Sie wird sowohl fÃ¼r DDL\footnote{Datendefinitionssprache siehe Kapitel \ref{DDL} auf Seite \pageref{DCL}}, DML\footnote{DatenverÃ¤nderungssprache siehe Kapitel \ref{DML} auf Seite \pageref{DCL}} und DCL\footnote{Datenkontrollsprache siehe Kapitel \ref{DCL} auf Seite \pageref{DCL}} verwendet
 
 
 \subsubsection{Methoden von TSQLQuery}
@@ -441,7 +441,7 @@ Im folgenden sind hier die wichtigsten Methoden beschrieben. Standardmethoden wi
 \subsubsection{ApplyUpdates}
 \begin{description}
   \item \texttt{procedure ApplyUpdates; virtual; overload;}
-  \item \texttt{procedure ApplyUpdates(MaxErrors: Integer); virtual; overload;}\\Überträgt die Änderungen von der Datenmenge in die Datenbank. 'ApplyUpdates' entspricht 'ApplyUpdates(0)'.
+  \item \texttt{procedure ApplyUpdates(MaxErrors: Integer); virtual; overload;}\\ÃœbertrÃ¤gt die Ã„nderungen von der Datenmenge in die Datenbank. 'ApplyUpdates' entspricht 'ApplyUpdates(0)'.
   \begin{description}
     \item Methode von TSQLQuery>TBufDataset
   \end{description}
@@ -449,7 +449,7 @@ Im folgenden sind hier die wichtigsten Methoden beschrieben. Standardmethoden wi
 
 \subsubsection{CancelUpdates}
 \begin{description}
-  \item \texttt{procedure CancelUpdates; virtual;}\\Die Änderungen an der Datenmenge werden verworfen.
+  \item \texttt{procedure CancelUpdates; virtual;}\\Die Ã„nderungen an der Datenmenge werden verworfen.
   \begin{description}
     \item Methode von TSQLQuery>TBufDataset
   \end{description}
@@ -467,7 +467,7 @@ Setzt die Eigenschaft 'Active' auf 'false'. Somit wird die Datenmenge geschlosse
 \subsubsection{ExecSQL}
 \begin{description}
   \item \texttt{procedure ExecSQL;}\\
-Führt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine Datenmenge zurück. Sonderfall 'Stored Procedure' kann unter umständen Datenmengen zurück liefern. 
+FÃ¼hrt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine Datenmenge zurÃ¼ck. Sonderfall 'Stored Procedure' kann unter umstÃ¤nden Datenmengen zurÃ¼ck liefern. 
   \begin{description}
     \item Methode von TSQLQuery
   \end{description}
@@ -476,7 +476,7 @@ Führt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine
 \subsubsection{IsEmpty}
 \begin{description}
   \item \texttt{function IsEmpty: Boolean;}\\
-Überprüft ob die Datenmenge leer ist. Gibt true zurück, wenn die Datenmenge leer ist. Zu beachten ist, das das Ergebnis immer false ist, wenn die Datenmenge im Zustand 'dsinsert' ist, sprich ein Datensatz eingefügt wird. Ausserdem ist die Prüfung nur dann sinnvoll wenn eine Abfrage aktiv ist.
+ÃœberprÃ¼ft ob die Datenmenge leer ist. Gibt true zurÃ¼ck, wenn die Datenmenge leer ist. Zu beachten ist, das das Ergebnis immer false ist, wenn die Datenmenge im Zustand 'dsinsert' ist, sprich ein Datensatz eingefÃ¼gt wird. Ausserdem ist die PrÃ¼fung nur dann sinnvoll wenn eine Abfrage aktiv ist.
   \begin{description}
     \item Methode von TSQLQuery>TBufDataset>TDBDataset>TDataSet
   \end{description}
@@ -484,7 +484,7 @@ Führt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine
 
 \subsubsection{Locate}
 \begin{description}
-  \item \texttt{function Locate(const keyfields: string; const keyvalues: Variant; options: TLocateOptions) : boolean; override;}\\ Achtung, es ist derzeit nur möglich in einem Feld zu suchen, nicht in mehreren. Beim Suchen selbst sind keine Wildcards erlaubt ('*', '\%',...)
+  \item \texttt{function Locate(const keyfields: string; const keyvalues: Variant; options: TLocateOptions) : boolean; override;}\\ Achtung, es ist derzeit nur mÃ¶glich in einem Feld zu suchen, nicht in mehreren. Beim Suchen selbst sind keine Wildcards erlaubt ('*', '\%',...)
   \begin{description}
     \item Methode von TSQLQuery>TBufDataset
   \end{description}
@@ -501,7 +501,7 @@ Führt die in der Eigenschaft SQL definierten SQL-Befehle aus, liefert aber keine
 \subsubsection{Open}
 \begin{description}
   \item \texttt{procedure Open;}\\
-Führt die in der Eigenschaft SQL definierten SQL-Befehle aus und liefert die Datenmenge zurück. Intern wird die Eigenschaft 'Active' auf 'true' gesetzt.
+FÃ¼hrt die in der Eigenschaft SQL definierten SQL-Befehle aus und liefert die Datenmenge zurÃ¼ck. Intern wird die Eigenschaft 'Active' auf 'true' gesetzt.
   \begin{description}
     \item Methode von TSQLQuery
   \end{description}
@@ -510,7 +510,7 @@ Führt die in der Eigenschaft SQL definierten SQL-Befehle aus und liefert die Dat
 \subsubsection{Prepare}
 \begin{description}
   \item \texttt{procedure Prepare;}\\
-Mittels Prepare wird die Komponente darauf vorbereitet, das es den Ablauf optimieren kann. Die Komponente geht davon aus, das das SQL-Statement endgültig ist, nur mehr die Parameter können sich ändern. Somit können die Statement verarbeitet werden und die Verbindungen vorbereitet. Die Komponente kann die Staements an die Server leiten und diese können die Befehle jetzt vorkompilieren und optimieren.
+Mittels Prepare wird die Komponente darauf vorbereitet, das es den Ablauf optimieren kann. Die Komponente geht davon aus, das das SQL-Statement endgÃ¼ltig ist, nur mehr die Parameter kÃ¶nnen sich Ã¤ndern. Somit kÃ¶nnen die Statement verarbeitet werden und die Verbindungen vorbereitet. Die Komponente kann die Staements an die Server leiten und diese kÃ¶nnen die Befehle jetzt vorkompilieren und optimieren.
   \begin{description}
     \item Methode von TSQLQuery
   \end{description}
@@ -519,7 +519,7 @@ Mittels Prepare wird die Komponente darauf vorbereitet, das es den Ablauf optimi
 \subsubsection{SetSchemaInfo}
 \begin{description}
   \item \texttt{procedure SetSchemaInfo( SchemaType : TSchema\-Type; Schema\-Object\-Name, Schema\-Pattern : string);}\\
-Setzt das Schema, die aktuellen SQL Statements gehen dabei verloren und werden durch die neuen Informationen ersetzt. Zusätzlich wird der Datenbankzugriff auf nur lesen gesetzt.
+Setzt das Schema, die aktuellen SQL Statements gehen dabei verloren und werden durch die neuen Informationen ersetzt. ZusÃ¤tzlich wird der Datenbankzugriff auf nur lesen gesetzt.
   \begin{description}
     \item Methode von TSQLQuery
   \end{description}
@@ -536,7 +536,7 @@ Setzt das Schema, die aktuellen SQL Statements gehen dabei verloren und werden d
 \subsubsection{Unprepare}
 \begin{description}
   \item \texttt{procedure Unprepare;}\\
-Setzt die durch Prepare ausgelösten Vorverarbeitungen zurück. Sollte immer vor Änderungen an der Komponente aufgerufen werden, wenn man Prepare verwendet hat.
+Setzt die durch Prepare ausgelÃ¶sten Vorverarbeitungen zurÃ¼ck. Sollte immer vor Ã„nderungen an der Komponente aufgerufen werden, wenn man Prepare verwendet hat.
   \begin{description}
     \item Methode von TSQLQuery
   \end{description}
@@ -545,7 +545,7 @@ Setzt die durch Prepare ausgelösten Vorverarbeitungen zurück. Sollte immer vor Ä
 \subsubsection{UpdateStatus}
 \begin{description}
   \item \texttt{function UpdateStatus: TUpdateStatus; override;}\\
-Gibt den Status des Zwischenspeicher für geänderte Daten an. Kann folgende zustände annehmen : Keine Änderungen ist 'usUnmodified', bei Änderungen 'usModified', Einfügungen 'usInserted' und bei Löschungen 'usDeleted'.
+Gibt den Status des Zwischenspeicher fÃ¼r geÃ¤nderte Daten an. Kann folgende zustÃ¤nde annehmen : Keine Ã„nderungen ist 'usUnmodified', bei Ã„nderungen 'usModified', EinfÃ¼gungen 'usInserted' und bei LÃ¶schungen 'usDeleted'.
   \begin{description}
     \item Methode von TSQLQuery>TBufDataset
   \end{description}
@@ -553,11 +553,11 @@ Gibt den Status des Zwischenspeicher für geänderte Daten an. Kann folgende zustä
 
 %*******************
 \subsubsection{Eigenschaften von TSQLQuery}
-Hier beginnt die Beschreibung der wichtigsten Eigenschaften und Ereignisse. Wie schon bei den Methoden, werden hier nur die wichtigsten erläutert. 
+Hier beginnt die Beschreibung der wichtigsten Eigenschaften und Ereignisse. Wie schon bei den Methoden, werden hier nur die wichtigsten erlÃ¤utert. 
 
 \subsubsection{Active}
 \begin{description}
-  \item \texttt{property Active: Boolean read GetActive write SetActive default False;}\\ Sagt aus ob die Komponente derzeit aktiv ist und eine Datenmenge zurückliefert. Ein setzen auf 'true' entspricht der Methode 'Open' und ein setzen auf 'false' entspricht der Methode 'Close'.
+  \item \texttt{property Active: Boolean read GetActive write SetActive default False;}\\ Sagt aus ob die Komponente derzeit aktiv ist und eine Datenmenge zurÃ¼ckliefert. Ein setzen auf 'true' entspricht der Methode 'Open' und ein setzen auf 'false' entspricht der Methode 'Close'.
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -569,7 +569,7 @@ Hier beginnt die Beschreibung der wichtigsten Eigenschaften und Ereignisse. Wie 
 
 \subsubsection{Database}
 \begin{description}
-  \item \texttt{property Database;}\\Gibt die zuständige Databasekomponente (TxxxConnection) an.
+  \item \texttt{property Database;}\\Gibt die zustÃ¤ndige Databasekomponente (TxxxConnection) an.
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -592,7 +592,7 @@ Hier beginnt die Beschreibung der wichtigsten Eigenschaften und Ereignisse. Wie 
 
 \subsubsection{Filter}
 \begin{description}
-  \item \texttt{property Filter: string read FFilterText write SetFilterText;}\\Enthält den Filter für die Datenmenge, wenn definiert. Entspricht einer 'WHERE'-Klausel bei einem SQL Statement - siehe auch 'Serverfiltered'. Normalerweise ist eine Filterung am Server vorzuziehen, da die transportierte Datenmenge geringer ist. 
+  \item \texttt{property Filter: string read FFilterText write SetFilterText;}\\EnthÃ¤lt den Filter fÃ¼r die Datenmenge, wenn definiert. Entspricht einer 'WHERE'-Klausel bei einem SQL Statement - siehe auch 'Serverfiltered'. Normalerweise ist eine Filterung am Server vorzuziehen, da die transportierte Datenmenge geringer ist. 
 Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
   \begin{description}
     \item Eigenschaft von TSQLQuery
@@ -604,7 +604,7 @@ Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
 
 \subsubsection{Filtered}
 \begin{description}
-  \item \texttt{property Filtered: Boolean read FFiltered write SetFiltered default False;}\\Gibt an ob die Datenmenge gefiltert ist. Ein setzen der Eigenschaft bewirkt, das der Filter aktiv wird und die Datenmenge entsprechend eingeschränkt wird. 
+  \item \texttt{property Filtered: Boolean read FFiltered write SetFiltered default False;}\\Gibt an ob die Datenmenge gefiltert ist. Ein setzen der Eigenschaft bewirkt, das der Filter aktiv wird und die Datenmenge entsprechend eingeschrÃ¤nkt wird. 
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -615,7 +615,7 @@ Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
 
 \subsubsection{FilterOptions}
 \begin{description}
-  \item \texttt{property FilterOptions: TFilterOptions read FFilterOptions write SetFilterOptions;}\\Möglich sind 'foCaseInsensitive' ignoriert Groß-, Kleinschreibung und 'foNoPartialCompare' schaltet die Erkennung von Teilen beim Filtern aus. Wirkt nur auf die lokale Filterung und nicht auf die Serverfilter.
+  \item \texttt{property FilterOptions: TFilterOptions read FFilterOptions write SetFilterOptions;}\\MÃ¶glich sind 'foCaseInsensitive' ignoriert GroÃŸ-, Kleinschreibung und 'foNoPartialCompare' schaltet die Erkennung von Teilen beim Filtern aus. Wirkt nur auf die lokale Filterung und nicht auf die Serverfilter.
   \begin{description}
     \item Eigenschaft von TSQLQuery>TBufDataset>TDBDataset>TDataSet
   \end{description}
@@ -626,7 +626,7 @@ Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
 
 \subsubsection{Params}
 \begin{description}
-  \item \texttt{property Params : TParams;}\\Enthält die Parameter für die SQLStatements
+  \item \texttt{property Params : TParams;}\\EnthÃ¤lt die Parameter fÃ¼r die SQLStatements
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -637,7 +637,7 @@ Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
 
 \subsubsection{ParseSQL}\label{ParseSQL}
 \begin{description}
-  \item \texttt{property ParseSQL : Boolean;}\\Mit dieser Eigenschaft wird angezeigt ob die Komponente den SQL-Text auswerten soll. Soll sie den SQL-Text auswerten, so kann der Text für die Optimierung der Indexe etwas umgestellt werden. Weiters wird dann auch UsePrimaryKeyAsKey ausgewertet und zusätzlich, wenn nicht schon vorhanden, die Vorbereitungen für die UpdateSQl, DeleteSQL und InsertSQL durchgeführt. Es kann sein, das die Query in machen fällen schlecht ausgewertet wird, was sich durch dubiose SQLFehler zeigt. Dann kan man versuchen das ParseSQL und UsePrimaryKeyAsKey auszuschalten und alle Queries von Hand richtig zu setzen.   
+  \item \texttt{property ParseSQL : Boolean;}\\Mit dieser Eigenschaft wird angezeigt ob die Komponente den SQL-Text auswerten soll. Soll sie den SQL-Text auswerten, so kann der Text fÃ¼r die Optimierung der Indexe etwas umgestellt werden. Weiters wird dann auch UsePrimaryKeyAsKey ausgewertet und zusÃ¤tzlich, wenn nicht schon vorhanden, die Vorbereitungen fÃ¼r die UpdateSQl, DeleteSQL und InsertSQL durchgefÃ¼hrt. Es kann sein, das die Query in machen fÃ¤llen schlecht ausgewertet wird, was sich durch dubiose SQLFehler zeigt. Dann kan man versuchen das ParseSQL und UsePrimaryKeyAsKey auszuschalten und alle Queries von Hand richtig zu setzen.   
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -670,7 +670,7 @@ Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
 
 \subsubsection{RecordCount}
 \begin{description}
-  \item \texttt{property RecordCount: Longint read GetRecordCount;}\\Ob die Eigenschaft verfügbar ist, hängt von der Connectionkomponente ab. Wenn nichts implementiert wird, so kommt bei einer Abfrage der Wert '-1' zurück. Ansonsten die Anzahl der Datensätze der Abfrage. Sinnvoller weise sollte eine Abfrage aktiv sein, ansonsten kann es zu Laufzeitfehlern kommen.
+  \item \texttt{property RecordCount: Longint read GetRecordCount;}\\Ob die Eigenschaft verfÃ¼gbar ist, hÃ¤ngt von der Connectionkomponente ab. Wenn nichts implementiert wird, so kommt bei einer Abfrage der Wert '-1' zurÃ¼ck. Ansonsten die Anzahl der DatensÃ¤tze der Abfrage. Sinnvoller weise sollte eine Abfrage aktiv sein, ansonsten kann es zu Laufzeitfehlern kommen.
   \begin{description}
     \item Eigenschaft von TSQLQuery>TBufDataset>TDBDataset>TDataSet
   \end{description}
@@ -681,7 +681,7 @@ Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
 
 \subsubsection{ServerFilter}
 \begin{description}
-  \item \texttt{property ServerFilter: string read FServer\-Filter\-Text write Set\-Server\-Filter\-Text;}\\Enthält den Filter für die Datenmenge, wenn definiert. Intern wird der Filter in eine 'WHERE'-Klausel umgesetzt. Somit erfolgt die Filterung bereits am Server. Wird erst aktiv durch aktivieren der Eigenschaft 'ServerFiltered'.
+  \item \texttt{property ServerFilter: string read FServer\-Filter\-Text write Set\-Server\-Filter\-Text;}\\EnthÃ¤lt den Filter fÃ¼r die Datenmenge, wenn definiert. Intern wird der Filter in eine 'WHERE'-Klausel umgesetzt. Somit erfolgt die Filterung bereits am Server. Wird erst aktiv durch aktivieren der Eigenschaft 'ServerFiltered'.
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -692,7 +692,7 @@ Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
 
 \subsubsection{ServerFiltered}
 \begin{description}
-  \item \texttt{property ServerFiltered: Boolean read FServer\-Filtered write Set\-Server\-Filtered default False;}\\Gibt an ob die Datenmenge am Server gefiltert ist. Ein setzen der Eigenschaft bewirkt, das der Filter am Server aktiv wird und die Datenmenge dort entsprechend eingeschränkt wird. 
+  \item \texttt{property ServerFiltered: Boolean read FServer\-Filtered write Set\-Server\-Filtered default False;}\\Gibt an ob die Datenmenge am Server gefiltert ist. Ein setzen der Eigenschaft bewirkt, das der Filter am Server aktiv wird und die Datenmenge dort entsprechend eingeschrÃ¤nkt wird. 
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -706,11 +706,11 @@ Wird erst aktiv durch aktivieren der Eigenschaft 'Filtered'.
   \item \texttt{property SQL : TStringlist;}
   \item \texttt{property UpdateSQL : TStringlist;}
   \item \texttt{property InsertSQL : TStringlist;}
-  \item \texttt{property DeleteSQL : TStringlist;}\\In SQL befindet sich das SQL Statement was ausgeführt werden soll. Ist es ein einfacheres Select-Statement so kann TSQLQuery auch automatisch die Statements für Änderungen (UpdateSQL), Einfügen (InsertSQL) und Löschen (DeleteSQL) ausfüllen. Ist das SQL Statement komplexer so geht diese automatik manchmal ins Leere, kann die Statements nicht richtig auswerten und verursacht unerklärliche Probleme.\\
-UpdateSQL: Hier stehen die SQL Statements um Änderungen in der Datenmenge durchzuführen.\\
-InsertSQL: Die Statements um Datensätze einzufügen.\\
-DeleteSQL: Statements um Datensätze zu löschen.\\
-Die SQL Statements interaktieren mit der Eigenschaft ReadOnly, UsePrimaryKeyAsKey, ParseSQL, IndexDefs und Params (Vielleicht auch einigen mehr). Wenn die Komponente nicht so reagiert wie erwartet, dann sollte man sich das SQL und die vorher genannten Eigenschaften näher ansehen.
+  \item \texttt{property DeleteSQL : TStringlist;}\\In SQL befindet sich das SQL Statement was ausgefÃ¼hrt werden soll. Ist es ein einfacheres Select-Statement so kann TSQLQuery auch automatisch die Statements fÃ¼r Ã„nderungen (UpdateSQL), EinfÃ¼gen (InsertSQL) und LÃ¶schen (DeleteSQL) ausfÃ¼llen. Ist das SQL Statement komplexer so geht diese automatik manchmal ins Leere, kann die Statements nicht richtig auswerten und verursacht unerklÃ¤rliche Probleme.\\
+UpdateSQL: Hier stehen die SQL Statements um Ã„nderungen in der Datenmenge durchzufÃ¼hren.\\
+InsertSQL: Die Statements um DatensÃ¤tze einzufÃ¼gen.\\
+DeleteSQL: Statements um DatensÃ¤tze zu lÃ¶schen.\\
+Die SQL Statements interaktieren mit der Eigenschaft ReadOnly, UsePrimaryKeyAsKey, ParseSQL, IndexDefs und Params (Vielleicht auch einigen mehr). Wenn die Komponente nicht so reagiert wie erwartet, dann sollte man sich das SQL und die vorher genannten Eigenschaften nÃ¤her ansehen.
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -721,7 +721,7 @@ Die SQL Statements interaktieren mit der Eigenschaft ReadOnly, UsePrimaryKeyAsKe
 
 \subsubsection{Transaction}
 \begin{description}
-  \item \texttt{property Transaction;}\\Gibt die zuständige Transaktionskomponente an.
+  \item \texttt{property Transaction;}\\Gibt die zustÃ¤ndige Transaktionskomponente an.
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -732,7 +732,7 @@ Die SQL Statements interaktieren mit der Eigenschaft ReadOnly, UsePrimaryKeyAsKe
 
 \subsubsection{StatementType}
 \begin{description}
-  \item \texttt{property StatementType : TStatementType read GetStatementType;}\\Möglich sind 'stNone', 'stSelect', 'stInsert', 'stUpdate', 'stDelete', 'stDDL', 'stGetSegment', 'stPutSegment', 'stExecProcedure', 'stStartTrans', 'stCommit', 'stRollback' und 'stSelectForUpd'. Es wird hier der Komponente mitgeteilt, wie sie den Text in der Eingeschaft 'SQL' interpretieren soll.
+  \item \texttt{property StatementType : TStatementType read GetStatementType;}\\MÃ¶glich sind 'stNone', 'stSelect', 'stInsert', 'stUpdate', 'stDelete', 'stDDL', 'stGetSegment', 'stPutSegment', 'stExecProcedure', 'stStartTrans', 'stCommit', 'stRollback' und 'stSelectForUpd'. Es wird hier der Komponente mitgeteilt, wie sie den Text in der Eingeschaft 'SQL' interpretieren soll.
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -743,7 +743,7 @@ Die SQL Statements interaktieren mit der Eigenschaft ReadOnly, UsePrimaryKeyAsKe
 
 \subsubsection{UpdateMode}
 \begin{description}
-  \item \texttt{property UpdateMode : TUpdateMode read FUpdateMode write SetUpdateMode;}\\Setzt den Modus nach welcher die Datensätze geändert werden sollen. Möglich sind alle Datensätze 'upWhereAll', nur die geänderten Datensätze 'upWhereChanged' oder nur welche wo der Schlüssel bekannt ist 'upWhereKeyOnly'.
+  \item \texttt{property UpdateMode : TUpdateMode read FUpdateMode write SetUpdateMode;}\\Setzt den Modus nach welcher die DatensÃ¤tze geÃ¤ndert werden sollen. MÃ¶glich sind alle DatensÃ¤tze 'upWhereAll', nur die geÃ¤nderten DatensÃ¤tze 'upWhereChanged' oder nur welche wo der SchlÃ¼ssel bekannt ist 'upWhereKeyOnly'.
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -754,7 +754,7 @@ Die SQL Statements interaktieren mit der Eigenschaft ReadOnly, UsePrimaryKeyAsKe
 
 \subsubsection{UsePrimaryKeyAsKey}
 \begin{description}
-  \item \texttt{property UsePrimaryKeyAsKey : boolean;}\\Wenn aktiv, so benutzt ParseSQL den Primärschlüssel immer als Schlüssel zu verwenden. Kann bei komplexeren Abfragen manchmal zu Problemen führen, da der Parser den SQL-Text nicht richtig auswerten kann. Siehe auch bei der Eigenschaft ParseSQL.
+  \item \texttt{property UsePrimaryKeyAsKey : boolean;}\\Wenn aktiv, so benutzt ParseSQL den PrimÃ¤rschlÃ¼ssel immer als SchlÃ¼ssel zu verwenden. Kann bei komplexeren Abfragen manchmal zu Problemen fÃ¼hren, da der Parser den SQL-Text nicht richtig auswerten kann. Siehe auch bei der Eigenschaft ParseSQL.
   \begin{description}
     \item Eigenschaft von TSQLQuery
   \end{description}
@@ -968,4 +968,4 @@ Die SQL Statements interaktieren mit der Eigenschaft ReadOnly, UsePrimaryKeyAsKe
 %fpc-pascal maillist  -  fpc-pascal@lists.freepascal.org
 %http://lists.freepascal.org/mailman/listinfo/fpc-pascal
 
-\verb|Version: $$ |\footnote{ Autor: Andreas Frieß\\Lizenz: GFDL}
+\verb|Version: $$ |\footnote{ Autor: Andreas FrieÃŸ\\Lizenz: GFDL}

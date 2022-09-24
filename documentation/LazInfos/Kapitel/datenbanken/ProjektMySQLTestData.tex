@@ -1,5 +1,5 @@
 %%####################################################################
-%    Copyright @ 2007 Andreas Frieß (Friess)
+%    Copyright @ 2007 Andreas FrieÃŸ (Friess)
 %    Permission is granted to copy, distribute and/or modify this document
 %    under the terms of the GNU Free Documentation License, Version 1.2
 %    or any later version published by the Free Software Foundation;
@@ -15,23 +15,23 @@
 %%####################################################################
 \subsection{Projekt MySQLTestData}
 \paragraph{Einleitung}
-Es soll zeigen, wie man relativ einfach Testdaten in größerer Zahl in die Tabelle ST\_Person unserer Datenbank einfügt. Zugleich kann man es als Basis für Versuche mit SELECT Statements verwenden. In der Tabelle werden Lösch-, Einfüge- und Auswahloperationen durchgeführt.
+Es soll zeigen, wie man relativ einfach Testdaten in grÃ¶ÃŸerer Zahl in die Tabelle ST\_Person unserer Datenbank einfÃ¼gt. Zugleich kann man es als Basis fÃ¼r Versuche mit SELECT Statements verwenden. In der Tabelle werden LÃ¶sch-, EinfÃ¼ge- und Auswahloperationen durchgefÃ¼hrt.
 
 \paragraph{Datenbank}
-Es wird die Datenbank und Tabelle vom Beispiel \textbf{MySQLSimple} verwendet. Weitere Informationen können dort gefunden werden.
+Es wird die Datenbank und Tabelle vom Beispiel \textbf{MySQLSimple} verwendet. Weitere Informationen kÃ¶nnen dort gefunden werden.
 
 \paragraph{Benutzerschnittstelle}
-Auf der Oberfläche befinden sich links drei Buttons. 
+Auf der OberflÃ¤che befinden sich links drei Buttons. 
 \parpic[sr][l]{\includegraphics[width=0.25\textwidth]{Kapitel/datenbanken/pics/MySQLTestData01}} 
 \caption{Projekt TestData GUI}
 \label{fig:MySQLTestData01} 
-Mit dem obersten Button wird die Tabelle komplett geleert, diese wird durch eine \emph{Delete} Anweisung im Quelltext durchgeführt. 
-Der mittlere Button und das Eingabefeld darüber gehören zusammen und fügen neue Datensätze in der Tabelle ein. Die Anzahl der Datensätze wird durch den Wert im Eingabefeld vorgegeben.
+Mit dem obersten Button wird die Tabelle komplett geleert, diese wird durch eine \emph{Delete} Anweisung im Quelltext durchgefÃ¼hrt. 
+Der mittlere Button und das Eingabefeld darÃ¼ber gehÃ¶ren zusammen und fÃ¼gen neue DatensÃ¤tze in der Tabelle ein. Die Anzahl der DatensÃ¤tze wird durch den Wert im Eingabefeld vorgegeben.
 Der unterste Button und das Tab-Sheet rechts daneben diesen zum Abfragen der Daten. Auf der ersten Seite des Tab-Sheets kann man das Abfrage Statement eingebn, die Anzeige erfolgt auf der zweiten Seite des Tab-Sheet.
 
 Und jetzt die Funktionen mit den dahinterliegenden Code im Detail.
 \subparagraph{Oberer Button}
-Zuerst wird geprüft ob die Verbindung (Connection) zur Datenbank besteht, wenn nicht so wird die Verbindung hergestellt. Die Verbindungseinstelllungen wurden über den Objektinspektor schon beim Design getroffen, da es sich hier um Beispiele handelt.
+Zuerst wird geprÃ¼ft ob die Verbindung (Connection) zur Datenbank besteht, wenn nicht so wird die Verbindung hergestellt. Die Verbindungseinstelllungen wurden Ã¼ber den Objektinspektor schon beim Design getroffen, da es sich hier um Beispiele handelt.
 
 \begin{verbatim}
 if not MySQL50Connection1.Connected then
@@ -48,13 +48,13 @@ finally
 end;
 \end{verbatim}
 
-Anschliessend wird zur Laufzeit die TSQLQuery Komponente erzeugt. Wichtig ist, daß das Objekt erzeugt wird \verb|(aSqlQuery := TSQLQuery.Create(self);)|. Durch \emph{self} wird das Objekt dem Formular zugeordnet, so das das Formular beim Beenden auch das Objekt zerstören kann, falls es bis dahin noch nicht zerstört wurde.
+Anschliessend wird zur Laufzeit die TSQLQuery Komponente erzeugt. Wichtig ist, daÃŸ das Objekt erzeugt wird \verb|(aSqlQuery := TSQLQuery.Create(self);)|. Durch \emph{self} wird das Objekt dem Formular zugeordnet, so das das Formular beim Beenden auch das Objekt zerstÃ¶ren kann, falls es bis dahin noch nicht zerstÃ¶rt wurde.
 
-Im nächsten Schritt wird ein eventuell vorhandenes gespeichertes SQL-Statement sicherheitshalber gelöscht. Weiters die Verbindung und die Transaktion zugewiesen. Dies geschieht genauso als würde man es über den Objektinspektor machen. Dann wird das neue SQL-Statement hinzugefügt. Da es ohne 'WHERE' EInschränkung verwendet wird, löscht es somit \textbf{alle} Daten aus der Tabelle. 
+Im nÃ¤chsten Schritt wird ein eventuell vorhandenes gespeichertes SQL-Statement sicherheitshalber gelÃ¶scht. Weiters die Verbindung und die Transaktion zugewiesen. Dies geschieht genauso als wÃ¼rde man es Ã¼ber den Objektinspektor machen. Dann wird das neue SQL-Statement hinzugefÃ¼gt. Da es ohne 'WHERE' EInschrÃ¤nkung verwendet wird, lÃ¶scht es somit \textbf{alle} Daten aus der Tabelle. 
 
-Zum Abschluß wird das verwendete SQL-Query Objekt wieder sauber entfernt. Damit dies auch geschieht wenn es einen Fehler gegeben hat, sind die Teile ab der Erstellung des Objektes durch ein try..finally Statement geklammert. Damit wird erreicht, das das Objekt auch nach einem Fehler richtig gelöscht wird.
+Zum AbschluÃŸ wird das verwendete SQL-Query Objekt wieder sauber entfernt. Damit dies auch geschieht wenn es einen Fehler gegeben hat, sind die Teile ab der Erstellung des Objektes durch ein try..finally Statement geklammert. Damit wird erreicht, das das Objekt auch nach einem Fehler richtig gelÃ¶scht wird.
 \subparagraph{Mittlerer Button}
-Beim betätigen des Buttons wird als erstes die Eingabe des Editfeldes überprüft und nur wenn der Wert in eine Zahl umgewndelt werden kann, wird fortgefahren.
+Beim betÃ¤tigen des Buttons wird als erstes die Eingabe des Editfeldes Ã¼berprÃ¼ft und nur wenn der Wert in eine Zahl umgewndelt werden kann, wird fortgefahren.
 \begin{verbatim}
 try
   iAnzahl := StrToInt(edAnzahl.Text);
@@ -64,7 +64,7 @@ except
 end;
 \end{verbatim}
 
-Mittels des Behfels \emph{randomize} wird der Zufallszahlengenerator initialisiert, dann die Verbindung zur Datenbank nötigenfalls hergestellt. Anschliessend eine TSQLQuery zur Laufzeit erzeugt und mit den nötigen Informationen versorgt.
+Mittels des Behfels \emph{randomize} wird der Zufallszahlengenerator initialisiert, dann die Verbindung zur Datenbank nÃ¶tigenfalls hergestellt. Anschliessend eine TSQLQuery zur Laufzeit erzeugt und mit den nÃ¶tigen Informationen versorgt.
 \begin{verbatim}
 randomize();
 if not MySQL50Connection1.Connected then 
@@ -76,11 +76,11 @@ try
   aSqlQuery.DataBase := MySQL50Connection1;
   aSQLQuery.Transaction := SQLTransaction1;
 \end{verbatim}
-Weil wir später in einer Schleife Daten in die Datenbank einfügen, so erzeugen wir hier jetzt die nötigen Parameter. 
+Weil wir spÃ¤ter in einer Schleife Daten in die Datenbank einfÃ¼gen, so erzeugen wir hier jetzt die nÃ¶tigen Parameter. 
 
-\textbf{HINWEIS:} Das Arbeiten mit Parametern ist wesentlich besser, als das Statement mittels Stringverwaltung zusammen zu setzen. Man vermeidet damit Probleme mit speziellen Zeichen, wie Hochkomma und der SQL-Server hat die Möglichkeit das Statement vor zu kompilieren und zu optimieren.
+\textbf{HINWEIS:} Das Arbeiten mit Parametern ist wesentlich besser, als das Statement mittels Stringverwaltung zusammen zu setzen. Man vermeidet damit Probleme mit speziellen Zeichen, wie Hochkomma und der SQL-Server hat die MÃ¶glichkeit das Statement vor zu kompilieren und zu optimieren.
 
-Anschliessend wird das SQL-Statement in die Query eingefügt. Mit den Doppelpunkt zeigt man, das es sich hier um einen Parameter handelt. 
+Anschliessend wird das SQL-Statement in die Query eingefÃ¼gt. Mit den Doppelpunkt zeigt man, das es sich hier um einen Parameter handelt. 
 \begin{verbatim}
   aSqlQuery.Params.CreateParam(ftInteger,'vname',ptInput);
   aSqlQuery.Params.CreateParam(ftInteger,'fname',ptInput);
@@ -89,7 +89,7 @@ Anschliessend wird das SQL-Statement in die Query eingefügt. Mit den Doppelpunkt
   aSqlQuery.SQL.Add('INSERT st_person (cVName,cFName,cMName, cRName)');
   aSqlQuery.SQL.Add(' VALUES (:vname,:fname,:mname, :rname);');
 \end{verbatim}
-Hier beginnt die Schleife. ALs erstes werden dir Stringvariablen erzeugt, anschliessend die Strings den Parameteren übergeben.
+Hier beginnt die Schleife. ALs erstes werden dir Stringvariablen erzeugt, anschliessend die Strings den Parameteren Ã¼bergeben.
 \begin{verbatim}
   for i := 1 to iANzahl do
   begin
@@ -110,7 +110,7 @@ Hier beginnt die Schleife. ALs erstes werden dir Stringvariablen erzeugt, anschl
     aSqlQuery.Params.ParamByName('mname').AsString := cMName;
     aSqlQuery.Params.ParamByName('rname').AsString := cRName;
 \end{verbatim}
-Jetzt wird die Query mit den aktuellen Parametern durchgeführt. Der Befehl lautet \emph{ExecSQL}, dieser erwartet keine Ergebnismenge zurück. Das ist auch der Grund warum hier kein \emph{Open} oder \emph{Active=true} verwendet wurde, denn dieses erwarted das eine Ergebnismenge zurück geliefert wird. Anschliessend wird solange in der Schleife verblieben, bis alles abgearbeitet wurde. Wenn beim Ausführen ein Fehler auftritt, so wird in der Statuszeile eine Fehlermeldung angezeigt und mit dem nächsten durchlauf weitergemacht.
+Jetzt wird die Query mit den aktuellen Parametern durchgefÃ¼hrt. Der Befehl lautet \emph{ExecSQL}, dieser erwartet keine Ergebnismenge zurÃ¼ck. Das ist auch der Grund warum hier kein \emph{Open} oder \emph{Active=true} verwendet wurde, denn dieses erwarted das eine Ergebnismenge zurÃ¼ck geliefert wird. Anschliessend wird solange in der Schleife verblieben, bis alles abgearbeitet wurde. Wenn beim AusfÃ¼hren ein Fehler auftritt, so wird in der Statuszeile eine Fehlermeldung angezeigt und mit dem nÃ¤chsten durchlauf weitergemacht.
 \begin{verbatim}
     try
       aSqlQuery.ExecSQL;
@@ -125,9 +125,9 @@ end;
 \end{verbatim}
 
 \subparagraph{Unterer Button}
-Zum Unterschied vorher, ist diese Query zur Designzeit auf dem Formular hinterlegt worden. Damit entfällt das erzeugen zur Laufzeit. Das soll auch den Unterschied zwischen den beiden Methoden zeigen.
+Zum Unterschied vorher, ist diese Query zur Designzeit auf dem Formular hinterlegt worden. Damit entfÃ¤llt das erzeugen zur Laufzeit. Das soll auch den Unterschied zwischen den beiden Methoden zeigen.
 
-Es wird zuerst die Query inaktiv gemacht, falls sie offen war. Dann ganz einfach der Inhalt der Strings aus dem Meno in die Query übertragen und die Query wieder aktiv gemacht. Deshalb aktiv gemacht, da wir ja eine Ergebnismenge erwarten. Das hätten wir beim ausführen von \emph{ExecSQL} nicht.
+Es wird zuerst die Query inaktiv gemacht, falls sie offen war. Dann ganz einfach der Inhalt der Strings aus dem Meno in die Query Ã¼bertragen und die Query wieder aktiv gemacht. Deshalb aktiv gemacht, da wir ja eine Ergebnismenge erwarten. Das hÃ¤tten wir beim ausfÃ¼hren von \emph{ExecSQL} nicht.
 \begin{verbatim}
   if SQLQuery1.Active then SQLQuery1.Active := false;
   SQLQuery1.SQL.Clear;
@@ -135,7 +135,7 @@ Es wird zuerst die Query inaktiv gemacht, falls sie offen war. Dann ganz einfach
   try
     SQLQuery1.Active := true;
   except
-    showmessage('Anweisungen nicht gültig');
+    showmessage('Anweisungen nicht gÃ¼ltig');
   end;
 \end{verbatim}
 Dann kann man im Datengitter die Ergebnisse betrachten.
@@ -147,7 +147,7 @@ Den Quelltext des Beispiel kann man sich auch mit folgenden Kommando aus dem SVN
 svn co https://lazsnippets.svn.sourceforge.net/svnroot/lazsnippets/\
   trunk/datenbank/MySQL/MySQLTestData .
 \end{verbatim}
-Die Zeile ist in einem zu schreiben und wurde nur aus Formatierungsgründen hier beim Rückstrich (Backslash) umgebrochen. Der Punkt am Ende der Zeile ist notwendig, da es das Kennzeichen für das aktuelle Verzeichnis ist. Weiter ist auf die Schreibweise zu achten, das hier die Server zwischen Großbuchstaben und Kleinbuchstaben unterscheiden.
+Die Zeile ist in einem zu schreiben und wurde nur aus FormatierungsgrÃ¼nden hier beim RÃ¼ckstrich (Backslash) umgebrochen. Der Punkt am Ende der Zeile ist notwendig, da es das Kennzeichen fÃ¼r das aktuelle Verzeichnis ist. Weiter ist auf die Schreibweise zu achten, das hier die Server zwischen GroÃŸbuchstaben und Kleinbuchstaben unterscheiden.
 
 \paragraph{Version}
 \begin{table}[htbp]
@@ -166,7 +166,7 @@ Die Zeile ist in einem zu schreiben und wurde nur aus Formatierungsgründen hier 
       \hline
 		\end{tabular}
 \end{table}
-\caption{Versionsübersicht}
+\caption{VersionsÃ¼bersicht}
 \label{tab:MySQLTestDataVersion01} 
 
-\verb|Version: $LastChangedRevision: 38 $ |\footnote{ Autor: Andreas Frieß\\Lizenz: GFDL}
+\verb|Version: $LastChangedRevision: 38 $ |\footnote{ Autor: Andreas FrieÃŸ\\Lizenz: GFDL}

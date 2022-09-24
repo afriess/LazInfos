@@ -1,5 +1,5 @@
 %%####################################################################
-%    Copyright @ 2007 Andreas Frieß (Friess)
+%    Copyright @ 2007 Andreas FrieÃŸ (Friess)
 %    Permission is granted to copy, distribute and/or modify this document
 %    under the terms of the GNU Free Documentation License, Version 1.2
 %    or any later version published by the Free Software Foundation;
@@ -15,10 +15,10 @@
 %%####################################################################
 \subsection{Projekt MySQLSimple}
 \paragraph{Einleitung}
-In diesem Projekt wird nur eine einfache Verbindung zur Datenbank aufgebaut und die grundlegenden Elemente die dafür notwendig sind erklärt. Es werden hierbei nur Elemente verwendet die bei einer Standardinstallation von Lazarus dabei sind.
+In diesem Projekt wird nur eine einfache Verbindung zur Datenbank aufgebaut und die grundlegenden Elemente die dafÃ¼r notwendig sind erklÃ¤rt. Es werden hierbei nur Elemente verwendet die bei einer Standardinstallation von Lazarus dabei sind.
 
 \paragraph{Datenbank}
-In der Datenbank muß für dieses Beispiel folgende Anweisung ausgeführt werden oder das ganze mittels des "`MySQL Query Browser" erstellt werden.
+In der Datenbank muÃŸ fÃ¼r dieses Beispiel folgende Anweisung ausgefÃ¼hrt werden oder das ganze mittels des "`MySQL Query Browser" erstellt werden.
 \begin{verbatim}
 CREATE TABLE `laztest`.`ST_Person` (
   `STPerson` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT \
@@ -34,43 +34,43 @@ ENGINE = InnoDB
 CHARACTER SET latin1 COLLATE latin1_german1_ci
 COMMENT = 'Personendaten';
 \end{verbatim}
-Wir erstellen hier einmal die für das Beispiel notwendige Tabelle für Personendaten. 
+Wir erstellen hier einmal die fÃ¼r das Beispiel notwendige Tabelle fÃ¼r Personendaten. 
 \parpic[sr][l]{\includegraphics[width=0.35\textwidth]{Kapitel/datenbanken/pics/MySQLSimple02}}
 \label{fig:MySQLSimple02}
-Warum habe ich den Namen "`ST\_Person"' gewählt. Ganz einfach, ich rechne Tabellen mit diesem Inhalt zu den so genannten Stammdatentabellen. Das stimmt, außer wir haben hier eine reine Personenverwaltung. Nachdem das Beispiel aber erwitert werden soll, werden auch noch andere Tabellen folgen. 
+Warum habe ich den Namen "`ST\_Person"' gewÃ¤hlt. Ganz einfach, ich rechne Tabellen mit diesem Inhalt zu den so genannten Stammdatentabellen. Das stimmt, auÃŸer wir haben hier eine reine Personenverwaltung. Nachdem das Beispiel aber erwitert werden soll, werden auch noch andere Tabellen folgen. 
 
-Wir verwenden hier einmal die Spalte "`STPerson"' für den nicht Null  beinhaltenden (NOT NULL), automatisch hochzählenden (AUTO\_INCREMENT), eindeutigen Primärschlüssel (PRIMARY KEY ('STPerson')). In der Spalten "`cVName"' und "`cFName"' kommen der Vorname und der Familienname (=Nachname) hinein, zusätzlich gibt es noch das Feld für einen eventuelle Namensergänzung. Weiters beinhaltet die Spalte "`cRName"' noch den Rufnamen der Person.
+Wir verwenden hier einmal die Spalte "`STPerson"' fÃ¼r den nicht Null  beinhaltenden (NOT NULL), automatisch hochzÃ¤hlenden (AUTO\_INCREMENT), eindeutigen PrimÃ¤rschlÃ¼ssel (PRIMARY KEY ('STPerson')). In der Spalten "`cVName"' und "`cFName"' kommen der Vorname und der Familienname (=Nachname) hinein, zusÃ¤tzlich gibt es noch das Feld fÃ¼r einen eventuelle NamensergÃ¤nzung. Weiters beinhaltet die Spalte "`cRName"' noch den Rufnamen der Person.
 
-Fast ganz unten in der definition der Tabelle befindet sich ein Hinweis auf einen weiteren Index. Dieser eindeutige Index (UNIQUE INDEX) soll verhindern, das gleiche Personen mehrmals in der Tabelle angelegt werden können. Warum wird dann aber nicht nur die Felder des Vornamens und des Familienanmens herangezogen ? Na, ja, was ist wenn wir mehrere "`Max Mustermann"' haben ! Im richtigen Leben hat man dann ja selbst noch hilfen, das zu unterscheiden. Dazu dient der Rufname (= Spitzname). Denn dann kannman den "`Max aus D"' und den "`Max aus A"' auch noch eintragen und die EInträge sind jetzt trotz der Namensgleichheit wirklich auseinander zu halten.
+Fast ganz unten in der definition der Tabelle befindet sich ein Hinweis auf einen weiteren Index. Dieser eindeutige Index (UNIQUE INDEX) soll verhindern, das gleiche Personen mehrmals in der Tabelle angelegt werden kÃ¶nnen. Warum wird dann aber nicht nur die Felder des Vornamens und des Familienanmens herangezogen ? Na, ja, was ist wenn wir mehrere "`Max Mustermann"' haben ! Im richtigen Leben hat man dann ja selbst noch hilfen, das zu unterscheiden. Dazu dient der Rufname (= Spitzname). Denn dann kannman den "`Max aus D"' und den "`Max aus A"' auch noch eintragen und die EIntrÃ¤ge sind jetzt trotz der Namensgleichheit wirklich auseinander zu halten.
 
 \paragraph{Benutzerschnittstelle}
 Die Komponeneten kommen von der Palettenseite "`SQLdb"', "`DataAccess"' und "`DataControls"'.
 \parpic[sr][l]{\includegraphics[width=0.35\textwidth]{Kapitel/datenbanken/pics/MySQLSimple01A}} \label{fig:MySQLSimple01A} 
-Fangen wir einmal mit der "`SQLdb"' an. Um auf eine Datenbank zugreifen zu können, benötigen wir einmal eine Verbindungskomponente, das ist in unseren Fall eine der zur Datenbank passende Connection (= Verbindung). Da wir einen MySQL Server 5.x am laufen haben, so nehmen wir die passende "`MySQL50Connection"' Komponente und bringen sie auf das Projekt.
+Fangen wir einmal mit der "`SQLdb"' an. Um auf eine Datenbank zugreifen zu kÃ¶nnen, benÃ¶tigen wir einmal eine Verbindungskomponente, das ist in unseren Fall eine der zur Datenbank passende Connection (= Verbindung). Da wir einen MySQL Server 5.x am laufen haben, so nehmen wir die passende "`MySQL50Connection"' Komponente und bringen sie auf das Projekt.
 \parpic[sr][l]{\includegraphics[width=0.25\textwidth]{Kapitel/datenbanken/pics/MySQLSimple03}} \label{fig:MySQLSimple03} 
-Weiters fügen wir noch eine "`TSQLTransaction"' Komponente unserer Form hinzu.
+Weiters fÃ¼gen wir noch eine "`TSQLTransaction"' Komponente unserer Form hinzu.
 
-Jetzt der Reihe nach, angefangen bei der "`TMySQL50\-Connection"' Komponente, müssen wir Einstellungen im Objektinspektor treffen. 
+Jetzt der Reihe nach, angefangen bei der "`TMySQL50\-Connection"' Komponente, mÃ¼ssen wir Einstellungen im Objektinspektor treffen. 
 
-Bei der "`TMySQL50Connection"' Komponente sind es folgene Einstellungen. Der \textbf{DatabaseName} wird auf den Namen unserer Datenbank \emph{laztest} gesetzt. Der \textbf{HostName} ist bei einer kokalen installation immer \emph{localhost}. Für das \textbf{Paßwort} nehmen wir das des Benutzers, der sich mit der Datenbank verbindet. Bei \textbf{Transaction} müssen wir nur in das im Objektinspektor klicken und eine Auswahl erscheint. Wir nehmen hier unsere \emph{SQLTransaction1}. Als letztes geben wir den \textbf{UserNamen} ein, das ist ganz einfach der Benutzer den wir in der Datenbank erstellt haben, also \emph{lazarus@localhost}.
+Bei der "`TMySQL50Connection"' Komponente sind es folgene Einstellungen. Der \textbf{DatabaseName} wird auf den Namen unserer Datenbank \emph{laztest} gesetzt. Der \textbf{HostName} ist bei einer kokalen installation immer \emph{localhost}. FÃ¼r das \textbf{PaÃŸwort} nehmen wir das des Benutzers, der sich mit der Datenbank verbindet. Bei \textbf{Transaction} mÃ¼ssen wir nur in das im Objektinspektor klicken und eine Auswahl erscheint. Wir nehmen hier unsere \emph{SQLTransaction1}. Als letztes geben wir den \textbf{UserNamen} ein, das ist ganz einfach der Benutzer den wir in der Datenbank erstellt haben, also \emph{lazarus@localhost}.
 
-Die nächste Komponenete ist die "`TSQLTransaction"'. Dort müssen wir aktuell nichts einstellen, da sich die Eigenschaft \textbf{Database} im Objektinspektor bereits selbst auf \emph{MySQL50Connection1} geändert hat.
+Die nÃ¤chste Komponenete ist die "`TSQLTransaction"'. Dort mÃ¼ssen wir aktuell nichts einstellen, da sich die Eigenschaft \textbf{Database} im Objektinspektor bereits selbst auf \emph{MySQL50Connection1} geÃ¤ndert hat.
 
-Den ersten Test kann man jetzt bereits durchführen. Durch anklicken der Eigenschaft \textbf{Connected} von \textbf{MySQL50Connection1} wechselt diese von \emph{False} auf \emph{True}. Wenn alles gut gelaufen ist, so läuft die Verbindung ohne Probleme ab. Wenn nicht, so muß man die Einstellungen nochmals überprüfen. Anschliessen stellen wir die Eigenschaft wieder auf \emph{False} zurück.
+Den ersten Test kann man jetzt bereits durchfÃ¼hren. Durch anklicken der Eigenschaft \textbf{Connected} von \textbf{MySQL50Connection1} wechselt diese von \emph{False} auf \emph{True}. Wenn alles gut gelaufen ist, so lÃ¤uft die Verbindung ohne Probleme ab. Wenn nicht, so muÃŸ man die Einstellungen nochmals Ã¼berprÃ¼fen. Anschliessen stellen wir die Eigenschaft wieder auf \emph{False} zurÃ¼ck.
 
-Nachdem die Verbindung zur Datenbank möglich ist, so müssen wir jetzt die Komponeneten für die Abfrage der Datenbank und die Anzeige der Daten noch hinzufügen. Es handelt sich hier um die Komponeneten "`TSQLQuery"' von Tab "`sqldb"', "`TDataSource"' vom Tab "`Data Access"' und "`TDBGrid"' vom Tab "`Data Controls"'.
+Nachdem die Verbindung zur Datenbank mÃ¶glich ist, so mÃ¼ssen wir jetzt die Komponeneten fÃ¼r die Abfrage der Datenbank und die Anzeige der Daten noch hinzufÃ¼gen. Es handelt sich hier um die Komponeneten "`TSQLQuery"' von Tab "`sqldb"', "`TDataSource"' vom Tab "`Data Access"' und "`TDBGrid"' vom Tab "`Data Controls"'.
 
-Fangen wir mit der Komponente "`SQLQuery1"' an. Sie ist zuständig für die richtige Abfrage am Datenbankserver. Wir stellen die Eigenschaft \textbf{DataBase} auf unsere \emph{MySQL50Connection1} ein. Weiters müssen wir in die Eigenschaft \textbf{SQL} folgendes einfügen
+Fangen wir mit der Komponente "`SQLQuery1"' an. Sie ist zustÃ¤ndig fÃ¼r die richtige Abfrage am Datenbankserver. Wir stellen die Eigenschaft \textbf{DataBase} auf unsere \emph{MySQL50Connection1} ein. Weiters mÃ¼ssen wir in die Eigenschaft \textbf{SQL} folgendes einfÃ¼gen
 \begin{verbatim}
 SELECT `STPerson`, `cVName`, 
        `cFName`, `cMName`, `cRName`
   FROM st_person;
 \end{verbatim}
-und den Eigenschaftseditor wieder schließen. Die Eigenschaft hat sich \textbf{Transaction} im Objektinspektor bereits selbst auf \emph{SQLTransaction1} geändert. In der Komponenete "`Datasource1"' müssen wir nur \textbf{DataSet} per Mausklick auf \emph{SQLQuery1} einstellen. Als letztes konfigurieren wir das "`TDBGrid"'. Wir ändern mit der Maus die Eigenschaft \textbf{Align} auf \emph{alClient} und die Eigenschaft \textbf{DataSource} auf \emph{Datasource1}. Damit erfasst das Grid das komplette Formular. 
+und den Eigenschaftseditor wieder schlieÃŸen. Die Eigenschaft hat sich \textbf{Transaction} im Objektinspektor bereits selbst auf \emph{SQLTransaction1} geÃ¤ndert. In der Komponenete "`Datasource1"' mÃ¼ssen wir nur \textbf{DataSet} per Mausklick auf \emph{SQLQuery1} einstellen. Als letztes konfigurieren wir das "`TDBGrid"'. Wir Ã¤ndern mit der Maus die Eigenschaft \textbf{Align} auf \emph{alClient} und die Eigenschaft \textbf{DataSource} auf \emph{Datasource1}. Damit erfasst das Grid das komplette Formular. 
 
-Prinzipiell ist unser Programm jetzt einmal optisch fertig. Wenn wir es jetzt kompilieren und laufen lassen, sehen wir das Formular, aber keine Daten und ändern können wir auch nichts. Es ist klar, wir haben die Komponenten konfiguriert, aber etwas Code wird auch benötigt um den Komponenten zu sagen, was wir wirklich wollen.
+Prinzipiell ist unser Programm jetzt einmal optisch fertig. Wenn wir es jetzt kompilieren und laufen lassen, sehen wir das Formular, aber keine Daten und Ã¤ndern kÃ¶nnen wir auch nichts. Es ist klar, wir haben die Komponenten konfiguriert, aber etwas Code wird auch benÃ¶tigt um den Komponenten zu sagen, was wir wirklich wollen.
 
-Dazu verwenden wir eine "`TActionList"' und ein "`TMainmenu"' aus dem Tab "`Standard"'. In der \textbf{ActionList1} erzeugen wir ganz einfach die Ereignisse \emph{actCloseDB}, \emph{actOpenDB} und \emph{actDataSetRefresh}. Ausserdem Erzeugen wir die Ereignisproceduren für das Form erzeugen un Form schliessen. Im MainMenu Komponente erzeugen dann ein kleines Menü.
+Dazu verwenden wir eine "`TActionList"' und ein "`TMainmenu"' aus dem Tab "`Standard"'. In der \textbf{ActionList1} erzeugen wir ganz einfach die Ereignisse \emph{actCloseDB}, \emph{actOpenDB} und \emph{actDataSetRefresh}. Ausserdem Erzeugen wir die Ereignisproceduren fÃ¼r das Form erzeugen un Form schliessen. Im MainMenu Komponente erzeugen dann ein kleines MenÃ¼.
 
 \begin{verbatim}
 procedure TfMain.actOpenDBExecute(Sender: TObject);
@@ -82,7 +82,7 @@ begin
   if not SQLQuery1.Active then SQLQuery1.Active := true;
 end;
 \end{verbatim}
-Beim Eintreffen des Ereignisses für das Öffnen der Datenbank, wird als erstes Abgefragt ob die Verbindung bereits besteht. Ist die Verbindung vorhanden, so wird die Abfrage selbst geöffnet, falls sie noch nicht offen war.
+Beim Eintreffen des Ereignisses fÃ¼r das Ã–ffnen der Datenbank, wird als erstes Abgefragt ob die Verbindung bereits besteht. Ist die Verbindung vorhanden, so wird die Abfrage selbst geÃ¶ffnet, falls sie noch nicht offen war.
 
 \begin{verbatim}
 procedure TfMain.actCloseDBExecute(Sender: TObject);
@@ -98,7 +98,7 @@ begin
   end;
 end;
 \end{verbatim}
-Wenn die Datenbank wieder geschlossen werden soll, so sind zuerst die noch nicht gespeicherten Daten zurückzuschreiben, dies geschieht mit dem Kommando \emph{ApplyUpdates}. Ohne diese Kommando bleiben die Änderungen nur lokal und werden mit der nächsten Abfrage wieder überschrieben. Anschliessend wird die Abfrage deaktiviert, dannach die Verbindung.
+Wenn die Datenbank wieder geschlossen werden soll, so sind zuerst die noch nicht gespeicherten Daten zurÃ¼ckzuschreiben, dies geschieht mit dem Kommando \emph{ApplyUpdates}. Ohne diese Kommando bleiben die Ã„nderungen nur lokal und werden mit der nÃ¤chsten Abfrage wieder Ã¼berschrieben. Anschliessend wird die Abfrage deaktiviert, dannach die Verbindung.
 
 \begin{verbatim}
 procedure TfMain.actDataSetRefreshExecute(Sender: TObject);
@@ -108,7 +108,7 @@ begin
   SQLQuery1.Refresh;
 end;
 \end{verbatim}
-Bei einer einfachen Auffrischung der Daten, arbeiten wir hier vorsichtshalber die Änderungen ein, bevor wir die eigentliche Auffrischung durchführen. Falls die Abfrage nicht aktiv war, brauchen wir klarerweise gar nichts zu machen.
+Bei einer einfachen Auffrischung der Daten, arbeiten wir hier vorsichtshalber die Ã„nderungen ein, bevor wir die eigentliche Auffrischung durchfÃ¼hren. Falls die Abfrage nicht aktiv war, brauchen wir klarerweise gar nichts zu machen.
 
 \begin{verbatim}
 procedure TfMain.FormDestroy(Sender: TObject);
@@ -116,7 +116,7 @@ begin
   actCloseDBExecute(Sender);
 end;
 \end{verbatim}
-Wichtig ist, das beim Schließen des Formular, die Datenbankkomponenten wieder ordnungsgemäß von der Datenbank getrennt werden, ansonsten hat man Fehlermeldungen und auch blockierte Datenverbindungen. Generell sollte danch getrachtet werden, die Verbindungen, egal was geschieht, in konsistenten Zustand zu hinterlassen.
+Wichtig ist, das beim SchlieÃŸen des Formular, die Datenbankkomponenten wieder ordnungsgemÃ¤ÃŸ von der Datenbank getrennt werden, ansonsten hat man Fehlermeldungen und auch blockierte Datenverbindungen. Generell sollte danch getrachtet werden, die Verbindungen, egal was geschieht, in konsistenten Zustand zu hinterlassen.
 
 \paragraph{SVN}
 Den Quelltext des Beispiel kann man sich auch mit folgenden Kommando aus dem SVN ind das aktuelle Verzeichnis holen.
@@ -124,8 +124,8 @@ Den Quelltext des Beispiel kann man sich auch mit folgenden Kommando aus dem SVN
 svn co https://lazsnippets.svn.sourceforge.net/svnroot/lazsnippets/\
   trunk/datenbank/MySQL/MySQLSimple .
 \end{verbatim}
-Die Zeile ist in einem zu schreiben und wurde nur aus Formatierungsgründen hier beim Rückstrich (Backslash) umgebrochen. Der Punkt am Ende der Zeile ist notwendig, da es das Kennzeichen für das aktuelle Verzeichnis ist. Weiter ist auf die Schreibweise zu achten, das hier die Server zwischen Großbuchstaben und Kleinbuchstaben unterscheiden.
-Die Datenbank muß man aber trotzdem selbst am MySQL Server erstellen. Die dazu benötigten Informationen befinden sich im Text von "`Datenbank"' weiter oben.
+Die Zeile ist in einem zu schreiben und wurde nur aus FormatierungsgrÃ¼nden hier beim RÃ¼ckstrich (Backslash) umgebrochen. Der Punkt am Ende der Zeile ist notwendig, da es das Kennzeichen fÃ¼r das aktuelle Verzeichnis ist. Weiter ist auf die Schreibweise zu achten, das hier die Server zwischen GroÃŸbuchstaben und Kleinbuchstaben unterscheiden.
+Die Datenbank muÃŸ man aber trotzdem selbst am MySQL Server erstellen. Die dazu benÃ¶tigten Informationen befinden sich im Text von "`Datenbank"' weiter oben.
 
 \paragraph{Version}
 Derzeit ist das Beispiel mit der Version 0.9.23 beta von Lazarus entwickelt.
@@ -145,7 +145,7 @@ Derzeit ist das Beispiel mit der Version 0.9.23 beta von Lazarus entwickelt.
       \hline
 		\end{tabular}
 \end{table}
-\caption{Versionsübersicht}
+\caption{VersionsÃ¼bersicht}
 \label{tab:MySQLSimpleVersion01} 
 
-\verb|Version: $LastChangedRevision: 38 $ |\footnote{ Autor: Andreas Frieß\\Lizenz: GFDL}
+\verb|Version: $LastChangedRevision: 38 $ |\footnote{ Autor: Andreas FrieÃŸ\\Lizenz: GFDL}

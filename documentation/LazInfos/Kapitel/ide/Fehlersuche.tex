@@ -1,5 +1,5 @@
 %%####################################################################
-%    Copyright @ 2007 Andreas Frieß (Friess)
+%    Copyright @ 2007 Andreas FrieÃŸ (Friess)
 %    Permission is granted to copy, distribute and/or modify this document
 %    under the terms of the GNU Free Documentation License, Version 1.2
 %    or any later version published by the Free Software Foundation;
@@ -14,55 +14,55 @@
 % @cvs($URL: $)
 %%####################################################################
 \subsection[Fehlersuche]{Fehlersuche}
-Im besten Fall läuft ein Programm fehlerfrei. Da dies aber meistens bei der Entwicklung nicht so ist, gibt es viele Möglichkeiten Fehler zu suchen. Allerdings muß man sich auch über die verschiedenen Arten von Fehlern und Unzulänglichkeiten im klaren sein.
+Im besten Fall lÃ¤uft ein Programm fehlerfrei. Da dies aber meistens bei der Entwicklung nicht so ist, gibt es viele MÃ¶glichkeiten Fehler zu suchen. Allerdings muÃŸ man sich auch Ã¼ber die verschiedenen Arten von Fehlern und UnzulÃ¤nglichkeiten im klaren sein.
 \begin{description}
   \item[Syntax Fehler] Sind Fehler in der Syntax selbst, tauchen aber oft auch als Kompilerfehler auf.
   \begin{description}
 	  \item[Bezeichner] Namen von Objekte und Variablen mehrfach vergeben
-	  \item[Schlüsselwörter] Schlüsselwörter als Namen von Objekten oder Variablen verwendet
-	  \item[Blöcke falsch] Den Anfang oder das Ende von Prozedure, Funktionen oder Schleifen nicht richtig gesetzt.
-	  \item[Parameter falsch] Typ oder Anzahl von Parametern falsch gewählt     
+	  \item[SchlÃ¼sselwÃ¶rter] SchlÃ¼sselwÃ¶rter als Namen von Objekten oder Variablen verwendet
+	  \item[BlÃ¶cke falsch] Den Anfang oder das Ende von Prozedure, Funktionen oder Schleifen nicht richtig gesetzt.
+	  \item[Parameter falsch] Typ oder Anzahl von Parametern falsch gewÃ¤hlt     
   \end{description}
-	\item[Kompiler Fehler] Sind Fehler, die beim Kompilieren auftreten, weil der Kompiler oder Präprozessor nicht in der Lage ist, den oder die Befehle zu übersetzen.  oder dem Vergessen von Deklarationen.
+	\item[Kompiler Fehler] Sind Fehler, die beim Kompilieren auftreten, weil der Kompiler oder PrÃ¤prozessor nicht in der Lage ist, den oder die Befehle zu Ã¼bersetzen.  oder dem Vergessen von Deklarationen.
   \begin{description}
 	  \item[Syntax Fehler] siehe oben.
-	  \item[Schreibfehler] Diese Fehler entstehen durch vergessene Zeileabschlüsse, fehlende Zeichen oder Buchstabendreher.
+	  \item[Schreibfehler] Diese Fehler entstehen durch vergessene ZeileabschlÃ¼sse, fehlende Zeichen oder Buchstabendreher.
   \end{description}
-  \item[Logische Fehler] Hier ist zwar die Syntax prinzipiell in Ordnung, nur in der Programmlogik hat man Fehler. Variablen vergessen zu initialisieren, Einhaltung von Abläufen nicht erzwungen, falsche Programmlogik für das Problem genommen, vergessen Objekte frei zu geben, ...
+  \item[Logische Fehler] Hier ist zwar die Syntax prinzipiell in Ordnung, nur in der Programmlogik hat man Fehler. Variablen vergessen zu initialisieren, Einhaltung von AblÃ¤ufen nicht erzwungen, falsche Programmlogik fÃ¼r das Problem genommen, vergessen Objekte frei zu geben, ...
   \begin{description}
 	  \item[Initialierung] Fehlende oder unzureichende Initialisierung von Objekten und Variablen
 	  \item[Endloschleifen] Schleifen werden nicht beendet
 	  \item[Rekursionen] Ungewollte Rekursionen entstehen
-	  \item[Logik] Ganz einfach die falsche Lösung für das richtige Problem genommen, Klammern falsch oder nicht gesetzt bei komplexen Ausdrücken
-	  \item[Falsche Anzahl von Durchläufen] Vergessen, das 0..n nicht gleich n-Durchläufen ist.     
+	  \item[Logik] Ganz einfach die falsche LÃ¶sung fÃ¼r das richtige Problem genommen, Klammern falsch oder nicht gesetzt bei komplexen AusdrÃ¼cken
+	  \item[Falsche Anzahl von DurchlÃ¤ufen] Vergessen, das 0..n nicht gleich n-DurchlÃ¤ufen ist.     
   \end{description}
-  \item[Laufzeit Fehler] Bei dieser Art, sind (Rand-) Bedingungen zur Laufzeit nicht erfüllt und der Programmierer hat keine entsprechenden Gegenmaßnahmen im Programm getroffen. 
+  \item[Laufzeit Fehler] Bei dieser Art, sind (Rand-) Bedingungen zur Laufzeit nicht erfÃ¼llt und der Programmierer hat keine entsprechenden GegenmaÃŸnahmen im Programm getroffen. 
   \begin{description}
 	  \item[Divisionsfehler] Division durch Null nicht abgefangen
 	  \item[Umwandlungen] Inhalt von Zeichenketten enthalten keinen numerischen Wert.
-	  \item[Eingabe und Ausgabefehler] Dateien oder Geräte die erwartet werden sind nicht oder nicht mehr verfügbar
+	  \item[Eingabe und Ausgabefehler] Dateien oder GerÃ¤te die erwartet werden sind nicht oder nicht mehr verfÃ¼gbar
   \end{description}
 \end{description}
-Anhand der Liste sieht man, das es sehr viele Möglichkeiten gibt, Fehler zu machen. Ebenso gibt es viele Wege, wie man Fehler beseitigen kann. Eine der besten Möglichkeiten ist, gar keine Fehler zu machen. Klingt banal, es ist damit gemeint, das sich oft Logik und Laufzeit Fehler durch Planung stark vermindern lassen. Dazu gehört auch, das man Teilproblemstellungen im Vorfeld testet, ob der Lösungsansatz für das Problem wirklich der Richtige ist.
+Anhand der Liste sieht man, das es sehr viele MÃ¶glichkeiten gibt, Fehler zu machen. Ebenso gibt es viele Wege, wie man Fehler beseitigen kann. Eine der besten MÃ¶glichkeiten ist, gar keine Fehler zu machen. Klingt banal, es ist damit gemeint, das sich oft Logik und Laufzeit Fehler durch Planung stark vermindern lassen. Dazu gehÃ¶rt auch, das man Teilproblemstellungen im Vorfeld testet, ob der LÃ¶sungsansatz fÃ¼r das Problem wirklich der Richtige ist.
 
 \subsubsection[DebugLn]{DebugLn}
 Ausgabe von Informationen an die Debugkonsole.
 
 \subsubsection[Heap Trace]{HeapTrace}
-Ist ein Werkzeug bei der Entdeckung von Speicherlöcher und Leichen. Zu finden ist das im Menü unter Projekt -> Compilereinstellungen -> Linker Punkt 'heaptrc unit verwenden'.
+Ist ein Werkzeug bei der Entdeckung von SpeicherlÃ¶cher und Leichen. Zu finden ist das im MenÃ¼ unter Projekt -> Compilereinstellungen -> Linker Punkt 'heaptrc unit verwenden'.
 
 % von theo http://www.lazarusforum.de/viewtopic.php?t=1186&p=14606#14606
 %Wollte nur mal eben was in Erinnnerung rufen, was ich an der LazIDE wirklich ausserordentlich gut finde:
 %Heaptrc!!!!
 %Projekt -> Compilereinstellungen ->heaptrc unit verwenden. Debug Output anschauen.
 %
-%Bin gerade mit Bäumen und Knoten am werkeln, und habe heaptrc eingeschaltet.
+%Bin gerade mit BÃ¤umen und Knoten am werkeln, und habe heaptrc eingeschaltet.
 %Das ist ein sehr wertvolles Werkzeug, in gewissen Bereich fast wichtiger als der Debugger.
 %
 %Ich meine jetzt nicht nur am Ende des Entwicklungsprozesses mal schauen ob es Memory Leaks gibt, sondern aktiver Entwicklungs-Feedback.
 %
-%z.B beim Bäume umkopieren kann es einem sehr viel Sicherheit geben, dass man auf dem richigen Weg ist und nicht irgendwo Knoten vergessen hat.
-%Mir hat es einen Fehler aufgezeigt, auf den ich mit "normalen Mitteln" schwer gekommen wäre.
+%z.B beim BÃ¤ume umkopieren kann es einem sehr viel Sicherheit geben, dass man auf dem richigen Weg ist und nicht irgendwo Knoten vergessen hat.
+%Mir hat es einen Fehler aufgezeigt, auf den ich mit "normalen Mitteln" schwer gekommen wÃ¤re.
 %
 %Und wenn es dann anzeigt, nach anwendung aller Methoden...
 %Code: (Plaintext)
@@ -76,18 +76,18 @@ Ist ein Werkzeug bei der Entdeckung von Speicherlöcher und Leichen. Zu finden is
 %0 unfreed memory blocks : 0
 %
 %
-%..fühlt man sich gut. Wink Es ist wie ein "drittes Auge" beim Entwickeln
+%..fÃ¼hlt man sich gut. Wink Es ist wie ein "drittes Auge" beim Entwickeln
 %
 %A propos Debugging etc. :
-%Noch ein Tipp für GUI Anwendung:
-%Ich verwende unter Linux oft writeln als Kontroll-ausgabe. Dabei nervt immer das wartende Konsolen Fenster. Lösung: einfach in tools/runwait.sh diesen Teil auskommentieren # read trash crash
+%Noch ein Tipp fÃ¼r GUI Anwendung:
+%Ich verwende unter Linux oft writeln als Kontroll-ausgabe. Dabei nervt immer das wartende Konsolen Fenster. LÃ¶sung: einfach in tools/runwait.sh diesen Teil auskommentieren # read trash crash
 %
-%Noch schöner wäre, wenn sich Startprogramm und GDB implizit ausschliessen würden, die funzen nämlich sowieso nicht richtig zusammen. Ich muss immer GDB ausschalten um beim Konsolenfenster keine "Debugger im Arsch" Meldungen zu kriegen.
+%Noch schÃ¶ner wÃ¤re, wenn sich Startprogramm und GDB implizit ausschliessen wÃ¼rden, die funzen nÃ¤mlich sowieso nicht richtig zusammen. Ich muss immer GDB ausschalten um beim Konsolenfenster keine "Debugger im Arsch" Meldungen zu kriegen.
 %
 
 % christian
-%Noch ein Tipp, statt writeln debugln benutzen tut unter linux das selbe und im Windows störts nicht wenn man dann mal die debug ausgabe unter Windows braucht oder unter Linux in einer Datei haben will kann man einfach --debug-log=meinedatei.txt übergeben oder dem kunden mitteilen das er das mal tun möchte und hat seine debugausgaben wieder.
+%Noch ein Tipp, statt writeln debugln benutzen tut unter linux das selbe und im Windows stÃ¶rts nicht wenn man dann mal die debug ausgabe unter Windows braucht oder unter Linux in einer Datei haben will kann man einfach --debug-log=meinedatei.txt Ã¼bergeben oder dem kunden mitteilen das er das mal tun mÃ¶chte und hat seine debugausgaben wieder.
 %	
 
-\verb|Version: $ $ |\footnote{ Autor: Andreas Frieß\\Lizenz: GFDL}
+\verb|Version: $ $ |\footnote{ Autor: Andreas FrieÃŸ\\Lizenz: GFDL}
 

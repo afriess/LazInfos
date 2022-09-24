@@ -1,5 +1,5 @@
 %%####################################################################
-%    Copyright @ 2007 Andreas Frieß (Friess)
+%    Copyright @ 2007 Andreas FrieÃŸ (Friess)
 %    Permission is granted to copy, distribute and/or modify this document
 %    under the terms of the GNU Free Documentation License, Version 1.2
 %    or any later version published by the Free Software Foundation;
@@ -13,19 +13,19 @@
 % @cvs($Author: af0815 $)
 % @cvs($URL: file:///svn/p/lazsnippets/code/trunk/dokumentation/LazSnippets/Kapitel/datenbanken/DBEInfuehr1.tex $)
 %%####################################################################
-\subsection{Einführung in die Datenbanktheorie}
+\subsection{EinfÃ¼hrung in die Datenbanktheorie}
 %%####################################################################
-Das Folgende Kapitel wendet sich speziell an den Personenkreis der in die Theorie von Datenbanken noch nicht so eingedrungen ist, beziehungsweise dient als Nachschlagwerk für die verschiedenen Begriffe. Man kann also bei entsprechenden Vorwissen die folgenden erklärenden Kapitel überspringen und bei Bedarf nachschlagen.
+Das Folgende Kapitel wendet sich speziell an den Personenkreis der in die Theorie von Datenbanken noch nicht so eingedrungen ist, beziehungsweise dient als Nachschlagwerk fÃ¼r die verschiedenen Begriffe. Man kann also bei entsprechenden Vorwissen die folgenden erklÃ¤renden Kapitel Ã¼berspringen und bei Bedarf nachschlagen.
 
 \subsubsection{Begriffe}
-Um Missverständnisse auszuschließen und zu einer gemeinsamen Sprachregelung zu kommen, sollte man die verwendeten Begriffe möglichst genau definieren:
+Um MissverstÃ¤ndnisse auszuschlieÃŸen und zu einer gemeinsamen Sprachregelung zu kommen, sollte man die verwendeten Begriffe mÃ¶glichst genau definieren:
 
 \begin{itemize}
-	\item Eine Datenmenge\label{Datenmenge} ist eine Menge von einzelnen Datensätzen. Jeder Datensatz besteht aus mindesten einem Feld. Die Herkunft dieser Datenmenge ist nicht festgelegt.
-  \item Eine Tabelle\label{Tabelle} ist als Datenbankbestandteil eine spezielle Ausführung einer Datenmenge. Die Tabelle speichert als physisches vorhandenes Element die Daten.
-  \item Eine Abfrage ist eine virtuelle Datenmenge, die den Inhalt von tatsächlich vorhandenen Tabellen in einer frei wählbaren Anordnung abbildet, manchmal auch Projektion genannt.
-  \item Eine Datenbank ist eine Zusammenstellung von logisch zusammengehörigen Tabellen.
-  \item Ein Datenbankserver verwaltet verschiedene Datenbanken und stellt auch das Management, die Sicherung und andere Verwaltungsdienste zur Verfügung.
+	\item Eine Datenmenge\label{Datenmenge} ist eine Menge von einzelnen DatensÃ¤tzen. Jeder Datensatz besteht aus mindesten einem Feld. Die Herkunft dieser Datenmenge ist nicht festgelegt.
+  \item Eine Tabelle\label{Tabelle} ist als Datenbankbestandteil eine spezielle AusfÃ¼hrung einer Datenmenge. Die Tabelle speichert als physisches vorhandenes Element die Daten.
+  \item Eine Abfrage ist eine virtuelle Datenmenge, die den Inhalt von tatsÃ¤chlich vorhandenen Tabellen in einer frei wÃ¤hlbaren Anordnung abbildet, manchmal auch Projektion genannt.
+  \item Eine Datenbank ist eine Zusammenstellung von logisch zusammengehÃ¶rigen Tabellen.
+  \item Ein Datenbankserver verwaltet verschiedene Datenbanken und stellt auch das Management, die Sicherung und andere Verwaltungsdienste zur VerfÃ¼gung.
 \end{itemize}
 
 Wichtige Informationen bei der Entwicklung einer Datenbankanwendung sind das Verhalten der Datenbank bzw. des Datenbankservers selbst.
@@ -34,70 +34,70 @@ Wichtige Informationen bei der Entwicklung einer Datenbankanwendung sind das Ver
 
 Eine Datenbank ist eine geordnete Sammlung von Daten, die auf irgendeine Weise miteinander in Beziehung stehen.
  
-Die ersten Generationen von Datenbanken waren sogenannte File-Systeme. Zuerst auf Band, dann auch auf Festplatten. In diesem Datei-Systemen wurden die Daten nacheinander abgespeichert. Um auf einen bestimmten Datensatz zu zugreifen, muss man an den Anfang der Datei (oder Bandes) gehen und anschließend alle Datensätze durchlaufen, bis man den richtigen gefunden hat. Somit ist auch klar, das ein einfaches sortieren oder einfügen von Daten in eine sortierte Datenmenge enormen Aufwand und Kapazität erfordert hat.
-Um diesen Beschränkungen zu entfliehen, (und durch neue, schnellere und größere Festplatten ermöglicht) haben sich aus diesen System die heutigen relationalen oder objektorientierten Datenbanken entwickelt. Die derzeit am meisten verwendeten Datenbanken sind die  relationalen und im weiteren werde ich nur noch diese behandeln.
+Die ersten Generationen von Datenbanken waren sogenannte File-Systeme. Zuerst auf Band, dann auch auf Festplatten. In diesem Datei-Systemen wurden die Daten nacheinander abgespeichert. Um auf einen bestimmten Datensatz zu zugreifen, muss man an den Anfang der Datei (oder Bandes) gehen und anschlieÃŸend alle DatensÃ¤tze durchlaufen, bis man den richtigen gefunden hat. Somit ist auch klar, das ein einfaches sortieren oder einfÃ¼gen von Daten in eine sortierte Datenmenge enormen Aufwand und KapazitÃ¤t erfordert hat.
+Um diesen BeschrÃ¤nkungen zu entfliehen, (und durch neue, schnellere und grÃ¶ÃŸere Festplatten ermÃ¶glicht) haben sich aus diesen System die heutigen relationalen oder objektorientierten Datenbanken entwickelt. Die derzeit am meisten verwendeten Datenbanken sind die  relationalen und im weiteren werde ich nur noch diese behandeln.
 
 \subsubsection{Desktop und Client-Server Datenbankarten}
-Gerade der Begriff Netzwerkdatenbank ist sehr verwirrend. Wird damit eine Access-Datenbank, die mehrere Benutzer über das Netzwerk verwenden so bezeichnet ? Oder eine Serverbasierende Datenbank? Die folgenden Erklärungen sollten die Begriffe klarer werden lassen.
+Gerade der Begriff Netzwerkdatenbank ist sehr verwirrend. Wird damit eine Access-Datenbank, die mehrere Benutzer Ã¼ber das Netzwerk verwenden so bezeichnet ? Oder eine Serverbasierende Datenbank? Die folgenden ErklÃ¤rungen sollten die Begriffe klarer werden lassen.
 
 \paragraph{Stand-Alone Datenbank}
-Eine Stand-Alone Datenbank ist eine Desktop-Datenbank, es befinden sich daher die Daten auf dem Arbeitsplatzrechner. Auf die Daten kann immer nur ein Anwender, mit immer nur einem Programm zugreifen. Es ist zwar prinzipiell möglich über ein Netzwerk auf die Datenbankdatei zuzugreifen, aber es kann der eine nur in der Datenbank arbeiten, wenn der andere sein Programm geschlossen hat. Probleme die durch den gleichzeitigen Zugriff entstehen können daher gar nicht auftreten. Bei jeder etwas umfangreicheren Datenbank wird dieses Verhalten zu einem Engpass. Man stelle sich nur vor, der eine Benutzer öffnet die Datenbankdatei und vergisst auf das schließen des Programms. Kein anderer Benutzer kann die Daten in der Zwischenzeit benutzen!
+Eine Stand-Alone Datenbank ist eine Desktop-Datenbank, es befinden sich daher die Daten auf dem Arbeitsplatzrechner. Auf die Daten kann immer nur ein Anwender, mit immer nur einem Programm zugreifen. Es ist zwar prinzipiell mÃ¶glich Ã¼ber ein Netzwerk auf die Datenbankdatei zuzugreifen, aber es kann der eine nur in der Datenbank arbeiten, wenn der andere sein Programm geschlossen hat. Probleme die durch den gleichzeitigen Zugriff entstehen kÃ¶nnen daher gar nicht auftreten. Bei jeder etwas umfangreicheren Datenbank wird dieses Verhalten zu einem Engpass. Man stelle sich nur vor, der eine Benutzer Ã¶ffnet die Datenbankdatei und vergisst auf das schlieÃŸen des Programms. Kein anderer Benutzer kann die Daten in der Zwischenzeit benutzen!
 
 \paragraph{File-Share Datenbank}
-Moderne Netzwerke bieten die Möglichkeit, dass mehrer Anwender auf ein und dieselbe Datei zugreifen. Auf diese Weise ist es auch möglich das mehrer Programme auf ein und dieselbe Datenbankdatei zugreifen. Diese Version der Desktop-Datenbank nennt man File-Share Datenbank und damit ist bereits ein echter Mehrbenutzer Betrieb möglich.
-Das ganze hat jedoch (unter anderem) einen entscheidenden Nachteil: Die Daten\-verarbeitung erfolgt auf den Arbeitsplatzrechnern. Für Abfragen muss der jeweilige ganze Datenbestand zu den Arbeitsplatzrechnern gebracht werden, dementsprechend hoch ist die Belastung für das Netzwerk. Weiter können auch Störungen am Netzwerk leicht zu Datenverlust bzw. zu inkonsistenz der Datenbeständen führen.
+Moderne Netzwerke bieten die MÃ¶glichkeit, dass mehrer Anwender auf ein und dieselbe Datei zugreifen. Auf diese Weise ist es auch mÃ¶glich das mehrer Programme auf ein und dieselbe Datenbankdatei zugreifen. Diese Version der Desktop-Datenbank nennt man File-Share Datenbank und damit ist bereits ein echter Mehrbenutzer Betrieb mÃ¶glich.
+Das ganze hat jedoch (unter anderem) einen entscheidenden Nachteil: Die Daten\-verarbeitung erfolgt auf den Arbeitsplatzrechnern. FÃ¼r Abfragen muss der jeweilige ganze Datenbestand zu den Arbeitsplatzrechnern gebracht werden, dementsprechend hoch ist die Belastung fÃ¼r das Netzwerk. Weiter kÃ¶nnen auch StÃ¶rungen am Netzwerk leicht zu Datenverlust bzw. zu inkonsistenz der DatenbestÃ¤nden fÃ¼hren.
 
 \paragraph{Client-Server Datenbank}
-Bei Client-Server Datenbanken hat nur der Daten\-bank\-server selbst direkten Zugriff auf die Dateien des Daten\-bestandes. Anfragen werden somit direkt an den Daten\-bank\-server gestellt, von diesem bearbeitet und die Ergebnisse an den Arbeits\-platz\-rechner zurück\-geliefert. Die Verwaltung beim gleich\-zeitigen Zugriff durch mehrer Arbeits\-platz\-rechner obliegt dem Daten\-bank\-server. Falls eine Verbindung durch eine Störung abbricht, so wird dieses erkannt und die noch nicht kompletten Anfragen verworfen und somit die Konsistenz der Daten erhalten.
-Gerade zur File-Share Datenbank können Netzbelastungen drastisch gesenkt werden. Man stelle sich nur vor, das man den größten Wert aus einer unsortierten Tabelle mit 1 Millionen Datensätze habe will. Bei der File-Share Datenbank müssen alle Datensätze geholt und bearbeitet werden, bei der Client Server Datenbank nur das Ergebnis. Weitere Bereiche sind die Möglichkeit Backups zu erstellen während die Datenbank weiter in Verwendung ist.
+Bei Client-Server Datenbanken hat nur der Daten\-bank\-server selbst direkten Zugriff auf die Dateien des Daten\-bestandes. Anfragen werden somit direkt an den Daten\-bank\-server gestellt, von diesem bearbeitet und die Ergebnisse an den Arbeits\-platz\-rechner zurÃ¼ck\-geliefert. Die Verwaltung beim gleich\-zeitigen Zugriff durch mehrer Arbeits\-platz\-rechner obliegt dem Daten\-bank\-server. Falls eine Verbindung durch eine StÃ¶rung abbricht, so wird dieses erkannt und die noch nicht kompletten Anfragen verworfen und somit die Konsistenz der Daten erhalten.
+Gerade zur File-Share Datenbank kÃ¶nnen Netzbelastungen drastisch gesenkt werden. Man stelle sich nur vor, das man den grÃ¶ÃŸten Wert aus einer unsortierten Tabelle mit 1 Millionen DatensÃ¤tze habe will. Bei der File-Share Datenbank mÃ¼ssen alle DatensÃ¤tze geholt und bearbeitet werden, bei der Client Server Datenbank nur das Ergebnis. Weitere Bereiche sind die MÃ¶glichkeit Backups zu erstellen wÃ¤hrend die Datenbank weiter in Verwendung ist.
 
 \subsubsection{Relationale Datenbanken}
-Der Begriff relationale Datenbank geht auf einen Artikel von E. F. Codd zurück, der 1970 veröffentlich wurde. Codd bezeichnet Datenbanken als "minimal relational", wenn sie folgende Bedingungen erfüllen. 
+Der Begriff relationale Datenbank geht auf einen Artikel von E. F. Codd zurÃ¼ck, der 1970 verÃ¶ffentlich wurde. Codd bezeichnet Datenbanken als "minimal relational", wenn sie folgende Bedingungen erfÃ¼llen. 
 [list]
-[*]Die Informationen werden einheitlich in Form von Tabellen repräsentiert. 
+[*]Die Informationen werden einheitlich in Form von Tabellen reprÃ¤sentiert. 
 [*]Der Anwender sieht keine Verweisstrukturen zwischen den Tabellen. 
 [*]Es gibt mindestens die Operation der Selektion, der Projektion und des JOIN definiert. 
 [/list]
-1985 veröffentlichte Codd zwölf Regeln, die relationalen Datenbanken im strengeren Sinn definieren, Ende 1990 veröffentlichte er ein Buch über relationale Datenbanken, in dem er die einstigen zwölf Regeln des relationalen Modells auf 333 Regeln differenziert. Dadurch wird die Relationalität einer Datenbank bis ins letzte Detail festgeschrieben 
+1985 verÃ¶ffentlichte Codd zwÃ¶lf Regeln, die relationalen Datenbanken im strengeren Sinn definieren, Ende 1990 verÃ¶ffentlichte er ein Buch Ã¼ber relationale Datenbanken, in dem er die einstigen zwÃ¶lf Regeln des relationalen Modells auf 333 Regeln differenziert. Dadurch wird die RelationalitÃ¤t einer Datenbank bis ins letzte Detail festgeschrieben 
 Soweit die Theorie, normalerweise sprechen Hersteller von relationalen Datenbanken, wenn die Mehrheit der 12 Regeln eingehalten werden.
 
 \paragraph{Begriffe in relationalen Datenbanken}
-Man kann nicht über relationale Datenbanken sprechen, ohne zuvor einige Begriffe zu klären.
+Man kann nicht Ã¼ber relationale Datenbanken sprechen, ohne zuvor einige Begriffe zu klÃ¤ren.
 
 \subparagraph{Relationen}
 Eine Relation ist gleich einer Tabelle. Die Daten werden daher in Relationen gespeichert.
 
 \subparagraph{Attribut und Tuples}
-Die Attribute sind die Spalten einer Relation (Tabelle), die Tuples sind die Datensätze.
+Die Attribute sind die Spalten einer Relation (Tabelle), die Tuples sind die DatensÃ¤tze.
 
-\subparagraph{Degree und Kardinalität}\label{Kardinalitaet}
-Die Zahl der Attribute einer Relation nennt man Degree, das ist der Ausdehnungsgrad. Die Zahl der Tuples ist die Kardinalität.
-Eine Relation mit Degree Null macht keinen Sinn, eine Kardinalität von NULL Tuples hingegen ist eine leere Relation.
+\subparagraph{Degree und KardinalitÃ¤t}\label{Kardinalitaet}
+Die Zahl der Attribute einer Relation nennt man Degree, das ist der Ausdehnungsgrad. Die Zahl der Tuples ist die KardinalitÃ¤t.
+Eine Relation mit Degree Null macht keinen Sinn, eine KardinalitÃ¤t von NULL Tuples hingegen ist eine leere Relation.
 
 \subparagraph{Domain}
-Eine Domain ist ein Wertebereich. Man kann z.B. eine Domain Nachnamen vom Type "`Zeichen mit Länge 20"' erstellen. Diese wird immer dann verwendet wenn man Datenspalten mit dem Type "`Nachname"' erstellen muss. Warum dieser Umweg? Wenn man später Tabellen miteinander verknüpft (in Relation bringt), so müssen die Spalten (Attribute) der gleichen Domain unterliegen. Habe ich vorher eine Domain definiert, so gibt es keine Probleme. Weiter ist es kein Problem wenn man draufkommt das die "`Nachnamen"' länger sind, so kann die Definition der Domain geändert werden und alle Spalten haben die richtige Länge. Würde ich beim händischen Editieren eine Spalte vergessen so würde die Datenbank nicht mehr korrekt arbeiten.
+Eine Domain ist ein Wertebereich. Man kann z.B. eine Domain Nachnamen vom Type "`Zeichen mit LÃ¤nge 20"' erstellen. Diese wird immer dann verwendet wenn man Datenspalten mit dem Type "`Nachname"' erstellen muss. Warum dieser Umweg? Wenn man spÃ¤ter Tabellen miteinander verknÃ¼pft (in Relation bringt), so mÃ¼ssen die Spalten (Attribute) der gleichen Domain unterliegen. Habe ich vorher eine Domain definiert, so gibt es keine Probleme. Weiter ist es kein Problem wenn man draufkommt das die "`Nachnamen"' lÃ¤nger sind, so kann die Definition der Domain geÃ¤ndert werden und alle Spalten haben die richtige LÃ¤nge. WÃ¼rde ich beim hÃ¤ndischen Editieren eine Spalte vergessen so wÃ¼rde die Datenbank nicht mehr korrekt arbeiten.
 
 \subparagraph{NULL}
-Ein "`Nichtwert"' der anfangs immer für Verwirrung sorgt ist NULL. NULL ist nicht gleich Null! Ein besserer Ausdruck wäre UNBEKANNT. NULL macht übrigens aus einer zweiwertigen Logik (Ja/Nein) eine dreiwertige (Ja/Nein/Unbekannt). 
-Vorstellen kann man es sich am besten mit einem Beispiel. Jedem Konferenzraum kann ein Beamer mit seiner Nummer zugeteilt werden. Die Räume welche keinen Beamer besitzen (zuwenige Beamer vorhanden) bekommen als Wert NULL zugeteilt, da ja ein nicht vorhandener Beamer auch keine Nummer besitzt, folglich also unbekannt ist.
+Ein "`Nichtwert"' der anfangs immer fÃ¼r Verwirrung sorgt ist NULL. NULL ist nicht gleich Null! Ein besserer Ausdruck wÃ¤re UNBEKANNT. NULL macht Ã¼brigens aus einer zweiwertigen Logik (Ja/Nein) eine dreiwertige (Ja/Nein/Unbekannt). 
+Vorstellen kann man es sich am besten mit einem Beispiel. Jedem Konferenzraum kann ein Beamer mit seiner Nummer zugeteilt werden. Die RÃ¤ume welche keinen Beamer besitzen (zuwenige Beamer vorhanden) bekommen als Wert NULL zugeteilt, da ja ein nicht vorhandener Beamer auch keine Nummer besitzt, folglich also unbekannt ist.
 
-\paragraph{Schlüssel}\label{Schluessel}
-Im Zuge der Normalisierung (welche später erklärt wird) werden die Daten auf viele Tabellen vereilt. Um dieses Tabellen wieder richtig in Relation zu bringen werden verschiedene Schlüssel, auch Keys genannt, verwendet.
+\paragraph{SchlÃ¼ssel}\label{Schluessel}
+Im Zuge der Normalisierung (welche spÃ¤ter erklÃ¤rt wird) werden die Daten auf viele Tabellen vereilt. Um dieses Tabellen wieder richtig in Relation zu bringen werden verschiedene SchlÃ¼ssel, auch Keys genannt, verwendet.
 
-\subparagraph{Primärschlüssel (Primary Key)}\label{Primaerschluessel}
-Jede Relation (Tabelle) besitzt einen Primärschlüssel um einen Datensatz eindeutig zu identifizieren. Ausnahmen von dieser Regel gibt es nur bei "`M:N Verknüpfungen"' für die Zwischentabellen verwendet werden (die meisten Datenbanksysteme können diese Verknüpfungen nicht direkt abbilden).
-Ein Primärschlüssel ist immer eindeutig und ohne Duplikate. Meistens wird dafür eine fortlaufende Nummer verwendet, ist aber nicht zwingend. Vorsicht bei bestimmten Fällen, denn selbst Sozialversicherungsnummern müssen nicht eindeutig sein ! 
+\subparagraph{PrimÃ¤rschlÃ¼ssel (Primary Key)}\label{Primaerschluessel}
+Jede Relation (Tabelle) besitzt einen PrimÃ¤rschlÃ¼ssel um einen Datensatz eindeutig zu identifizieren. Ausnahmen von dieser Regel gibt es nur bei "`M:N VerknÃ¼pfungen"' fÃ¼r die Zwischentabellen verwendet werden (die meisten Datenbanksysteme kÃ¶nnen diese VerknÃ¼pfungen nicht direkt abbilden).
+Ein PrimÃ¤rschlÃ¼ssel ist immer eindeutig und ohne Duplikate. Meistens wird dafÃ¼r eine fortlaufende Nummer verwendet, ist aber nicht zwingend. Vorsicht bei bestimmten FÃ¤llen, denn selbst Sozialversicherungsnummern mÃ¼ssen nicht eindeutig sein ! 
 
-\subparagraph{Sekundärschlüssel (Secundary Keys)}
-Werden dafür verwendet um bei bestimmten Datenbankoperationen die Effizienz zu steigern, da die Datensätze intern nicht ungeordnet sondern in sortierter Reihenfolge verwaltet werden.
-Beim verwenden sollte aber immer auf die zugrunde liegende Datenbank Rücksicht genommen werden, da die Vor- und Nachteile stark datenbankabhängig sind.
+\subparagraph{SekundÃ¤rschlÃ¼ssel (Secundary Keys)}
+Werden dafÃ¼r verwendet um bei bestimmten Datenbankoperationen die Effizienz zu steigern, da die DatensÃ¤tze intern nicht ungeordnet sondern in sortierter Reihenfolge verwaltet werden.
+Beim verwenden sollte aber immer auf die zugrunde liegende Datenbank RÃ¼cksicht genommen werden, da die Vor- und Nachteile stark datenbankabhÃ¤ngig sind.
 
-\subparagraph{Fremdschlüssel (Foreign Key)}
-Ist der Verweis in der Tabelle auf einen Primärschlüssel in einer anderen Tabelle. Gerade in relationalen Datenbanken gibt es sehr viele Verknüpfungen die auf Primär- und Fremdschlüsselpaaren aufbauen. Wichtig ist, das Primär- und Fremdschlüssel der gleichen Domain unterliegen.
+\subparagraph{FremdschlÃ¼ssel (Foreign Key)}
+Ist der Verweis in der Tabelle auf einen PrimÃ¤rschlÃ¼ssel in einer anderen Tabelle. Gerade in relationalen Datenbanken gibt es sehr viele VerknÃ¼pfungen die auf PrimÃ¤r- und FremdschlÃ¼sselpaaren aufbauen. Wichtig ist, das PrimÃ¤r- und FremdschlÃ¼ssel der gleichen Domain unterliegen.
 
-\subparagraph{Referentielle Integrität}
-Die referentielle Integrität stellt sicher das die Daten zueinander (über Primär- und Fremdschlüssel) glaubhaft bleiben. Ein einfügen, ändern oder löschen ist zu verweigern wenn dadurch die Datenintegrität verletzt würde.
-Man kann zum Beispiel keine Datensätze aus der Personentabelle löschen, solange in der Tabelle der Bestelllungen auf diese Personen verwiesen wird.
+\subparagraph{Referentielle IntegritÃ¤t}
+Die referentielle IntegritÃ¤t stellt sicher das die Daten zueinander (Ã¼ber PrimÃ¤r- und FremdschlÃ¼ssel) glaubhaft bleiben. Ein einfÃ¼gen, Ã¤ndern oder lÃ¶schen ist zu verweigern wenn dadurch die DatenintegritÃ¤t verletzt wÃ¼rde.
+Man kann zum Beispiel keine DatensÃ¤tze aus der Personentabelle lÃ¶schen, solange in der Tabelle der Bestelllungen auf diese Personen verwiesen wird.
 
 \paragraph{Normalisierung}
 Unter der Normalisierung einer Datenbank, wird die Technik des logischen Datenbankdesigns bezeichnet. Es erfolgt meistens durch das Schrittweise optimieren der Datenbank zur Designzeit. Theoretiker haben insgesamt 5 Stufen der Normalisierung herausgearbeitet, wobei in der Praxis meist nur die ersten 3 Stufen verwendet werden.
@@ -108,26 +108,26 @@ Unter der Normalisierung einer Datenbank, wird die Technik des logischen Datenba
 		\hline
 Ausgangslage & Alle Informationen in einer Tabelle \\
     \hline
-1. Normalform & Jede Spalte einer Tabelle enthält unteilbare Informationen. Die Datensätze verwenden keine sich wiederholenden Informationen, die nicht auch zu einer separaten Gruppe zusammengefasst werden könnten \\
-2 Normalform & Es wird die 1. Normalform eingehalten und alle Informationen in nicht Schlüsselfeldern hängen nur vom kompletten Primärschlüssel ab\\
-3 Normalform & Es wird die 2 Normalform eingehalten und alle Informationen in den nicht Schlüsselfeldern sind untereinander nicht abhängig. \\
-4 Normalform & Es wird die 3. Normalform eingehalten und in gleichen Tabellen sind keine unabhängigen Objekte vorhanden, zwischen denen eine m:n Beziehung bestehen könnte \\
+1. Normalform & Jede Spalte einer Tabelle enthÃ¤lt unteilbare Informationen. Die DatensÃ¤tze verwenden keine sich wiederholenden Informationen, die nicht auch zu einer separaten Gruppe zusammengefasst werden kÃ¶nnten \\
+2 Normalform & Es wird die 1. Normalform eingehalten und alle Informationen in nicht SchlÃ¼sselfeldern hÃ¤ngen nur vom kompletten PrimÃ¤rschlÃ¼ssel ab\\
+3 Normalform & Es wird die 2 Normalform eingehalten und alle Informationen in den nicht SchlÃ¼sselfeldern sind untereinander nicht abhÃ¤ngig. \\
+4 Normalform & Es wird die 3. Normalform eingehalten und in gleichen Tabellen sind keine unabhÃ¤ngigen Objekte vorhanden, zwischen denen eine m:n Beziehung bestehen kÃ¶nnte \\
 5 Normalform & Die normalisierte Datenbank kann nicht weiter in Tabellen mit weniger Attributen konvertiert werden. Es muss sich jederzeit der unnormalisierte Ursprungszustand ohne Informationsverlust herstellen lassen \\
 \hline
 		\end{tabular}
-	\caption{Datenbank Normalisierungstufen Übersicht}
+	\caption{Datenbank Normalisierungstufen Ãœbersicht}
 	\label{tab:Normalisierung}
 \end{table*}
 
-Warum wird meistens nur bis zur 3. Normalform normalisiert? Bei der Anwendungsentwicklung besteht meistens nicht das Ziel, möglichst den exakten theoretische Grundlagen zu entsprechen, sondern eine möglichst effiziente Komplettlösung für das Problem zu erhalten. Dazu gehört natürlich auch, die Rücksicht auf das verwendete Datenbanksystem und die damit zu erzielenden Performance. Es leuchtet jedem ein, das die Aufteilung der Informationen auf viele Tabellen bei einer Auswertung zu schlechteren Ergebnissen führt. Somit kann es sein, das in Teilbereichen sogar eine Denormalisierung aus Performancegründen nötig ist, oder der gewonnene Platz bzw. das Geschäftsmodell keine Normalisierung sinnvoll erscheinen lassen.
+Warum wird meistens nur bis zur 3. Normalform normalisiert? Bei der Anwendungsentwicklung besteht meistens nicht das Ziel, mÃ¶glichst den exakten theoretische Grundlagen zu entsprechen, sondern eine mÃ¶glichst effiziente KomplettlÃ¶sung fÃ¼r das Problem zu erhalten. Dazu gehÃ¶rt natÃ¼rlich auch, die RÃ¼cksicht auf das verwendete Datenbanksystem und die damit zu erzielenden Performance. Es leuchtet jedem ein, das die Aufteilung der Informationen auf viele Tabellen bei einer Auswertung zu schlechteren Ergebnissen fÃ¼hrt. Somit kann es sein, das in Teilbereichen sogar eine Denormalisierung aus PerformancegrÃ¼nden nÃ¶tig ist, oder der gewonnene Platz bzw. das GeschÃ¤ftsmodell keine Normalisierung sinnvoll erscheinen lassen.
 
 \subsubsection{Grunddaten}
-Mit Grunddaten werden die Informationen bezeichnet, die Voraussetzung für die tägliche Arbeit sind und während des täglichen Betriebs anfallen. Sie stellen die Basis des Datenbanksystems dar. Die Grunddaten werden in zwei Kategorien, Stammdaten und Bewegungsdaten, eingeteilt.
+Mit Grunddaten werden die Informationen bezeichnet, die Voraussetzung fÃ¼r die tÃ¤gliche Arbeit sind und wÃ¤hrend des tÃ¤glichen Betriebs anfallen. Sie stellen die Basis des Datenbanksystems dar. Die Grunddaten werden in zwei Kategorien, Stammdaten und Bewegungsdaten, eingeteilt.
 
 \paragraph{Stammdaten}
-Stammdaten sind diejenigen Grunddaten, die über einen längeren Zeitraum benötigt werden. Sie bilden den Grundbestand an Daten für das Datenbanksystem und werden auch als Bestandsdaten bezeichnet. Stammdaten weisen eine geringe Änderungshäufigkeit auf. Üblicherweise ist bei der Neuanlage von Stammdaten noch nicht bekannt, wann Änderungen zu erwarten und wie lange die Daten insgesamt gültig sind. Da auf Stammdaten häufig zugegriffen wird, ist ihre aktuelle Pflege notwendig, so dass Änderungen unmittelbar im Datenbestand nachgezogen werden sollten. Somit ist auch die normale Zugriffsart festgelegt, auf Stammdaten wir meistens in Verbindung mit Abfragen lesend zugegriffen, nur die Wartung erfolgt schreibend.
+Stammdaten sind diejenigen Grunddaten, die Ã¼ber einen lÃ¤ngeren Zeitraum benÃ¶tigt werden. Sie bilden den Grundbestand an Daten fÃ¼r das Datenbanksystem und werden auch als Bestandsdaten bezeichnet. Stammdaten weisen eine geringe Ã„nderungshÃ¤ufigkeit auf. Ãœblicherweise ist bei der Neuanlage von Stammdaten noch nicht bekannt, wann Ã„nderungen zu erwarten und wie lange die Daten insgesamt gÃ¼ltig sind. Da auf Stammdaten hÃ¤ufig zugegriffen wird, ist ihre aktuelle Pflege notwendig, so dass Ã„nderungen unmittelbar im Datenbestand nachgezogen werden sollten. Somit ist auch die normale Zugriffsart festgelegt, auf Stammdaten wir meistens in Verbindung mit Abfragen lesend zugegriffen, nur die Wartung erfolgt schreibend.
 
 \paragraph{Bewegungsdaten}
-Im Gegensatz zu Stammdaten haben Bewegungsdaten eine begrenzte Lebensdauer, die durch einen vorgegebenen Lebenszyklus beschrieben ist. Bewegungsdaten haben einen konkreten Zeitbezug, der für die Bedeutung und Interpretation der Information wichtig ist. Des weiteren beziehen sich Bewegungsdaten auf Stammdaten, weshalb sie auch als abgeleitete Daten bezeichnet werden. Da Bewegungsdaten gegenüber Stammdaten in der Menge mächtiger sind, ist gerade hier auf ein gutes Design zu achten. Betrachten wir es am Beispiel eines Zählers einer Station: Die Zähler werden im 10 Minutenrhythmus in die Bewegungsdaten eingefügt, das sind 144 Datensätze pro Tag, währenddessen der Stammdatenteil gleich bleibt, nämlich 1 Datensatz.
+Im Gegensatz zu Stammdaten haben Bewegungsdaten eine begrenzte Lebensdauer, die durch einen vorgegebenen Lebenszyklus beschrieben ist. Bewegungsdaten haben einen konkreten Zeitbezug, der fÃ¼r die Bedeutung und Interpretation der Information wichtig ist. Des weiteren beziehen sich Bewegungsdaten auf Stammdaten, weshalb sie auch als abgeleitete Daten bezeichnet werden. Da Bewegungsdaten gegenÃ¼ber Stammdaten in der Menge mÃ¤chtiger sind, ist gerade hier auf ein gutes Design zu achten. Betrachten wir es am Beispiel eines ZÃ¤hlers einer Station: Die ZÃ¤hler werden im 10 Minutenrhythmus in die Bewegungsdaten eingefÃ¼gt, das sind 144 DatensÃ¤tze pro Tag, wÃ¤hrenddessen der Stammdatenteil gleich bleibt, nÃ¤mlich 1 Datensatz.
 
-\verb|Version: $LastChangedRevision: 55 $ |\footnote{ Autor: Andreas Frieß\\Lizenz: GFDL}
+\verb|Version: $LastChangedRevision: 55 $ |\footnote{ Autor: Andreas FrieÃŸ\\Lizenz: GFDL}

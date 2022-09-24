@@ -19,6 +19,8 @@ titlepage,						% Titelei auf eigener Seite
 {scrreprt}
 %%{scrartcl}
 
+%%\usepackage{iftex}
+
 \ifpdfoutput{
   % PDF wird genutzt
   \usepackage[activate]{pdfcprot}				
@@ -49,7 +51,7 @@ titlepage,						% Titelei auf eigener Seite
 
 \usepackage[ngerman]{babel}		
 \usepackage[T1]{fontenc}							
-\usepackage[latin1]{inputenc}		
+\usepackage[utf8]{inputenc}		
 \usepackage{picins}
 %\usepackage{hyperref}
 %\usepackage{times} % Tip von Ovidius, mal ausprobieren
@@ -71,7 +73,6 @@ titlepage,						% Titelei auf eigener Seite
 %\date{}							% falls anderes, als das aktuelle gew�nscht
 
 \maketitle 						% Titelei wird erzeugt
-
 %\begin{abstract}
 %This work is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 License
 %\end{abstract}
