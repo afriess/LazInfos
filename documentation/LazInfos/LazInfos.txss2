@@ -1,0 +1,24 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": false,
+        "File": ""
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "LazInfos.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "LazInfos.tex",
+                "FirstLine": 15,
+                "FoldedLines": "",
+                "Line": 57
+            }
+        ],
+        "MasterFile": "LazInfos.tex",
+        "VerticalSplit": false
+    }
+}

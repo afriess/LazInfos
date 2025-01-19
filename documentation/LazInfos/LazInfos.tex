@@ -1,5 +1,5 @@
 %%####################################################################
-%    Copyright @ 2007-2017 Andreas Frieß (Friess)
+%    Copyright @ 2007-2025 Andreas Frieß (Friess)
 %    Permission is granted to copy, distribute and/or modify this document
 %    under the terms of the GNU Free Documentation License, Version 1.2
 %    or any later version published by the Free Software Foundation;
@@ -52,7 +52,7 @@ titlepage,						% Titelei auf eigener Seite
 \usepackage[ngerman]{babel}		
 \usepackage[T1]{fontenc}							
 \usepackage[utf8]{inputenc}		
-\usepackage{picins}
+\usepackage{wrapfig}
 %\usepackage{hyperref}
 %\usepackage{times} % Tip von Ovidius, mal ausprobieren
 
@@ -79,13 +79,8 @@ titlepage,						% Titelei auf eigener Seite
 
 \pagestyle{headings} %% Kopf-/Fusszeilen aktivieren
 
-%\begin{center}
-%\textbf{Version}
-%\verb|SVN $LastChangedRevision: 94 $ |
-%\end{center}
-
 \begin{quote}
-    Copyright (C) 2007-2022 Andreas Frieß.
+    Copyright (C) 2007-2025 Andreas Frieß.
     Es wird die Erlaubnis gewährt, dieses Dokument zu kopieren, zu
     verteilen und/oder zu modifizieren, unter den Bestimmungen der
     GNU Free Documentation License, Version 1.2 oder jede spätere
@@ -95,7 +90,7 @@ titlepage,						% Titelei auf eigener Seite
     Lizenz ist aufgenommen in den Abschnitt mit dem Titel "GNU Free
     Documentation License".
 
-    Copyright \copyright{}  2007-2022 Andreas Friess
+    Copyright \copyright{}  2007-2025 Andreas Friess
     Permission is granted to copy, distribute and/or modify this document
     under the terms of the GNU Free Documentation License, Version 1.2
     or any later version published by the Free Software Foundation;
@@ -145,71 +140,71 @@ titlepage,						% Titelei auf eigener Seite
 \input{Kapitel/ide/PrjSchablonen}
 \newpage
 
-%###########################################################
-% Code, Wie mache ich (ohne Beispiele)
-%###########################################################
-\chapter{Codebeispiele \& FAQ}
-%--------------------------------------------------
-% Sektion 
-%--------------------------------------------------
-\section[FAQ]{FAQ}
-\input{Kapitel/code/FAQTeil1}
-\newpage
-%###########################################################
-% Bibliotheken
-%###########################################################
-\chapter[Bibliotheken]{Bibliotheken}
-\input{Kapitel/datenbanken/SQLDB}
-\newpage
-\input{Kapitel/datenbanken/DataAccess}
-\newpage
-%###########################################################
-% Beispiele
-%###########################################################
-\chapter{Beispiele}
-%--------------------------------------------------
-% Sektion f�r Datenbank (MySQL,SQLlite,Firebird,..)
-%--------------------------------------------------
-\section[Datenbanken MySQL 5.x]{DatenbankenMySQL5x}
-\input{Kapitel/datenbanken/HowToNewMySQL}
-
-\input{Kapitel/datenbanken/ProjektMySQLSimple}
-\newpage
-\input{Kapitel/datenbanken/ProjektMySQLTestData}
-
-\newpage
-\section[Datenbanken SQLite 3.x]{DatenbankenSQLite3x}
-% "`Comming Soon"' af0815
-%\input{Kapitel/datenbanken/HowToNewSQLite}
+%%###########################################################
+%% Code, Wie mache ich (ohne Beispiele)
+%%###########################################################
+%\chapter{Codebeispiele \& FAQ}
+%%--------------------------------------------------
+%% Sektion 
+%%--------------------------------------------------
+%\section[FAQ]{FAQ}
+%\input{Kapitel/code/FAQTeil1}
 %\newpage
-%\input{Kapitel/datenbanken/ProjektSQLiteSimple}
+%%###########################################################
+%% Bibliotheken
+%%###########################################################
+%\chapter[Bibliotheken]{Bibliotheken}
+%\input{Kapitel/datenbanken/SQLDB}
 %\newpage
-%\input{Kapitel/datenbanken/ProjektSQLiteTestData}
-
-\section[Datenbanken DBase, FoxPro]{DatenbankenTDBF}
-% "`Comming Soon"' af0815
-%\input{Kapitel/datenbanken/HowToNewTDBF}
+%\input{Kapitel/datenbanken/DataAccess}
 %\newpage
-%\input{Kapitel/datenbanken/ProjektTDBFSimple}
+%%###########################################################
+%% Beispiele
+%%###########################################################
+%\chapter{Beispiele}
+%%--------------------------------------------------
+%% Sektion f�r Datenbank (MySQL,SQLlite,Firebird,..)
+%%--------------------------------------------------
+%\section[Datenbanken MySQL 5.x]{DatenbankenMySQL5x}
+%\input{Kapitel/datenbanken/HowToNewMySQL}
+%
+%\input{Kapitel/datenbanken/ProjektMySQLSimple}
 %\newpage
-%\input{Kapitel/datenbanken/ProjektTDBFTestData}
-
-\newpage
-\chapter{Programme}
-%###############################################
-% Kapitel für Tools
-%###############################################
-\section[Nützliche Werkzeuge]{Nützliche Werkzeuge}
-\input{Kapitel/allgemein/Versionskontrolle}
-
-% \section{Ideenspeicher}
-
-%###############################################
-% Tabellen und Abbildungsverzeichnis
-%###############################################
-\chapter{Anhang}
-\section[Tabellenverzeichnis]{Tabellenverzeichnis}
-\listoftables				% Tabellenverzeichnis
+%\input{Kapitel/datenbanken/ProjektMySQLTestData}
+%
+%\newpage
+%\section[Datenbanken SQLite 3.x]{DatenbankenSQLite3x}
+%% "`Comming Soon"' af0815
+%%\input{Kapitel/datenbanken/HowToNewSQLite}
+%%\newpage
+%%\input{Kapitel/datenbanken/ProjektSQLiteSimple}
+%%\newpage
+%%\input{Kapitel/datenbanken/ProjektSQLiteTestData}
+%
+%\section[Datenbanken DBase, FoxPro]{DatenbankenTDBF}
+%% "`Comming Soon"' af0815
+%%\input{Kapitel/datenbanken/HowToNewTDBF}
+%%\newpage
+%%\input{Kapitel/datenbanken/ProjektTDBFSimple}
+%%\newpage
+%%\input{Kapitel/datenbanken/ProjektTDBFTestData}
+%
+%\newpage
+%\chapter{Programme}
+%%###############################################
+%% Kapitel für Tools
+%%###############################################
+%\section[Nützliche Werkzeuge]{Nützliche Werkzeuge}
+%\input{Kapitel/allgemein/Versionskontrolle}
+%
+%% \section{Ideenspeicher}
+%
+%%###############################################
+%% Tabellen und Abbildungsverzeichnis
+%%###############################################
+%\chapter{Anhang}
+%\section[Tabellenverzeichnis]{Tabellenverzeichnis}
+%\listoftables				% Tabellenverzeichnis
 
 %\newpage
 %\section[Abbildungsverzeichnis]{Abbildungsverzeichnis}
